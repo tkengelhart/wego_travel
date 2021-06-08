@@ -6,3 +6,5 @@ const trips = (state = [], action) => {
             return state;
     }
 }
+
+export default trips;

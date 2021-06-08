@@ -1,4 +1,4 @@
-const activities = (state = {}, action) => {
+const activities = (state = [{}], action) => {
     switch (action.type) {
         case 'SET_ACTIVITIES':
             return action.payload;
@@ -6,3 +6,5 @@ const activities = (state = {}, action) => {
             return state;
     }
 }
+
+export default activities;
