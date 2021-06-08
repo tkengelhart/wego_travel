@@ -1,16 +1,20 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
 
 //get trip // update call for trip location after testing
-router.get('/travel', (req, res) => {
+//initial test query `SELECT * FROM itinerary`
+router.get('/', (req, res) => {
   const query = `SELECT "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
-LEFT JOIN "activity" ON "activity"."id" = "itinerary_activity"."activity_id" JOIN "itinerary" ON
-"itinerary"."id" = "itinerary_activity"."itinerary_id" WHERE "itinerary"."trip_name" = 'nashville';`;
+  LEFT JOIN "activity" ON "activity"."id" = "itinerary_activity"."activity_id" JOIN "itinerary" ON
+  "itinerary"."id" = "itinerary_activity"."itinerary_id" WHERE "itinerary"."trip_name" = 'nashville';`;
   pool.query(query)
     .then((response) => {
       console.log('Items in Nashville trip', response.rows);
@@ -67,7 +71,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.put('/:itinerary_activity.id', (req, res) => {
   console.log(req.params);
   const itinId = req.params.itinerary_activity.id;
-  const queryText = `UPDATE "itinerary_activity" SET "time_of_day" = 'afternoon' 
+  const queryText = `UPDATE "itinerary_activity" SET "date" = '', "time_of_day" = '' 
   WHERE "itinerary_activity"."id" = $1`;
   pool.query(queryText, [itinId])
     .then(() => {
@@ -77,5 +81,6 @@ router.put('/:itinerary_activity.id', (req, res) => {
       res.sendStatus(500);
     });
 });
+
 
 module.exports = router;
