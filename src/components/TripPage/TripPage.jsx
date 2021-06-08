@@ -1,42 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Card, CardColumns, CardDeck, CardGroup, CardImg, Container } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-
-// CUSTOM COMPONENTS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function TripPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const dispatch = useDispatch();
   const history = useHistory();
+  const trips = useSelector(store => store.trips);
 
-  const fetchTrip = (event) => {
+  useEffect(() => {
+    dispatch({ type: 'FETCH_TRIPS' });
 
-  };
+  }, []);
+
+  const setTripDetails = (trip) => {
+    dispatch({
+      type: 'SET_TRIPS',
+      payload: trip,
+    });
+    history.push(`/trips/${trip.id}`);
+  }
+
+  // const setMovieGenre = (genre) => {
+  //   dispatch({
+  //     type: 'SET_GENRES',
+  //     payload: genre,
+  //   });
+  // }
+  // //trying something from stack overflow
+  // const sampleStyle = {
+  //   minWidth: "30%",
+  //   flexGrow: 0,
+  // };
+
+
 
   return (
-    <div className="container">
-      <h2>{heading}</h2>
 
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
-            The WeGo travel app was born out of a need to organize travel plans with two other families and in preparation for an upcoming vacation.  Attempting to get everyone together to go through details of the itinerary and to talk about what each family’s wants for the trip were,  proved to be really difficult.  Instead of using shared notes, group texts and emails, I wanted to create an app that larger groups can utilize to manage their itineraries and more importantly share details with each other.  This app will be a central place where travelers can add activity options and view their created itineraries and then share that information with the rest of the group.
+    <Container>
+      <ul>
+        {trips.map(trip => {
+          return (
+            <li key={trip.id} > {trip.trip_name}
 
-          </p>
+            </li>
 
-        </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
+          )
+        })}
 
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
-        </div>
-      </div>
-    </div>
+      </ul>
+    </Container >
   );
 }
-
-export default LandingPage;
+export default TripPage;
