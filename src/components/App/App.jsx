@@ -20,8 +20,12 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import TripPage from '../TripPage/TripPage';
+import ActivityList from '../ActivityList/ActivityList';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -42,9 +46,16 @@ function App() {
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
-            path="/about"
+            path="/trips"
           >
-            <AboutPage />
+            <TripPage />
+          </Route>
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/activity"
+          >
+            <ActivityList />
           </Route>
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
