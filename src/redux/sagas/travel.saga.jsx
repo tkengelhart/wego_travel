@@ -6,6 +6,8 @@ function* travelSaga() {
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
     yield takeEvery('ADD_ACTIVITY', addActivity)
+    yield takeEvery('EDIT_ACTIVITY', editActivity)
+
 }
 function* fetchTrips() {
     // get all trips from the DB
@@ -47,6 +49,15 @@ function* addActivity(action) {
         yield put({ type: 'FETCH_ACTIVITIES' });
     } catch (error) {
         console.log(`Error fetching activities`, error);
+    }
+}
+
+function* editActivity(action) {
+    try {
+        yield axios.put('/api/travel', action.payload);
+        yield put({ type: 'EDIT_ACTIVITY' });
+    } catch (error) {
+        console.log(`Error editing activity`, error);
     }
 }
 

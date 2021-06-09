@@ -31,7 +31,7 @@ function TripPage() {
         tripId: trip.id
       }
     });
-    // history.push(`/details/${trip.id}`);
+    history.push(`/details/:tripId`);
   }
 
 
