@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Table } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 
 
 function ActivityList() {
@@ -23,6 +26,23 @@ function ActivityList() {
         // history.push(`/activity/${activity.id}`);
     }
 
+
+    const editClick = event => {
+        event.preventDefault();
+        console.log(`Editing activity`, id);
+        dispatch({
+            type: 'ADD_TRIP',
+            payload: {
+                trip_name: trip,
+                start: start,
+                end: end,
+            }
+        });
+        history.push("/trips")
+
+
+    }
+
     return (
 
         <Container>
@@ -38,11 +58,8 @@ function ActivityList() {
                 <tbody>
                     {activities.map(activity => {
                         return (
-
-
-
                             <tr key={activity.id}>
-                                <td>{activity.name}</td>
+                                <td>{activity.name}<br /><FontAwesomeIcon icon="info-circle" />&nbsp;<FontAwesomeIcon icon="edit" /></td>
                                 <td>{activity.constraints}</td>
                                 <td>{activity.activity_url}</td>
                                 <td>{activity.activity_location}</td>
