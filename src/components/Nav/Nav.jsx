@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import { Container, Navbar } from 'react-bootstrap';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -18,32 +19,36 @@ function Nav() {
   }
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">WeGo Travel</h2>
-      </Link>
-      <div>
-        <Link className="navLink" to={loginLinkData.path}>
-          {loginLinkData.text}
-        </Link>
-
-        {user.id && (
-          <>
-            <Link className="navLink" to="/info">
-              Info Page
+    <Container>
+      <Navbar expand="lg" variant="light" bg="light">
+        <div className="nav">
+          <Link to="/home">
+            <h2 className="nav-title">WeGo Travel</h2>
+          </Link>
+          <div>
+            <Link className="navLink" to={loginLinkData.path}>
+              {loginLinkData.text}
             </Link>
-            <LogOutButton className="navLink" />
-          </>
-        )}
 
-        <Link className="navLink" to="/trips">
-          Trips
+            {user.id && (
+              <>
+                <Link className="navLink" to="/info">
+                  Info Page
+            </Link>
+                <LogOutButton className="navLink" />
+              </>
+            )}
+
+            <Link className="navLink" to="/trips">
+              Trips
         </Link>
-        <Link className="navLink" to="/activity">
-          Activity List
+            <Link className="navLink" to="/activity">
+              Activity List
         </Link>
-      </div>
-    </div>
+          </div>
+        </div>
+      </Navbar>
+    </Container>
   );
 }
 

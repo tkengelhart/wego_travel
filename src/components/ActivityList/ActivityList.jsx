@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, CardColumns, CardDeck, CardGroup, CardImg, Container } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,32 +23,44 @@ function ActivityList() {
         // history.push(`/activity/${activity.id}`);
     }
 
-    // const setMovieGenre = (genre) => {
-    //   dispatch({
-    //     type: 'SET_GENRES',
-    //     payload: genre,
-    //   });
-    // }
-    // //trying something from stack overflow
-    // const sampleStyle = {
-    //   minWidth: "30%",
-    //   flexGrow: 0,
-    // };
-
-
-
     return (
 
         <Container>
-            <ul>
-                {activities.map(activity => {
-                    return (
-                        <li key={activity.id}>{activity.name}</li>
-                    )
-                })}
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Notes</th>
+                        <th>Website</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {activities.map(activity => {
+                        return (
 
-            </ul>
+
+
+                            <tr key={activity.id}>
+                                <td>{activity.name}</td>
+                                <td>{activity.constraints}</td>
+                                <td>{activity.activity_url}</td>
+                                <td>{activity.activity_location}</td>
+                            </tr>)
+                    })}
+                </tbody>
+            </Table>
+
         </Container >
     );
 }
 export default ActivityList;
+
+{/* <ul>
+    {activities.map(activity => {
+        return (
+            <li key={activity.id}>{activity.name}</li>
+        )
+    })}
+
+</ul> */}

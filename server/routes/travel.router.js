@@ -8,7 +8,7 @@ const {
 //GET initial list of trips
 
 router.get('/trips', (req, res) => {
-  const query = `SELECT "trip_name" FROM "itinerary" ORDER BY "start"`;
+  const query = `SELECT * FROM "itinerary" ORDER BY "start"`;
   pool.query(query)
     .then((response) => {
       console.log('Available Trips', response.rows);
@@ -17,6 +17,7 @@ router.get('/trips', (req, res) => {
     .catch((error) => {
       console.log('Error getting trips', error);
     });
+
 });
 
 //GET initial activity list ordered by location - will need to select by location based on selection
