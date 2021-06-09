@@ -17,12 +17,12 @@ function TripForm() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(`Adding trip`, { tripname, start, end });
+        console.log(`Adding trip`, { start, end, trip });
 
         dispatch({
             type: 'ADD_TRIP',
             payload: {
-                trip_name: tripname,
+                trip_name: trip,
                 start: start,
                 end: end,
             }
@@ -39,7 +39,7 @@ function TripForm() {
                     <Form.Control
                         type="text"
                         placeholder="Where are you off to?"
-                        value={''}
+                        value={trip}
                         onChange={(event) => setTrip(event.target.value)} />
                 </Form.Group>
 

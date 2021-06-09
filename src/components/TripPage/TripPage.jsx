@@ -4,13 +4,18 @@ import { Card, CardColumns, CardDeck, CardGroup, CardImg, Container } from 'reac
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import moment from 'moment';
+import { useParams } from 'react-router-dom';
 
 
 function TripPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const trips = useSelector(store => store.trips);
+  let params = useParams();
 
+  // let tripId = params.id;
+  // let trip = trips.find(trip => trip.id === Number(tripId));
+  // console.log(`trip selected:`, trip);
 
 
   useEffect(() => {
@@ -19,37 +24,46 @@ function TripPage() {
   }, []);
 
   const setTripDetails = (trip) => {
+    console.log('payload', trip);
     dispatch({
       type: 'SET_TRIPS',
-      payload: trip
+      payload: {
+        tripId: trip.id
+      }
     });
-
-
+    // history.push(`/details/${trip.id}`);
   }
+
+
   return (
     <Container>
       <CardGroup>
         {trips.map(trip => {
           return (
-            <Card key={trip.id} border="dark">
-              <Card.Title >{trip.trip_name}</Card.Title>
-              <Card.Text>Travel Dates</Card.Text>
-              <Card.Body>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Body>
+            <Card key={trip.id} border="dark" onClick={() => setTripDetails(trip)}>
+              <Card.Body>
+                <Card.Title >{trip.trip_name}</Card.Title>
+                <Card.Subtitle>Travel Dates</Card.Subtitle>
+                <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
+              </Card.Body>
             </Card>
           );
         })
         }
       </CardGroup>
+
       <CardGroup>
         <Card border="dark">
-          <Card.Title>New Trip</Card.Title>
+          <Card.Body>
+            <Card.Title>New Trip</Card.Title>
+          </Card.Body>
         </Card>
 
       </CardGroup>
     </Container >
+
   )
 }
-
 
 
 

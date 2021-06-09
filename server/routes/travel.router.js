@@ -36,13 +36,13 @@ router.get('/activity', (req, res) => {
 // update call for trip location after testing
 
 
-router.get('/', (req, res) => {
+router.get('/details/:tripId', (req, res) => {
   const query = `SELECT "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
   LEFT JOIN "activity" ON "activity"."id" = "itinerary_activity"."activity_id" JOIN "itinerary" ON
-  "itinerary"."id" = "itinerary_activity"."itinerary_id" WHERE "itinerary"."trip_name" = 'nashville';`;
-  pool.query(query)
+  "itinerary"."id" = "itinerary_activity"."itinerary_id" WHERE "itinerary"."id" = $1;`;
+  pool.query(query, [req.params.id])
     .then((response) => {
-      console.log('Items in Nashville trip', response.rows);
+      console.log('Items in ${itinerary.name} trip', response.rows);
       res.send(response.rows);
     })
     .catch((error) => {
