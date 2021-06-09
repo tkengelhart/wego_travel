@@ -22,6 +22,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import TripPage from '../TripPage/TripPage';
 import ActivityList from '../ActivityList/ActivityList';
+import TripForm from '../TripForm/TripForm';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,6 +50,7 @@ function App() {
             path="/trips"
           >
             <TripPage />
+            <TripForm />
           </Route>
           <Route
             // shows AboutPage at all times (logged in or not)

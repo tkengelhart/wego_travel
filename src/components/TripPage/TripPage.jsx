@@ -28,7 +28,7 @@ function TripPage() {
   }
   return (
     <Container>
-      <CardGroup className="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <CardGroup>
         {trips.map(trip => {
           return (
             <Card key={trip.id} border="dark">
@@ -46,7 +46,7 @@ function TripPage() {
         </Card>
 
       </CardGroup>
-    </Container>
+    </Container >
   )
 }
 

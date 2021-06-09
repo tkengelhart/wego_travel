@@ -20,35 +20,34 @@ function Nav() {
 
   return (
     <Container>
-      <Navbar expand="lg" variant="light" bg="light">
-        <div className="nav">
-          <Link to="/home">
-            <h2 className="nav-title">WeGo Travel</h2>
+      <div className="nav">
+        <Link to="/home">
+          <h2 className="nav-title">WeGo Travel</h2>
+        </Link>
+        <div>
+          <Link className="navLink" to={loginLinkData.path}>
+            {loginLinkData.text}
           </Link>
-          <div>
-            <Link className="navLink" to={loginLinkData.path}>
-              {loginLinkData.text}
-            </Link>
 
-            {user.id && (
-              <>
-                <Link className="navLink" to="/info">
-                  Info Page
+          {user.id && (
+            <>
+              <Link className="navLink" to="/info">
+                Info Page
             </Link>
-                <LogOutButton className="navLink" />
-              </>
-            )}
+              <LogOutButton className="navLink" />
+            </>
+          )}
 
-            <Link className="navLink" to="/trips">
-              Trips
+          <Link className="navLink" to="/trips">
+            Trips
         </Link>
-            <Link className="navLink" to="/activity">
-              Activity List
+          <Link className="navLink" to="/activity">
+            Activity List
         </Link>
-          </div>
         </div>
-      </Navbar>
-    </Container>
+      </div>
+
+    </Container >
   );
 }
 

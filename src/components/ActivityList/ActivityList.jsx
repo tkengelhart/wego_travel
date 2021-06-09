@@ -26,7 +26,7 @@ function ActivityList() {
     return (
 
         <Container>
-            <Table striped bordered hover>
+            <Table striped hover>
                 <thead>
                     <tr>
                         <th>Name</th>
