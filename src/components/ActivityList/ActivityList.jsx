@@ -11,7 +11,7 @@ function ActivityList() {
     const activities = useSelector(store => store.activities);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITY' });
+        dispatch({ type: 'FETCH_ACTIVITIES' });
 
     }, []);
 

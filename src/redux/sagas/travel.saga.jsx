@@ -24,7 +24,7 @@ function* fetchActivities() {
     try {
         const activities = yield axios.get('/api/travel/activity');
         console.log('get all:', activities.data);
-        yield put({ type: 'SET_ACTIVITY', payload: activities.data });
+        yield put({ type: 'SET_ACTIVITIES', payload: activities.data });
 
     } catch {
         console.log('get all error');
@@ -44,7 +44,7 @@ function* addTrip(action) {
 function* addActivity(action) {
     try {
         yield axios.post('/api/travel/activity', action.payload);
-        yield put({ type: 'FETCH_ACTIVITY' });
+        yield put({ type: 'FETCH_ACTIVITIES' });
     } catch (error) {
         console.log(`Error fetching activities`, error);
     }
