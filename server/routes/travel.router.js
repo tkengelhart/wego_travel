@@ -102,7 +102,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 //update activity day and time of day
-router.put('/:itinerary_activity.id', (req, res) => {
+router.put('/:itinId', (req, res) => {
   console.log(req.params);
   const itinId = req.params.itinerary_activity.id;
   const queryText = `UPDATE "itinerary_activity" SET "date" = '', "time_of_day" = '' 

@@ -23,6 +23,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import TripPage from '../TripPage/TripPage';
 import ActivityList from '../ActivityList/ActivityList';
 import TripForm from '../TripForm/TripForm';
+import TripDetails from '../TripDetails/TripDetails';
+import EditActivity from '../EditActivity/EditActivity';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -59,9 +61,23 @@ function App() {
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
+            path="/details/:tripId"
+          >
+            <TripDetails />
+          </Route>
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
             path="/activity"
           >
             <ActivityList />
+          </Route>
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/itinId"
+          >
+            <EditActivity />
           </Route>
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

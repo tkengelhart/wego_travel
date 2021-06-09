@@ -26,12 +26,12 @@ function TripPage() {
   const setTripDetails = (trip) => {
     console.log('payload', trip);
     dispatch({
-      type: 'SET_TRIPS',
+      type: 'SET_TRIP_DETAILS',
       payload: {
-        tripId: trip.id
+        tripId: trip
       }
     });
-    history.push(`/details/:tripId`);
+    history.push(`/details`);
   }
 
 

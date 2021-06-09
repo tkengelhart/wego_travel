@@ -14,6 +14,7 @@ function ActivityList() {
     const history = useHistory();
     const activities = useSelector(store => store.activities);
     let params = useParams();
+    const trips = useSelector(store => store.trips);
 
     let itinId = params.id;
     let itin = activities.find(activity => activity.id === Number(itinId));
