@@ -37,18 +37,22 @@ router.get('/activity', (req, res) => {
 
 
 router.get('/details/:tripId', (req, res) => {
-  const query = `SELECT "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
-  LEFT JOIN "activity" ON "activity"."id" = "itinerary_activity"."activity_id" JOIN "itinerary" ON
-  "itinerary"."id" = "itinerary_activity"."itinerary_id" WHERE "itinerary"."id" = $1;`;
-  pool.query(query, [req.params.id])
-    .then((response) => {
-      console.log('Items in ${itinerary.name} trip', response.rows);
-      res.send(response.rows);
-    })
-    .catch((error) => {
-      console.log('Error in GET request to display trip', error);
-      res.sendStatus(500)
-    })
+  `SELECT "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
+LEFT JOIN
+"activity"
+ON 
+"activity"."id" = "itinerary_activity"."activity_id"
+WHERE "itinerary_activity"."itinerary_id" = $1;`;
+  const query =
+    pool.query(query, [req.params.id])
+      .then((response) => {
+        console.log('Items in ${itinerary.name} trip', response.rows);
+        res.send(response.rows);
+      })
+      .catch((error) => {
+        console.log('Error in GET request to display trip', error);
+        res.sendStatus(500)
+      })
 });
 
 //post new activity
