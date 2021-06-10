@@ -8,6 +8,7 @@ function* travelSaga() {
     yield takeEvery('ADD_ACTIVITY', addActivity)
     yield takeEvery('EDIT_ACTIVITY', editActivity)
     yield takeEvery('DELETE_ACTIVITY', deleteActivity)
+    yield takeEvery('SET_TRIP_DETAILS', fetchDetails)
 
 }
 
@@ -20,6 +21,19 @@ function* fetchTrips() {
 
     } catch {
         console.log('get all error');
+    }
+}
+
+function* fetchDetails(action) {
+    console.log('action payload is', action.payload.tripId)
+    let tripId = action.payload.tripId
+
+    console.log('tripId is ', tripId)
+    try {
+        yield axios.get(`/api/travel/details/${tripId}`);
+        yield put({ type: 'SET_TRIP_DETAILS', payload: tripId });
+    } catch {
+        console.log('Error getting trip')
     }
 }
 

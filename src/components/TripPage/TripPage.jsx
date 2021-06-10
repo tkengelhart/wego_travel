@@ -21,18 +21,15 @@ function TripPage() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_TRIPS' });
-
   }, []);
 
   const setTripDetails = (trip) => {
     console.log('payload', trip);
     dispatch({
       type: 'SET_TRIP_DETAILS',
-      payload: {
-        tripId: trip
-      }
+      payload: { tripId: trip.id }
     });
-    history.push(`/details`);
+    history.push('/')
   }
 
   return (
@@ -40,18 +37,16 @@ function TripPage() {
       <Row>
         <Col>
           <CardGroup>
-            {trips.map(trip => {
-              return (
-                <Card key={trip.id} border="dark" onClick={() => setTripDetails(trip)}>
-                  <Card.Body>
-                    <Card.Title >{trip.trip_name}</Card.Title>
-                    <Card.Subtitle>Travel Dates</Card.Subtitle>
-                    <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
-                  </Card.Body>
-                </Card>
-              );
-            })
-            }
+            {trips.map((trip) =>
+              <Card key={trip.id} border="dark" onClick={() => setTripDetails(trip)}>
+                <Card.Body>
+                  <Card.Title >{trip.trip_name}</Card.Title>
+                  <Card.Subtitle>Travel Dates</Card.Subtitle>
+                  <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
+                </Card.Body>
+              </Card>
+            )};
+
           </CardGroup>
         </Col>
       </Row>

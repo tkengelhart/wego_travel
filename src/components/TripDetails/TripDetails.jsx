@@ -20,10 +20,10 @@ function TripDetails() {
     // let itin = activities.find(activity => activity.id === Number(itinId));
 
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITIES' });
+    // useEffect(() => {
+    //     dispatch({ type: 'FETCH_ACTIVITIES' });
 
-    }, []);
+    // }, []);
 
     // const setActivityList = (activity) => {
     //     dispatch({
@@ -54,7 +54,9 @@ function TripDetails() {
     return (
 
         <Container>
-            <Table striped hover>
+
+            <p>Activity by Trip works!</p>
+            {/* <Table striped hover>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -79,7 +81,7 @@ function TripDetails() {
                             </tr>)
                     })}
                 </tbody>
-            </Table>
+            </Table> */}
 
         </Container >
     );

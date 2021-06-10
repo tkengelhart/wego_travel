@@ -44,9 +44,9 @@ function Nav() {
           <Link className="navLink" to="/activity">
             Activity List
         </Link>
-          <Link className="navLink" to="/details">
+          {/* <Link className="navLink" to="/details">
             Trip Details
-        </Link>
+        </Link> */}
           <Link className="navLink" to="/itinId">
             Edit activity        </Link>
         </div>
