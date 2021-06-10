@@ -3,7 +3,7 @@ const trips = (state = [], action) => {
         case 'SET_TRIPS':
             return action.payload;
         case 'SET_TRIP_DETAILS':
-            console.log('The payload is,', action.payload.tripId);
+            console.log('The payload is,', action.payload);
             return action.payload;
         default:
             return state;
