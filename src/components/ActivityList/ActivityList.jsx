@@ -7,8 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useParams } from 'react-router-dom';
 
 
-
-
 function ActivityList() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -17,7 +15,6 @@ function ActivityList() {
     const trips = useSelector(store => store.trips);
 
     let itinId = params.id;
-    let itin = activities.find(activity => activity.id === Number(itinId));
 
 
     useEffect(() => {
@@ -34,19 +31,20 @@ function ActivityList() {
     }
 
 
-    const editClick = event => {
-        // event.preventDefault();
-        console.log(`Editing activity`, activities.id);
+    const editActivity = (itinId) => {
+        console.log(`Edit activity`, itinId);
         dispatch({
-            type: 'EDIT_ACTIVITY', itin
-        });
+            type: 'EDIT_ACTIVITY',
+            payload: itinId
+        })
     }
 
-    const infoClick = event => {
+    const infoActivity = (event) => {
         // event.preventDefault();
         console.log(`Activity info`, activities.id);
         dispatch({
-            type: 'EDIT_ACTIVITY', itin
+            type: 'SET_TRIP_DETAILS',
+            payload: itinId
         });
     }
 
@@ -70,7 +68,7 @@ function ActivityList() {
                                     {activity.name}<br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
                                     </Button>
                                 &nbsp;&nbsp;
-                                <Button onClick={() => editClick(activity)}><FontAwesomeIcon icon="edit" /></Button>
+                                <Button onClick={() => editActivity(activity.id)}><FontAwesomeIcon icon="edit" /></Button>
                                 </td>
                                 <td>{activity.constraints}</td>
                                 <td>{activity.activity_url}</td>
