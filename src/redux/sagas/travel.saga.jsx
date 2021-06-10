@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { response } from 'express';
 import { put, takeEvery } from 'redux-saga/effects';
 
 function* travelSaga() {
@@ -28,9 +29,10 @@ function* fetchDetails(action) {
     console.log('action payload is', action.payload.tripId)
     let tripId = action.payload.tripId
     console.log('tripId is ', tripId)
+    let details = response.data;
     try {
         yield axios.get(`/api/travel/details/${tripId}`);
-        yield put({ type: 'SET_TRIP_DETAILS' });
+        yield put({ type: 'SET_TRIP_DETAILS', payload: details });
     } catch {
         console.log('Error getting trip')
     }

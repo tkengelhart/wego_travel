@@ -40,7 +40,6 @@ router.get(`/details/:tripId`, (req, res) => {
   let tripId = req.params.tripId;
   console.log('here is the trip id', tripId);
   console.log('here is the url', `/details/:tripId`);
-
   const query =
     `SELECT "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
 LEFT JOIN

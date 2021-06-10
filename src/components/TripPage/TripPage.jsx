@@ -29,7 +29,7 @@ function TripPage() {
       type: 'SET_TRIP_DETAILS',
       payload: { tripId: trip.id }
     });
-    history.push('/')
+    history.push('/details/tripId')
   }
 
   return (
