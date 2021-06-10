@@ -27,7 +27,8 @@ import TripDetails from '../TripDetails/TripDetails';
 import EditActivity from '../EditActivity/EditActivity';
 
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/minty/bootstrap.min.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInfoCircle, faEdit } from '@fortawesome/free-solid-svg-icons'
 

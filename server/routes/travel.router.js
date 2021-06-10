@@ -104,10 +104,10 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 //update activity day and time of day
 router.put('/edit/:itinId', (req, res) => {
   console.log(req.params);
-  const itinId = req.params.itinerary_activity.id;
-  const queryText = `UPDATE "itinerary_activity" SET "date" = ${date}, "time_of_day" = ${time_of_day} 
-  WHERE "itinerary_activity"."id" = $1`;
-  pool.query(queryText, [itinId])
+  const itinId = req.params.id;
+  const queryText = `UPDATE "itinerary_activity" SET "date" = $1, "time_of_day" = $2 
+  WHERE "itinerary_activity"."id" = $3`;
+  pool.query(queryText, [date, tod, itinId])
     .then(() => {
       res.sendStatus(202); //202 accepted
     }).catch((err) => {

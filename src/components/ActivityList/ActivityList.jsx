@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Table, Button } from 'react-bootstrap';
+import { Container, Table, Button, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useParams } from 'react-router-dom';
+import EditActivity from '../EditActivity/EditActivity';
+import { useState } from 'react';
 
 
 function ActivityList() {
@@ -13,6 +15,8 @@ function ActivityList() {
     const activities = useSelector(store => store.activities);
     let params = useParams();
     const trips = useSelector(store => store.trips);
+
+
 
     let itinId = params.id;
 
@@ -31,20 +35,20 @@ function ActivityList() {
     }
 
 
-    const editActivity = (itinId) => {
-        console.log(`Edit activity`, itinId);
+    const editActivity = (activity) => {
+        console.log(`Edit activity`, activity);
         dispatch({
             type: 'EDIT_ACTIVITY',
-            payload: itinId
+            payload: activity
         })
     }
 
-    const infoActivity = (event) => {
+    const infoActivity = (activity) => {
         // event.preventDefault();
         console.log(`Activity info`, activities.id);
         dispatch({
             type: 'SET_TRIP_DETAILS',
-            payload: itinId
+            payload: activity
         });
     }
 
@@ -65,10 +69,7 @@ function ActivityList() {
                         return (
                             <tr key={activity.id}>
                                 <td>
-                                    {activity.name}<br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
-                                    </Button>
-                                &nbsp;&nbsp;
-                                <Button onClick={() => editActivity(activity.id)}><FontAwesomeIcon icon="edit" /></Button>
+                                    {activity.name}{<EditActivity />}
                                 </td>
                                 <td>{activity.constraints}</td>
                                 <td>{activity.activity_url}</td>
@@ -78,16 +79,14 @@ function ActivityList() {
                 </tbody>
             </Table>
 
+
         </Container >
     );
 }
 export default ActivityList;
 
-{/* <ul>
-    {activities.map(activity => {
-        return (
-            <li key={activity.id}>{activity.name}</li>
-        )
-    })}
 
-</ul> */}
+// <br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
+//                                     </Button>
+//                                 &nbsp;&nbsp;
+//                                 <Button onClick={() => editActivity(activity.id)}><FontAwesomeIcon icon="edit" /></Button>
