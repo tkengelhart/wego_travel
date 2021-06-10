@@ -19,9 +19,8 @@ function* fetchTrips() {
         const trips = yield axios.get('/api/travel/trips');
         console.log('get all:', trips.data);
         yield put({ type: 'SET_TRIPS', payload: trips.data });
-
     } catch {
-        console.log('get all error');
+        console.log('Error getting trip')
     }
 }
 
