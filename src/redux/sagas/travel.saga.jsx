@@ -27,11 +27,10 @@ function* fetchTrips() {
 function* fetchDetails(action) {
     console.log('action payload is', action.payload.tripId)
     let tripId = action.payload.tripId
-
     console.log('tripId is ', tripId)
     try {
         yield axios.get(`/api/travel/details/${tripId}`);
-        yield put({ type: 'SET_TRIP_DETAILS', payload: tripId });
+        yield put({ type: 'SET_TRIP_DETAILS' });
     } catch {
         console.log('Error getting trip')
     }
