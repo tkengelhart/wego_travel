@@ -22,7 +22,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import TripPage from '../TripPage/TripPage';
 import ActivityList from '../ActivityList/ActivityList';
-import TripForm from '../TripForm/TripForm';
+// import TripForm from '../TripForm/TripForm';
 import TripDetails from '../TripDetails/TripDetails';
 import EditActivity from '../EditActivity/EditActivity';
 
@@ -56,7 +56,7 @@ function App() {
             path="/trips"
           >
             <TripPage />
-            <TripForm />
+            {/* <TripForm /> */}
           </Route>
           <Route
             // shows AboutPage at all times (logged in or not)
