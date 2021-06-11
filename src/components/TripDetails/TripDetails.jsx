@@ -13,48 +13,41 @@ function TripDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
-    let params = useParams();
-    const trips = useSelector(store => store.trips);
-    console.log('trips are', trips);
+    // const trips = useSelector(store => store.trips);
+    // console.log('trips are', trips);
     const store = useSelector(store => store);
     const itinerary = useSelector(store => store.itinerary);
     console.log('store is', store);
     console.log('itinerary store', itinerary);
 
-    let itinId = params.id;
-    let itin = activities.find(activity => activity.id === Number(itinId));
+    // let itinId = itinerary.id;
+    // let itin = activities.filter(activity => activity.id === Number(itinId));
+    // console.log('filtered results are', itin);
+
 
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITIES' });
-
-    }, []);
-
-    const setActivityList = (activity) => {
         dispatch({
-            type: 'SET_DETAILS',
-            payload: activity,
+            type: 'SET_ITINERARY_ACTIVITIES',
+            payload: itinerary.id
         });
-        history.push(`/activity/${activity.id}`);
-    }
+        history.push(`/details/${itinerary.id}`)
+    })
+    // const editClick = event => {
+    //     console.log(`Editing activity`, activities.id);
+    //     dispatch({
+    //         type: 'EDIT_ACTIVITY', itin
+    //     });
+    //     history.push(`/${itinId}`)
+    // }
 
-
-    const editClick = event => {
-        // event.preventDefault();
-        console.log(`Editing activity`, activities.id);
-        dispatch({
-            type: 'EDIT_ACTIVITY', itin
-        });
-        history.push(`/${itinId}`)
-    }
-
-    const infoClick = event => {
-        // event.preventDefault();
-        console.log(`Activity info`, activities.id);
-        dispatch({
-            type: 'EDIT_ACTIVITY', itin
-        });
-    }
+    // const infoClick = event => {
+    //     // event.preventDefault();
+    //     console.log(`Activity info`, activities.id);
+    //     dispatch({
+    //         type: 'EDIT_ACTIVITY', itin
+    //     });
+    // }
 
     return (
 
@@ -64,8 +57,9 @@ function TripDetails() {
             <Table striped hover>
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Date</th>
-                        <th>Time of Day<th>Name</th></th>
+                        <th>Time of Day</th>
                         <th>Constraints</th>
                         <th>Notes</th>
                     </tr>

@@ -33,32 +33,33 @@ router.get('/activity', (req, res) => {
     });
 });
 
+
 // update call for trip location after testing
 
 //changed this to pull from store instead
 
-// router.get(`/details/:tripId`, (req, res) => {
-//   let tripId = req.params.tripId;
-//   console.log('here is the trip id', tripId);
-//   // console.log('here is the url', `/details/:tripId`);
-//   const query =
-//     `SELECT "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
-// LEFT JOIN
-// "activity"
-// ON 
-// "activity"."id" = "itinerary_activity"."activity_id"
-// WHERE "itinerary_activity"."itinerary_id" = $1;`;
+router.get(`/details/:tripId`, (req, res) => {
+  let tripId = req.params.id;
+  console.log('here is the trip id', tripId);
+  // console.log('here is the url', `/details/:tripId`);
+  const query =
+    `SELECT "activity"."id", "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
+LEFT JOIN
+"activity"
+ON 
+"activity"."id" = "itinerary_activity"."activity_id"
+WHERE "itinerary_activity"."itinerary_id" = $1;`;
 
-//   pool.query(query, [tripId])
-//     .then((response) => {
-//       console.log('Items in trip', response.rows);
-//       res.send(response.rows);
-//     })
-//     .catch((error) => {
-//       console.log('Error in GET request to display trip', error);
-//       res.sendStatus(500)
-//     })
-// });
+  pool.query(query, [tripId])
+    .then((response) => {
+      console.log('Items in trip', response.rows);
+      res.send(response.rows);
+    })
+    .catch((error) => {
+      console.log('Error in GET request to display trip', error);
+      res.sendStatus(500)
+    })
+});
 
 //post new activity
 //new activity works
