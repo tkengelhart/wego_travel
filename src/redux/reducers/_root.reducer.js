@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import trips from './trips.reducer';
 import activities from './activities.reducer';
+import itinerary from './itinerary.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   trips,
   activities,
   errors, // contains registrationMessage and loginMessage
-  user, // will have an id and username if someone is logged in
+  user,
+  itinerary, // will have an id and username if someone is logged in
 });
 
 export default rootReducer;

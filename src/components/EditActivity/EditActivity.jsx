@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ActivityList from '../ActivityList/ActivityList';
 
 
 function EditActivity() {
@@ -54,9 +55,14 @@ function EditActivity() {
                             <Dropdown.Item>Evening</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                    <Form>
-                        <Form.Group>
-                            <Form.Label>Change Date</Form.Label>
+                    <Dropdown>
+                        <Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item></Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown.Toggle>
+                    </Dropdown>
+                    {/* <Form.Label>Change Date</Form.Label>
                             <Form.Control
                                 type="date"
                                 placeholder="Change Date"
@@ -64,7 +70,7 @@ function EditActivity() {
                                 onChange={(event) => setDate(event.target.value)} />
                         </Form.Group>
                         <Button variant="primary" type="submit">Submit</Button>
-                    </Form>
+                    </Form> */}
                 </Modal.Body>
 
                 <Modal.Footer>

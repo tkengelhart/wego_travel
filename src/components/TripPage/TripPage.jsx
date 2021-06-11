@@ -22,15 +22,15 @@ function TripPage() {
   }, []);
 
   const setTripDetails = (trip) => {
-    event.preventDefault();
     console.log('payload', trip);
     dispatch({
       type: 'SET_TRIP_DETAILS',
-      payload: { tripId: trip.id }
+      payload: trip
     })
+    history.push(`/details`);
   }
 
-
+  console.log('trips is', trips)
   return (
     <>
       <Container>
@@ -40,6 +40,7 @@ function TripPage() {
 
               {trips.map(trip => {
                 return (
+
                   <Card key={trip.id} border="dark">
                     <Card.Body onClick={() => setTripDetails(trip)}>
                       <Card.Title >{trip.trip_name}</Card.Title>

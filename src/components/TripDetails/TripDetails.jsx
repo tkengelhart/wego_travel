@@ -15,7 +15,11 @@ function TripDetails() {
     const activities = useSelector(store => store.activities);
     let params = useParams();
     const trips = useSelector(store => store.trips);
-    const itinerary = useSelector(store => store.itinerary)
+    console.log('trips are', trips);
+    const store = useSelector(store => store);
+    const itinerary = useSelector(store => store.itinerary);
+    console.log('store is', store);
+    console.log('itinerary store', itinerary);
 
     let itinId = params.id;
     let itin = activities.find(activity => activity.id === Number(itinId));
@@ -36,7 +40,7 @@ function TripDetails() {
 
 
     const editClick = event => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log(`Editing activity`, activities.id);
         dispatch({
             type: 'EDIT_ACTIVITY', itin
@@ -45,7 +49,7 @@ function TripDetails() {
     }
 
     const infoClick = event => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log(`Activity info`, activities.id);
         dispatch({
             type: 'EDIT_ACTIVITY', itin
@@ -55,8 +59,8 @@ function TripDetails() {
     return (
 
         <Container>
+            <li>Activity Date {itinerary.start} {itinerary.end} {itinerary.trip_name}</li>
 
-            <p>Activity by Trip works!</p>
             <Table striped hover>
                 <thead>
                     <tr>
@@ -67,20 +71,24 @@ function TripDetails() {
                     </tr>
                 </thead>
                 <tbody>
-                    {itinerary.map(itin => {
+                    {activities.map(activity => {
                         return (
-                            <tr key={itin.id}>
+
+                            <tr key={activity.id}>
                                 <td>
-                                    {itin.date}<br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
+                                    {activity.date}<br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
                                     </Button>
                                     &nbsp;&nbsp;
                                     <Button onClick={() => editClick(activity)}><FontAwesomeIcon icon="edit" /></Button>
                                 </td>
-                                <td>{itin.time_of_day}{itin.name}</td>
-                                <td>{itin.constraints}</td>
-                                <td>{itin.notes}</td>
-                            </tr>)
+                                <td>{activity.time_of_day}{activity.name}</td>
+                                <td>{activity.constraints}</td>
+                                <td>{activity.notes}</td>
+                            </tr>
+                        );
                     })}
+
+
                 </tbody>
             </Table>
 
