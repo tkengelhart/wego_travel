@@ -16,40 +16,40 @@ function TripDetails() {
     let params = useParams();
     const trips = useSelector(store => store.trips);
 
-    // let itinId = params.id;
-    // let itin = activities.find(activity => activity.id === Number(itinId));
+    let itinId = params.id;
+    let itin = activities.find(activity => activity.id === Number(itinId));
 
 
-    // useEffect(() => {
-    //     dispatch({ type: 'FETCH_ACTIVITIES' });
+    useEffect(() => {
+        dispatch({ type: 'FETCH_ACTIVITIES' });
 
-    // }, []);
+    }, []);
 
-    // const setActivityList = (activity) => {
-    //     dispatch({
-    //         type: 'SET_DETAILS',
-    //         payload: activity,
-    //     });
-    //     history.push(`/activity/${activity.id}`);
-    // }
+    const setActivityList = (activity) => {
+        dispatch({
+            type: 'SET_DETAILS',
+            payload: activity,
+        });
+        history.push(`/activity/${activity.id}`);
+    }
 
 
-    // const editClick = event => {
-    //     event.preventDefault();
-    //     console.log(`Editing activity`, activities.id);
-    //     dispatch({
-    //         type: 'EDIT_ACTIVITY', itin
-    //     });
-    //     history.push(`/${itinId}`)
-    // }
+    const editClick = event => {
+        event.preventDefault();
+        console.log(`Editing activity`, activities.id);
+        dispatch({
+            type: 'EDIT_ACTIVITY', itin
+        });
+        history.push(`/${itinId}`)
+    }
 
-    // const infoClick = event => {
-    //     event.preventDefault();
-    //     console.log(`Activity info`, activities.id);
-    //     dispatch({
-    //         type: 'EDIT_ACTIVITY', itin
-    //     });
-    // }
+    const infoClick = event => {
+        event.preventDefault();
+        console.log(`Activity info`, activities.id);
+        dispatch({
+            type: 'EDIT_ACTIVITY', itin
+        });
+    }
 
     return (
 
