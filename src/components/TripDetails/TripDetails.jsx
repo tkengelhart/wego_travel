@@ -10,10 +10,10 @@ import { useParams } from 'react-router-dom';
 
 
 function TripDetails() {
-    // const dispatch = useDispatch();
-    // const history = useHistory();
-    // const activities = useSelector(store => store.activities);
-    // let params = useParams();
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const activities = useSelector(store => store.activities);
+    let params = useParams();
     const trips = useSelector(store => store.trips);
 
     // let itinId = params.id;
@@ -34,14 +34,14 @@ function TripDetails() {
     // }
 
 
-    const editClick = event => {
-        event.preventDefault();
-        console.log(`Editing activity`, activities.id);
-        dispatch({
-            type: 'EDIT_ACTIVITY', itin
-        });
-        history.push(`/${itinId}`)
-    }
+    // const editClick = event => {
+    //     event.preventDefault();
+    //     console.log(`Editing activity`, activities.id);
+    //     dispatch({
+    //         type: 'EDIT_ACTIVITY', itin
+    //     });
+    //     history.push(`/${itinId}`)
+    // }
 
     // const infoClick = event => {
     //     event.preventDefault();

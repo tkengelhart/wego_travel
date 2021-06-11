@@ -19,7 +19,7 @@ function EditActivity() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(`Editing Activity`, { time_of_day, date });
+        console.log(`Editing Activity`);
 
         dispatch({
             type: 'EDIT_ACTIVITY',
@@ -28,7 +28,7 @@ function EditActivity() {
                 date: date,
             }
         });
-        history.push(`/${itinId}`)
+        // history.push(`/${itinId}`)
 
 
     }
@@ -46,7 +46,7 @@ function EditActivity() {
                     <Dropdown>
                         <Dropdown.Toggle variant="primary">
                             Time of Day
-                </Dropdown.Toggle>
+                        </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <Dropdown.Item>Morning</Dropdown.Item>
                             <Dropdown.Item>Noon</Dropdown.Item>
@@ -70,7 +70,7 @@ function EditActivity() {
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close
-</Button>
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </Container >
