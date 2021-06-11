@@ -30,7 +30,7 @@ function TripPage() {
     history.push(`/details`);
   }
 
-  console.log('trips is', trips)
+  console.log('trips are', trips)
   return (
     <>
       <Container>
