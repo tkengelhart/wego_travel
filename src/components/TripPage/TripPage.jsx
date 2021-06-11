@@ -27,7 +27,7 @@ function TripPage() {
       type: 'SET_TRIP_DETAILS',
       payload: trip
     })
-    history.push(`/details`);
+    history.push(`/details/${trip.id}`);
   }
 
   console.log('trips are', trips)

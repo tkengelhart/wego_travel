@@ -24,15 +24,19 @@ function TripDetails() {
     // let itin = activities.filter(activity => activity.id === Number(itinId));
     // console.log('filtered results are', itin);
 
+    let tripId = itinerary.id;
+    console.log('itin activity id is', tripId);
 
 
-    useEffect(() => {
+
+    const getItinerary = (tripId) => {
         dispatch({
             type: 'SET_ITINERARY_ACTIVITIES',
-            payload: itinerary.id
-        });
-        history.push(`/details/${itinerary.id}`)
-    })
+            payload: tripId
+        })
+        history.push(`/details/${tripId}`);
+    }
+
     // const editClick = event => {
     //     console.log(`Editing activity`, activities.id);
     //     dispatch({

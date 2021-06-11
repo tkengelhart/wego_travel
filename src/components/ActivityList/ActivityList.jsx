@@ -43,14 +43,14 @@ function ActivityList() {
         })
     }
 
-    const infoActivity = (activity) => {
-        // event.preventDefault();
-        console.log(`Activity info`, activities.id);
-        dispatch({
-            type: 'SET_TRIP_DETAILS',
-            payload: activity
-        });
-    }
+    // const infoActivity = (activity) => {
+    //     // event.preventDefault();
+    //     console.log(`Activity info`, activities.id);
+    //     dispatch({
+    //         type: 'SET_TRIP_DETAILS',
+    //         payload: activity
+    //     });
+    // }
 
     return (
 

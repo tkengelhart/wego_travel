@@ -2,8 +2,7 @@ import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 function* travelSaga() {
-    // yield takeEvery('SET_TRIP_DETAILS', fetchDetails)
-
+    yield takeEvery('SET_TRIP_DETAILS', fetchDetails)
     yield takeEvery('FETCH_TRIPS', fetchTrips);
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
@@ -11,8 +10,21 @@ function* travelSaga() {
     yield takeEvery('EDIT_ACTIVITY', editActivity)
     yield takeEvery('DELETE_ACTIVITY', deleteActivity)
 
+
 }
 
+
+function* fetchDetails(action) {
+    //get trips from DB based on query
+    try {
+        const itineraryResponse = yield axios.get(`/api/travel/details/${action.payload.id}`);
+        console.log('payload for trip details is', action.payload);
+        console.log('which activity?', action.payload.id);
+        yield put({ type: 'LOAD_TRIP_DETAILS', payload: itineraryResponse.data });
+    } catch {
+        console.log('get all errors');
+    }
+}
 function* fetchTrips() {
     // get all trips from the DB
     try {

@@ -39,7 +39,7 @@ router.get('/activity', (req, res) => {
 //changed this to pull from store instead
 
 router.get(`/details/:tripId`, (req, res) => {
-  let tripId = req.params.id;
+  let tripId = req.params.tripId;
   console.log('here is the trip id', tripId);
   // console.log('here is the url', `/details/:tripId`);
   const query =
