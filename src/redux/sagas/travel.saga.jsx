@@ -2,13 +2,14 @@ import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 function* travelSaga() {
+    yield takeEvery('SET_TRIP_DETAILS', fetchDetails)
+
     yield takeEvery('FETCH_TRIPS', fetchTrips);
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
     yield takeEvery('ADD_ACTIVITY', addActivity)
     yield takeEvery('EDIT_ACTIVITY', editActivity)
     yield takeEvery('DELETE_ACTIVITY', deleteActivity)
-    yield takeEvery('SET_TRIP_DETAILS', fetchDetails)
 
 }
 
@@ -30,8 +31,9 @@ function* fetchDetails(action) {
 
     console.log('tripId is ', tripId)
     try {
-        yield axios.get(`/api/travel/details/${tripId}`);
-        yield put({ type: 'SET_TRIP_DETAILS', payload: tripId });
+        yield axios.get(`/api/travel/details/${tripId}`, action.payload);
+        console.log(tripId, action.payload)
+        yield put({ type: 'SET_TRIP_DETAILS' });
     } catch {
         console.log('Error getting trip')
     }

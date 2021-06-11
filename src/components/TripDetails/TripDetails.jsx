@@ -15,6 +15,7 @@ function TripDetails() {
     const activities = useSelector(store => store.activities);
     let params = useParams();
     const trips = useSelector(store => store.trips);
+    const itinerary = useSelector(store => store.itinerary)
 
     let itinId = params.id;
     let itin = activities.find(activity => activity.id === Number(itinId));
@@ -56,32 +57,32 @@ function TripDetails() {
         <Container>
 
             <p>Activity by Trip works!</p>
-            {/* <Table striped hover>
+            <Table striped hover>
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Time of Day<th>Name</th></th>
+                        <th>Constraints</th>
                         <th>Notes</th>
-                        <th>Website</th>
-                        <th>Location</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {trips.map(trip => {
+                    {itinerary.map(itin => {
                         return (
-                            <tr key={trip.id}>
+                            <tr key={itin.id}>
                                 <td>
-                                    {trip.name}<br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
+                                    {itin.date}<br /><Button onClick={() => setActivityList(activity)}><FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                &nbsp;&nbsp;
-                                <Button onClick={() => editClick(activity)}><FontAwesomeIcon icon="edit" /></Button>
+                                    &nbsp;&nbsp;
+                                    <Button onClick={() => editClick(activity)}><FontAwesomeIcon icon="edit" /></Button>
                                 </td>
-                                <td>{trip.constraints}</td>
-                                <td>{trip.activity_url}</td>
-                                <td>{trip.activity_location}</td>
+                                <td>{itin.time_of_day}{itin.name}</td>
+                                <td>{itin.constraints}</td>
+                                <td>{itin.notes}</td>
                             </tr>)
                     })}
                 </tbody>
-            </Table> */}
+            </Table>
 
         </Container >
     );
