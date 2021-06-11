@@ -45,7 +45,7 @@ CREATE TABLE "activity" (
 
 
 
-CREATE TABLE "_itinerary" (
+CREATE TABLE "user_itinerary" (
 	"id" serial NOT NULL,
 	"user_id" int NOT NULL,
 	"itinerary_id" int NOT NULL,
