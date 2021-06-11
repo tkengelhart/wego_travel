@@ -48,7 +48,8 @@ LEFT JOIN
 "activity"
 ON 
 "activity"."id" = "itinerary_activity"."activity_id"
-WHERE "itinerary_activity"."itinerary_id" = $1;`;
+WHERE "itinerary_activity"."itinerary_id" = $1
+ORDER BY "itinerary_activity"."date"`;
 
   pool.query(query, [tripId])
     .then((response) => {
