@@ -59,7 +59,7 @@ function TripPage() {
               <Modal.Footer>
                 <Button variant="primary" onClick={handleClose}>
                   Close
-          </Button>
+                </Button>
               </Modal.Footer>
             </Modal>
           </Card.Body>
