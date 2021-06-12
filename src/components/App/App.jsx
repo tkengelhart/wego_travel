@@ -24,7 +24,7 @@ import TripPage from '../TripPage/TripPage';
 import ActivityList from '../ActivityList/ActivityList';
 // import TripForm from '../TripForm/TripForm';
 import TripDetails from '../TripDetails/TripDetails';
-import EditActivity from '../EditActivity/EditActivity';
+// import EditActivity from '../EditActivity/EditActivity';
 
 import './App.css';
 import "bootswatch/dist/minty/bootstrap.min.css";
@@ -74,7 +74,7 @@ function App() {
           </Route>
           <Route
             exact
-            path="/activity/info"
+            path="/info"
           >
             <ActivityInfo />
           </Route>

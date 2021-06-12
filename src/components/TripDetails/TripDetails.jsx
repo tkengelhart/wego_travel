@@ -6,12 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
-import EditActivity from '../EditActivity/EditActivity';
+// import EditActivity from '../EditActivity/EditActivity';
 import { useState } from 'react';
 import ActivityList from '../ActivityList/ActivityList';
-
-
-
 
 
 
@@ -29,33 +26,6 @@ function TripDetails() {
     const handleShow = () => setShow(true);
 
 
-
-
-
-    // const getItinerary = (tripId) => {
-    //     dispatch({
-    //         type: 'SET_ITINERARY_ACTIVITIES',
-    //         payload: tripId
-    //     })
-    //     history.push(`/details/${tripId}`);
-    // }
-
-    // const editClick = event => {
-    //     console.log(`Editing activity`, activities.id);
-    //     dispatch({
-    //         type: 'EDIT_ACTIVITY', itin
-    //     });
-    //     history.push(`/${itinId}`)
-    // }
-
-    // const infoClick = event => {
-    //     // event.preventDefault();
-    //     console.log(`Activity info`, activities.id);
-    //     dispatch({
-    //         type: 'EDIT_ACTIVITY', itin
-    //     });
-    // }
-
     return (
         <Container>
 
@@ -65,9 +35,6 @@ function TripDetails() {
                         <th>Date</th>
                         <th>Name</th>
                         <th>Time of Day</th>
-                        {/* <th>Noon</th>
-                        <th>Afternoon</th>
-                        <th>Evening</th> */}
                         <th>Constraints</th>
                         <th>Notes</th>
                     </tr>
@@ -77,12 +44,12 @@ function TripDetails() {
                         return (
 
                             <tr key={item.id}>
-                                <td>
+                                {/* <td>
                                     {moment(item.date).format('MMM Do YYYY')}<br /><Button onClick={() => { history.push('/edit') }}><FontAwesomeIcon icon="info-circle" />
                                     </Button>
                                     &nbsp;&nbsp;
                                     <Button onClick={() => { history.push('/edit') }}><FontAwesomeIcon icon="edit" /></Button>
-                                </td>
+                                </td> */}
                                 <td>{item.name}</td>
 
                                 <td>{item.time_of_day}</td>

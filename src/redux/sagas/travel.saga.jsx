@@ -81,6 +81,11 @@ function* deleteActivity(action) {
         console.log('Error in adding new item', error);
     }
 }
+
+
+
+export default travelSaga;
+
 // function* editActivity(action) {
 //     console.log('in editActivity', action);
 //     try {
@@ -92,6 +97,3 @@ function* deleteActivity(action) {
 //         console.log('Error in editing item', error);
 //     }
 // }
-
-
-export default travelSaga;
