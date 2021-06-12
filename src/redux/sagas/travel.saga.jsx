@@ -7,7 +7,7 @@ function* travelSaga() {
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
     yield takeEvery('ADD_ACTIVITY', addActivity)
-    yield takeEvery('EDIT_ACTIVITY', editActivity)
+    // yield takeEvery('EDIT_ACTIVITY', editActivity)
     yield takeEvery('DELETE_ACTIVITY', deleteActivity)
 
 
@@ -81,17 +81,17 @@ function* deleteActivity(action) {
         console.log('Error in adding new item', error);
     }
 }
-function* editActivity(action) {
-    console.log('in editActivity', action);
-    try {
-        let id = action.payload
-        // debugger;
-        yield axios.put(`/api/travel/edit/${id}/`);
-        yield put({ type: 'FETCH_ACTIVITIES' });
-    } catch (error) {
-        console.log('Error in editing item', error);
-    }
-}
+// function* editActivity(action) {
+//     console.log('in editActivity', action);
+//     try {
+//         let id = action.payload
+//         // debugger;
+//         yield axios.put(`/api/travel/edit/${id}/`);
+//         yield put({ type: 'FETCH_ACTIVITIES' });
+//     } catch (error) {
+//         console.log('Error in editing item', error);
+//     }
+// }
 
 
 export default travelSaga;

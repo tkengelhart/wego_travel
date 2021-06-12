@@ -5,17 +5,23 @@ import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useParams } from 'react-router-dom';
-import EditActivity from '../EditActivity/EditActivity';
+// import EditActivity from '../EditActivity/EditActivity';
 import { useState } from 'react';
+import ActivityInfo from '../ActivityInfo/ActivityInfo';
 
 
 function ActivityList() {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
+    console.log('activities are', activities);
     let params = useParams();
     const trips = useSelector(store => store.trips);
 
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
     let itinId = params.id;
@@ -26,31 +32,23 @@ function ActivityList() {
 
     }, []);
 
-    const setActivityList = (activity) => {
-        dispatch({
-            type: 'SET_DETAILS',
-            payload: activity,
-        });
-        history.push(`/activity/${activity.id}`);
-    }
-
-
-    const editActivity = (activity) => {
-        console.log(`Edit activity`, activity);
-        dispatch({
-            type: 'EDIT_ACTIVITY',
-            payload: activity
-        })
-    }
-
-    // const infoActivity = (activity) => {
-    //     // event.preventDefault();
-    //     console.log(`Activity info`, activities.id);
+    // const editActivity = (activity) => {
+    //     console.log(`Edit activity`, activity);
     //     dispatch({
-    //         type: 'SET_TRIP_DETAILS',
+    //         type: 'EDIT_ACTIVITY',
     //         payload: activity
-    //     });
+    //     })
     // }
+
+    const infoClick = (activity) => {
+        console.log(`Activity info`, activities.id);
+        // dispatch({
+        //     type: 'SET_DETAILS',
+        //     payload: activity,
+        history.push(`/activity/info`);
+
+    }
+
 
     return (
 
@@ -60,7 +58,6 @@ function ActivityList() {
                     <tr>
                         <th>Name</th>
                         <th>Notes</th>
-                        <th>Website</th>
                         <th>Location</th>
                     </tr>
                 </thead>
@@ -69,10 +66,11 @@ function ActivityList() {
                         return (
                             <tr key={activity.id}>
                                 <td>
-                                    {activity.name}{<EditActivity />}
+                                    {activity.name}<br />
+                                    <Button onClick={() => infoClick(event)}><FontAwesomeIcon icon="info-circle" /></Button>
+
                                 </td>
                                 <td>{activity.constraints}</td>
-                                <td>{activity.activity_url}</td>
                                 <td>{activity.activity_location}</td>
                             </tr>)
                     })}
