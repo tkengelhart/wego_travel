@@ -21,19 +21,18 @@ function ActivityList() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const deleteActivity = (infoId) => {
-        console.log('id is', infoId);
+    const deleteActivity = (activityId) => {
+        console.log('id is', activityId);
         dispatch({
             type: 'DELETE_ACTIVITY',
-            payload: infoId,
+            payload: activityId,
         });
     }
 
-    const editActivity = (infoId) => {
-        dispatch({
-            type: 'EDIT_ACTIVITY',
-            payload: infoId,
-        })
+    const editActivity = (activityId) => {
+        const handleShow = () => setShow(true);
+        history.push(`/activity/:activityId`)
+
     }
 
     useEffect(() => {
@@ -70,7 +69,7 @@ function ActivityList() {
                                 <tr key={info.id}>
                                     <td>
                                         {info.name}<br />
-                                        <Button variant="outline-primary" size='sm' onClick={handleShow}><FontAwesomeIcon icon="info-circle" /></Button>
+                                        <Button variant="outline-primary" size='sm' onClick={editActivity}><FontAwesomeIcon icon="info-circle" /></Button>
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Body><ActivityInfo /></Modal.Body>
                                             <Modal.Footer>
@@ -79,6 +78,7 @@ function ActivityList() {
                                                 </Button>
                                             </Modal.Footer>
                                         </Modal>
+
                                         <Button variant="outline-primary" size='sm' onClick={handleShow}> <FontAwesomeIcon icon="edit" /></Button>
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Body><EditActivity /></Modal.Body>
@@ -107,15 +107,13 @@ function ActivityList() {
                         })}
                     </tbody>
                 </Table >
+
                 <Button variant="primary" onClick={handleShow}>New Activity</Button>
                 <Modal show={show} onHide={handleClose}>
-                    <Modal.Body><AddActivity /></Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="primary" onClick={handleClose}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
+                    <Modal.Body><NewActivity /></Modal.Body>
+
                 </Modal>
+
             </Container >
         </>
     );

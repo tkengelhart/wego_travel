@@ -71,7 +71,7 @@ function App() {
           </Route>
           <Route
             exact
-            path="/activity/:infoId"
+            path="/activity/:activityId"
           >
             <ActivityInfo />
           </Route>

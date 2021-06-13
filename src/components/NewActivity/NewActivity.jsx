@@ -23,6 +23,7 @@ function NewActivity() {
 
     const handleSubmit = event => {
         event.preventDefault();
+        handleClose();
         console.log(`Adding new activity`, { name, constraints, website, location });
 
         dispatch({

@@ -10,3 +10,4 @@ const activities = (state = [], action) => {
 }
 
 export default activities;
+

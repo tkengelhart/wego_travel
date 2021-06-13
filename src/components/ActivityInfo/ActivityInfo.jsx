@@ -3,44 +3,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Button, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function ActivityInfo() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const dispatch = useDispatch();
-  const activityList = useSelector(store => store.activities);
-  const history = useHistory();
+
+  let activities = useSelector(store => store.activities);
 
   let params = useParams();
   console.log(params);
 
   let activityId = params.activityId;
 
-
-  let activity = activityList.find(activity => activity.id === Number(activityId));
-  console.log(params.activityId);
+  let activity = activities.find(activity => activity.id === Number(activityId));
   console.log(`found activity: `, activity);
 
+  // Bail out early with a message if the activity isnt found
+  if (!activity) {
+    return <h2>Invalid Activity ID</h2>;
+  }
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_ACTIVITIES' });
-
-  }, []);
 
 
 
   return (
     <Container>
-      <span>
-        Name: {activityList.name}
-        Location: {activityList.activity_location}
-        <a href={activityList.activity_url}></a>
-      </span>
+      <p>
+        Name: {activity.name}
+        Location: {activity.activity_location}
+        <a href={activity.activity_url}></a>
+      </p>
 
 
     </Container>
