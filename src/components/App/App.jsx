@@ -4,7 +4,7 @@ import {
   Route,
   Redirect,
   Switch,
-  Link,
+
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
+// import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -22,13 +22,10 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import TripPage from '../TripPage/TripPage';
 import ActivityList from '../ActivityList/ActivityList';
-// import TripForm from '../TripForm/TripForm';
 import TripDetails from '../TripDetails/TripDetails';
-// import EditActivity from '../EditActivity/EditActivity';
-
+import ActivityInfo from '../ActivityInfo/ActivityInfo';
 import './App.css';
 import "bootswatch/dist/minty/bootstrap.min.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInfoCircle, faEdit } from '@fortawesome/free-solid-svg-icons'
 
@@ -74,10 +71,11 @@ function App() {
           </Route>
           <Route
             exact
-            path="/info"
+            path="/activity/:infoId"
           >
             <ActivityInfo />
           </Route>
+
           {/* <Route
             exact
             path="/edit"
@@ -146,7 +144,7 @@ function App() {
           </Route>
         </Switch>
         <Footer />
-      </div>
+      </div >
     </Router >
   );
 }

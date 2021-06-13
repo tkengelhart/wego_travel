@@ -4,26 +4,35 @@ import { Container, Table, Button, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import ActivityInfo from '../ActivityInfo/ActivityInfo';
 
 
 function ActivityList() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const activities = useSelector(store => store.activities);
-    console.log('activities are', activities);
+    const activityInfo = useSelector(store => store.activities);
+    console.log('info is', activityInfo);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
 
     useEffect(() => {
         dispatch({ type: 'FETCH_ACTIVITIES' });
 
     }, []);
 
+    const setInfo = (info) => {
+        console.log('info is', info)
+        console.log('info id is', info.id)
+        dispatch({
+            type: 'SET_INFO',
+            payload: info.id,
+        });
+        history.push(`/activity/${info.id}`);
+    }
 
     return (
 
@@ -37,15 +46,15 @@ function ActivityList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {activities.map(activity => {
+                    {activityInfo.map(info => {
                         return (
-                            <tr key={activity.id}>
+                            <tr key={info.id}>
                                 <td>
-                                    {activity.name}<br />
-                                    <Button onClick={() => { history.push(`/activity/info`) }}><FontAwesomeIcon icon="info-circle" /></Button>
+                                    {info.name}<br />
+                                    <Button onClick={() => setInfo(info)}><FontAwesomeIcon icon="info-circle" /></Button>
                                 </td>
-                                <td>{activity.constraints}</td>
-                                <td>{activity.activity_location}</td>
+                                <td>{info.constraints}</td>
+                                <td>{info.activity_location}</td>
                             </tr>)
                     })}
                 </tbody>
