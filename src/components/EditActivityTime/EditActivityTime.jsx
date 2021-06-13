@@ -23,7 +23,7 @@ function EditActivity() {
                 console.log(`Editing Activity`);
 
                 dispatch({
-                        type: 'EDIT_ACTIVITY',
+                        type: 'EDIT_ACTIVITY_ITINERARY',
                         payload: {
                                 time_of_day: tod,
                                 date: date,
@@ -31,9 +31,9 @@ function EditActivity() {
                 });
                 // history.push(`/${itinId}`)
                 const editClick = event => {
-                        console.log(`Editing activity`, activities.id);
+                        console.log(`Editing activity itinerary`, activities.id);
                         dispatch({
-                                type: 'EDIT_ACTIVITY', itin
+                                type: 'EDIT_ACTIVITY_ITINERARY', itin
                         });
                         history.push(`/${itinId}`)
                 }

@@ -28,24 +28,18 @@ function ActivityInfo() {
   console.log(params.activityId);
   console.log(`found activity: `, activity);
 
-
-
-
-
-
   if (!activity) {
     return <h2>Invalid activity ID</h2>;
   }
 
 
-
   return (
     <Container>
-      <p>
-        Name: {activity.name}
-        Location: {activity.activity_location}
-        <a href={activity.activity_url}></a>
-      </p>
+      <ul>
+        <li>Name: {activity.name}</li>
+        <li>Location: {activity.activity_location}</li>
+        <li>{activity.activity_url}</li>
+      </ul>
 
 
     </Container>

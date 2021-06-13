@@ -7,12 +7,9 @@ function* travelSaga() {
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
     yield takeEvery('ADD_ACTIVITY', addActivity)
-    // yield takeEvery('EDIT_ACTIVITY', editActivity)
+    yield takeEvery('EDIT_ACTIVITY', editActivity)
     yield takeEvery('DELETE_ACTIVITY', deleteActivity)
-
-
 }
-
 
 function* fetchDetails(action) {
     //get trips from DB based on query
@@ -23,6 +20,17 @@ function* fetchDetails(action) {
         yield put({ type: 'LOAD_TRIP_DETAILS', payload: itineraryResponse.data });
     } catch {
         console.log('get all errors');
+    }
+}
+
+function* editActivity(action) {
+    //edit initial info of activity
+    try {
+        const activityInfo = yield axios.post(`/api/travel/activity`);
+        console.log('payload for activity info is', action.payload);
+        yield put({ type: 'EDIT_ACTIVITY', payload: activityInfo.data });
+    } catch (error) {
+        console.log('Error editing info.', error);
     }
 }
 function* fetchTrips() {
@@ -36,8 +44,6 @@ function* fetchTrips() {
         console.log('get all error');
     }
 }
-
-
 
 function* fetchActivities() {
     // get all activities from the DB

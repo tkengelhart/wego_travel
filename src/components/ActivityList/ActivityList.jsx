@@ -8,7 +8,7 @@ import { useState } from 'react';
 import NewActivity from '../NewActivity/NewActivity';
 import AddActivity from '../AddActivity/AddActivity';
 import ActivityInfo from '../ActivityInfo/ActivityInfo';
-import EditActivity from '../EditActivity/EditActivity';
+import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
 
 
 function ActivityList() {
@@ -21,9 +21,20 @@ function ActivityList() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITIES' });
-    }, []);
+
+    const [showEdit, setShowEdit] = useState(false);
+    const handleShowEdit = () => setShow(false);
+    const handleCloseEdit = () => setShow(true);
+
+    const [showAdd, setShowAdd] = useState(false);
+    const handleShowAdd = () => setShow(false);
+    const handleCloseAdd = () => setShow(true);
+
+    const [showNew, setShowNew] = useState(false);
+    const handleShowNew = () => setShow(false);
+    const handleCloseNew = () => setShow(true);
+
+
 
     const deleteActivity = (activityId) => {
         console.log('id is', activityId);
@@ -32,22 +43,24 @@ function ActivityList() {
             payload: activityId,
         });
     }
-
     const setActivityDetails = (activityId) => {
-        // console.log('in set details', activity);
-        const handleShow = () => setShow(true);
-        dispatch({
-            type: 'SET_DETAILS',
-            payload: activities.activity,
-        })
         history.push(`/activity/${activityId}`);
     }
 
-    // const editActivity = (activityId) => {
-    //     const handleShow = () => setShow(true);
-    //     // history.push(`/activity/:activityId`)
+    const editActivity = (activityId) => {
+        dispatch({
+            type: 'EDIT_ACTIVITY',
+            payload: activityId
+        })
+        history.push(`/activity/${activityId}`)
 
-    // }
+    }
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_ACTIVITIES' });
+    }, []);
+
+
 
 
     return (
@@ -69,7 +82,12 @@ function ActivityList() {
                                 <tr key={info.id}>
                                     <td>
                                         {info.name}<br />
-                                        <Button variant="outline-primary" size='sm' onClick={(event) => setActivityDetails(info.id)}>
+                                        <Button variant="outline-primary" size='sm'
+                                            onClick={() => {
+                                                handleShow();
+                                                setActivityDetails(info.id);
+                                            }}
+                                        >
                                             <FontAwesomeIcon icon="info-circle" /></Button>
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Body><ActivityInfo /></Modal.Body>
@@ -80,9 +98,9 @@ function ActivityList() {
                                             </Modal.Footer>
                                         </Modal>
 
-                                        <Button variant="outline-primary" size='sm' onClick={handleShow}> <FontAwesomeIcon icon="edit" /></Button>
-                                        <Modal show={show} onHide={handleClose}>
-                                            <Modal.Body><EditActivity /></Modal.Body>
+                                        <Button variant="outline-primary" size='sm' onClick={handleShowEdit}> <FontAwesomeIcon icon="edit" /></Button>
+                                        <Modal show={showEdit} onHide={handleClose}>
+                                            <Modal.Body><EditActivityInfo /></Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="primary" onClick={handleClose}>
                                                     Close
@@ -98,7 +116,7 @@ function ActivityList() {
                                         {info.activity_location}
                                     </td>
                                     <td>
-                                        <Button variant="outline-primary" size='sm' onClick={handleShow}>
+                                        <Button variant="outline-primary" size='sm' onClick={handleShowAdd}>
                                             <FontAwesomeIcon icon="plus-square" />
                                         </Button>
                                     </td>
@@ -109,8 +127,8 @@ function ActivityList() {
                     </tbody>
                 </Table >
 
-                <Button variant="primary" onClick={handleShow}>New Activity</Button>
-                <Modal show={show} onHide={handleClose}>
+                <Button variant="primary" onClick={handleShowNew}>New Activity</Button>
+                <Modal show={showNew} onHide={handleClose}>
                     <Modal.Body><NewActivity /></Modal.Body>
 
                 </Modal>
@@ -119,4 +137,9 @@ function ActivityList() {
         </>
     );
 }
+
+
+
 export default ActivityList;
+
+
