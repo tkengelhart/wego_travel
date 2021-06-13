@@ -69,12 +69,10 @@ function App() {
           >
             <ActivityList />
           </Route>
-          <Route
-            exact
-            path="/activity/:activityId"
-          >
+          <Route path="/activity/:activityId">
             <ActivityInfo />
           </Route>
+
 
           {/* <Route
             exact

@@ -10,21 +10,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ActivityInfo() {
 
-  let activities = useSelector(store => store.activities);
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ACTIVITIES' });
+
+  }, []);
+  const activityList = useSelector(store => store.activities);
 
   let params = useParams();
   console.log(params);
 
   let activityId = params.activityId;
 
-  let activity = activities.find(activity => activity.id === Number(activityId));
+
+  let activity = activityList.find(activity => activity.id === Number(activityId));
+  console.log(params.activityId);
   console.log(`found activity: `, activity);
 
-  // Bail out early with a message if the activity isnt found
-  if (!activity) {
-    return <h2>Invalid Activity ID</h2>;
-  }
 
+
+
+
+
+  if (!activity) {
+    return <h2>Invalid activity ID</h2>;
+  }
 
 
 

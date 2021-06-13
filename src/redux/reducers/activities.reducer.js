@@ -4,6 +4,8 @@ const activities = (state = [], action) => {
             return action.payload;
         case 'SET_ITINERARY_ACTIVITIES':
             return action.payload;
+        case 'SET_DETAILS':
+            return action.payload;
         default:
             return state;
     }

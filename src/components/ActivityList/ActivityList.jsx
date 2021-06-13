@@ -21,6 +21,10 @@ function ActivityList() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_ACTIVITIES' });
+    }, []);
+
     const deleteActivity = (activityId) => {
         console.log('id is', activityId);
         dispatch({
@@ -29,15 +33,22 @@ function ActivityList() {
         });
     }
 
-    const editActivity = (activityId) => {
+    const setActivityDetails = (activityId) => {
+        console.log('in set details', activityId);
         const handleShow = () => setShow(true);
-        history.push(`/activity/:activityId`)
-
+        dispatch({
+            type: 'SET_DETAILS',
+            payload: activityId,
+        })
+        history.push(`/activity/${activityId}`);
     }
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITIES' });
-    }, []);
+    // const editActivity = (activityId) => {
+    //     const handleShow = () => setShow(true);
+    //     // history.push(`/activity/:activityId`)
+
+    // }
+
 
 
     // const setInfo = (info) => {
@@ -69,7 +80,8 @@ function ActivityList() {
                                 <tr key={info.id}>
                                     <td>
                                         {info.name}<br />
-                                        <Button variant="outline-primary" size='sm' onClick={editActivity}><FontAwesomeIcon icon="info-circle" /></Button>
+                                        <Button variant="outline-primary" size='sm' onClick={(event) => setActivityDetails(info.id)}>
+                                            <FontAwesomeIcon icon="info-circle" /></Button>
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Body><ActivityInfo /></Modal.Body>
                                             <Modal.Footer>
