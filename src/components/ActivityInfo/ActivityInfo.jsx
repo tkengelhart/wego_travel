@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function ActivityInfo() {
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ACTIVITIES' });

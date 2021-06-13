@@ -5,7 +5,7 @@ const activities = (state = [], action) => {
         case 'SET_ITINERARY_ACTIVITIES':
             return action.payload;
         case 'SET_DETAILS':
-            return action.payload;
+            return [...state];
         default:
             return state;
     }

@@ -34,11 +34,11 @@ function ActivityList() {
     }
 
     const setActivityDetails = (activityId) => {
-        console.log('in set details', activityId);
+        // console.log('in set details', activity);
         const handleShow = () => setShow(true);
         dispatch({
             type: 'SET_DETAILS',
-            payload: activityId,
+            payload: activities.activity,
         })
         history.push(`/activity/${activityId}`);
     }
@@ -49,17 +49,6 @@ function ActivityList() {
 
     // }
 
-
-
-    // const setInfo = (info) => {
-    //     console.log('info is', info)
-    //     console.log('info id is', info.id)
-    //     dispatch({
-    //         type: 'SET_INFO',
-    //         payload: info.id,
-    //     });
-    //     history.push(`/activity/${info.id}`);
-    // }
 
     return (
         <>
