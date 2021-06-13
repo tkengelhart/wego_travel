@@ -99,19 +99,31 @@ router.post('/trip', (req, res, next) => {
 //delete activity
 //delete activity works
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  console.log('the param s', req.params.id);
-  const queryText = `DELETE FROM "itinerary_activity"
+  console.log('the param is', req.params.id);
+  const firstQuery = `DELETE FROM "itinerary_activity"
   WHERE "itinerary_activity"."activity_id" = $1;`;
-  pool.query(queryText, [req.params.id])
+
+  pool.query(firstQuery, [req.params.id])
     .then(response => {
       console.log('Deleted activity', response.rows);
-      res.sendStatus(200);
-    })
-    .catch(err => {
+
+      const queryText = `DELETE FROM "activity" WHERE "activity"."id" = $1;`;
+
+      pool.query(queryText, [req.params.id])
+        .then(response => {
+          console.log('Deleted activity', response.rows);
+          res.sendStatus(200);
+        })
+        .catch(err => {
+          console.log('Trouble deleting', err);
+          res.sendStatus(500);
+        })
+
+    }).catch(err => {
       console.log('Trouble deleting', err);
       res.sendStatus(500);
-    });
-});
+    })
+})
 
 //update activity day and time of day
 // router.put('/edit/:itinId', (req, res) => {

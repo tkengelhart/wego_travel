@@ -34,7 +34,6 @@ function AddActivity() {
                 activity_location: location,
             }
         });
-        history.push("/activity")
 
 
     }

@@ -29,6 +29,12 @@ function ActivityList() {
         });
     }
 
+    const editActivity = (infoId) => {
+        dispatch({
+            type: 'EDIT_ACTIVITY',
+            payload: infoId,
+        })
+    }
 
     useEffect(() => {
         dispatch({ type: 'FETCH_ACTIVITIES' });
@@ -73,9 +79,9 @@ function ActivityList() {
                                                 </Button>
                                             </Modal.Footer>
                                         </Modal>
-                                        <Button variant="outline-primary" size='sm' onClick={handleShow}><FontAwesomeIcon icon="edit" /></Button>
+                                        <Button variant="outline-primary" size='sm' onClick={handleShow}> <FontAwesomeIcon icon="edit" /></Button>
                                         <Modal show={show} onHide={handleClose}>
-                                            {/* <Modal.Body><EditActivity /></Modal.Body> */}
+                                            <Modal.Body><EditActivity /></Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="primary" onClick={handleClose}>
                                                     Close
@@ -84,9 +90,17 @@ function ActivityList() {
                                         </Modal>
                                     </td>
 
-                                    <td>{info.constraints}</td>
-                                    <td>{info.activity_location}</td>
-                                    <td><Button variant="outline-primary" size='sm' onClick={handleShow}><FontAwesomeIcon icon="plus-square" /></Button></td>
+                                    <td>
+                                        {info.constraints}
+                                    </td>
+                                    <td>
+                                        {info.activity_location}
+                                    </td>
+                                    <td>
+                                        <Button variant="outline-primary" size='sm' onClick={handleShow}>
+                                            <FontAwesomeIcon icon="plus-square" />
+                                        </Button>
+                                    </td>
 
                                     <td><Button variant="outline-primary" size='sm' onClick={(event) => deleteActivity(info.id)}><FontAwesomeIcon icon="trash-alt" /></Button></td>
                                 </tr>)

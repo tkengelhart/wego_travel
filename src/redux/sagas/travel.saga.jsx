@@ -74,7 +74,7 @@ function* deleteActivity(action) {
     console.log('in deleteActivity', action);
     console.log('payload is', action.payload);
     try {
-        const deleteId = yield axios.delete(`/api/travel/${action.payload}/`);
+        const deleteId = yield axios.delete(`/api/travel/${action.payload}`);
         yield put({ type: 'FETCH_ACTIVITIES' });
     } catch (error) {
         console.log('Error deleting item', error);

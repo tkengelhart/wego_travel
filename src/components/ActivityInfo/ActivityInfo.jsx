@@ -36,10 +36,11 @@ function ActivityInfo() {
 
   return (
     <Container>
-      Name: {activityList.name}
-      Location: {activityList.activity_location}
-      <a href={activityList.activity_url}></a>
-
+      <span>
+        Name: {activityList.name}
+        Location: {activityList.activity_location}
+        <a href={activityList.activity_url}></a>
+      </span>
 
 
     </Container>
