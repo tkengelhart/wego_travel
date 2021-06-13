@@ -72,13 +72,12 @@ function* addActivity(action) {
 
 function* deleteActivity(action) {
     console.log('in deleteActivity', action);
+    console.log('payload is', action.payload);
     try {
-        let id = action.payload
-        // debugger;
-        yield axios.delete(`/api/travel/${id}/`);
+        const deleteId = yield axios.delete(`/api/travel/${action.payload}/`);
         yield put({ type: 'FETCH_ACTIVITIES' });
     } catch (error) {
-        console.log('Error in adding new item', error);
+        console.log('Error deleting item', error);
     }
 }
 

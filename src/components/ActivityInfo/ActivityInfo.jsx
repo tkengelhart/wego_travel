@@ -12,18 +12,14 @@ function ActivityInfo() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const dispatch = useDispatch();
   const activityList = useSelector(store => store.activities);
-
-
   const history = useHistory();
 
   let params = useParams();
   console.log(params);
 
-  let activityId = params.activityId; // :id is set up in App.js
-  // let genreId = params.genreId
+  let activityId = params.activityId;
 
 
   let activity = activityList.find(activity => activity.id === Number(activityId));
@@ -40,18 +36,10 @@ function ActivityInfo() {
 
   return (
     <Container>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Title>Activity: {activity.name}</Modal.Title>
-        <Modal.Subtitle>Location: {activity.activity_location}</Modal.Subtitle>
-        <Modal.Body>{activity.activity_url}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
+      Name: {activityList.name}
+      Location: {activityList.activity_location}
+      <a href={activityList.activity_url}></a>
 
-
-      </Modal>
 
 
     </Container>

@@ -16,7 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import InfoPage from '../UnusedComponents/InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -27,9 +27,9 @@ import ActivityInfo from '../ActivityInfo/ActivityInfo';
 import './App.css';
 import "bootswatch/dist/minty/bootstrap.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faInfoCircle, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faInfoCircle, faEdit, faPlusSquare, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faInfoCircle, faEdit)
+library.add(faInfoCircle, faEdit, faPlusSquare, faTrashAlt);
 
 
 function App() {

@@ -13,7 +13,6 @@ function TripPage() {
   const history = useHistory();
   const trips = useSelector(store => store.trips);
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -40,7 +39,6 @@ function TripPage() {
 
               {trips.map(trip => {
                 return (
-
                   <Card key={trip.id} border="dark">
                     <Card.Body onClick={() => setTripDetails(trip)}>
                       <Card.Title >{trip.trip_name}</Card.Title>
@@ -48,7 +46,6 @@ function TripPage() {
                       <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
                     </Card.Body>
                   </Card>
-
                 );
               })}
             </CardGroup>

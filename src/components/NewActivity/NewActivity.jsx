@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
-function AddActivity() {
+function NewActivity() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [show, setShow] = useState(false);
@@ -88,4 +88,4 @@ function AddActivity() {
 
 
 
-export default AddActivity;
+export default NewActivity;

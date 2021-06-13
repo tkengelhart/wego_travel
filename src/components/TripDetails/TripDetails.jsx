@@ -48,8 +48,9 @@ function TripDetails() {
                                     {moment(item.date).format('MMM Do YYYY')}<br /><Button onClick={() => { history.push('/edit') }}><FontAwesomeIcon icon="info-circle" />
                                     </Button>
                                     &nbsp;&nbsp;
-                                    <Button onClick={() => { history.push('/edit') }}><FontAwesomeIcon icon="edit" /></Button>
+                                    <Button onClick={() => { history.push('/edit') }}><Icon icon="edit" /></Button>
                                 </td> */}
+                                <td>{moment(item.date).format('MMM Do YYYY')}</td>
                                 <td>{item.name}</td>
 
                                 <td>{item.time_of_day}</td>
