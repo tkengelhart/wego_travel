@@ -30,6 +30,14 @@ function TripDetails() {
         history.push(`/activity/${activityId}`);
     }
 
+    const editDetails = event => {
+        console.log(`Editing activity itinerary`, activities);
+        history.push(`/activityupdate`)
+    };
+
+
+
+
 
     return (
         <Container>
@@ -63,13 +71,13 @@ function TripDetails() {
                                     >
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    {/* <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-primary" size='sm'
                                         onClick={() => {
                                             editDetails(item.id);
 
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
-                                    </Button> */}
+                                    </Button>
                                 </td>
 
                                 <td>{item.name}</td>
@@ -89,4 +97,5 @@ function TripDetails() {
 
     );
 }
+
 export default TripDetails;

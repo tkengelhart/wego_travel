@@ -31,6 +31,7 @@ import './App.css';
 import "bootswatch/dist/minty/bootstrap.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInfoCircle, faEdit, faPlusSquare, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import EditActivityTime from '../EditActivityTime/EditActivityTime';
 
 library.add(faInfoCircle, faEdit, faPlusSquare, faTrashAlt);
 
@@ -80,7 +81,9 @@ function App() {
           <Route path='/add'><AddActivity /></Route>
           <Route path='/activity/:activityId'><ActivityInfo /></Route>
           <Route path='/additinerary'><ChooseItinerary /></Route>
-          
+          <Route path='/activityupdate'><EditActivityTime /></Route>
+
+
 
 
 

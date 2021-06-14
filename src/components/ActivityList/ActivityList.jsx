@@ -38,7 +38,16 @@ function ActivityList() {
     }
 
     const chooseItinerary = (activityId) => {
-        history.push(`/activity`);
+        history.push(`/additinerary`);
+    }
+
+    const editActivity = (activityId) => {
+        dispatch({
+            type: 'EDIT_ACTIVITY',
+            payload: activityId
+        })
+        history.push(`/activity/${activityId}`)
+
     }
 
     return (
@@ -65,6 +74,8 @@ function ActivityList() {
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
+                                 
+
 
                                     <Button variant="outline-primary" size='sm'
                                         onClick={() => {

@@ -35,8 +35,7 @@ function ChooseItinerary() {
                 notes: notes,
             }
         });
-        history.push('/additinerary')
-
+        history.push('/activity');
     };
 
 

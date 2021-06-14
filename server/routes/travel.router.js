@@ -82,22 +82,26 @@ router.put('/editinfo/:activityId', (req, res, next) => {
 
 //change activity time of day and date in itinerary
 
-router.put('/activity', (req, res) => {
-  let activityTime = req.params.activityTime;
+router.put('/activityupdate', (req, res) => {
+  let activityTime = req.body.activityTime;
+  let activityId = req.body.activityId;
+  console.log('req.body is', req.body);
   console.log('here is the activity being edited', activityTime);
 
-  const query = `UPDATE "itinerary_activity" SET "time_of_day" = 'morning'
-  WHERE "itinerary_activity"."activity_id" = $1;`;
-  pool.query(query, [activityTime])
+  const query = `UPDATE "itinerary_activity" SET "time_of_day" = $2
+  WHERE "itinerary_activity"."id" = $1 RETURNING *;`;
+  pool.query(query, [activityId, activityTime])
     .then((response) => {
       console.log('Editing this itinerary', response.rows);
       res.send(response.rows);
     })
     .catch((error) => {
+      console.log('error is', error);
+
       res.sendStatus(500)
     })
 });
-router.put('/additinerary', (req, res, next) => {
+router.post('/additinerary', (req, res, next) => {
   const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
   VALUES ($1, $2, $3, $4, $5)`;
   pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.date.notes])
@@ -147,7 +151,7 @@ router.post('/trip', (req, res, next) => {
     });
 });
 
-router.put('/additinerary', (req, res, next) => {
+router.post('/additinerary', (req, res, next) => {
   const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
   VALUES ($1, $2, $3, $4, $5)`;
   pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.date.notes])

@@ -7,7 +7,7 @@ function* travelSaga() {
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
     yield takeEvery('ADD_ACTIVITY', addActivity);
-    yield takeEvery('EDIT_ACTIVITY_INFO', editActivityInfo);
+    yield takeEvery('EDIT_ACTIVITY_ITINERARY', editActivityInfo);
     yield takeEvery('DELETE_ACTIVITY', deleteActivity);
     yield takeEvery('ADD_TO_ITINERARY', chooseItinerary);
 }
@@ -27,7 +27,7 @@ function* fetchDetails(action) {
 function* chooseItinerary(action) {
     //add an activity to chosen itinerary
     try {
-        const chosenTrip = yield axios.put(`api/travel/additinerary/${action.payload.id}`);
+        const chosenTrip = yield axios.post(`api/travel/additinerary/${action.payload.id}`);
         console.log('payload for chosen itinerary is', action.payload);
         console.log('which trip?', action.payload.id);
         yield put({ type: 'LOAD_TRIP_DETAILS', payload: chosenTrip.data });
@@ -38,7 +38,7 @@ function* chooseItinerary(action) {
 function* editActivityInfo(action) {
     //edit initial info of activity
     try {
-        const activityInfo = yield axios.put(`/api/travel/editinfo/${action.payload.id}`);
+        const activityInfo = yield axios.put(`/api/travel/activityupdate`);
         console.log('payload for activity info is', action.payload);
         yield put({ type: 'UPDATE_ACTIVITY_INFO', payload: activityInfo.data });
     } catch (error) {
