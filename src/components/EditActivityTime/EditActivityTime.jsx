@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ActivityList from '../ActivityList/ActivityList';
 
 
-function EditActivity() {
+function EditActivityTime() {
         const dispatch = useDispatch();
         const history = useHistory();
         const [tod, setTod] = useState('');
@@ -65,5 +65,5 @@ function EditActivity() {
         )
 }
 
-export default EditActivity;
+export default EditActivityTime;
 

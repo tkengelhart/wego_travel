@@ -7,7 +7,7 @@ function* travelSaga() {
     yield takeEvery('FETCH_ACTIVITIES', fetchActivities);
     yield takeEvery('ADD_TRIP', addTrip);
     yield takeEvery('ADD_ACTIVITY', addActivity)
-    yield takeEvery('EDIT_ACTIVITY', editActivity)
+    yield takeEvery('EDIT_ACTIVITY_INFO', editActivityInfo)
     yield takeEvery('DELETE_ACTIVITY', deleteActivity)
 }
 
@@ -23,7 +23,7 @@ function* fetchDetails(action) {
     }
 }
 
-function* editActivity(action) {
+function* editActivityInfo(action) {
     //edit initial info of activity
     try {
         const activityInfo = yield axios.post(`/api/travel/activity`);

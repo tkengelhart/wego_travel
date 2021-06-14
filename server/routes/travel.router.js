@@ -5,7 +5,9 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-//GET initial list of trips
+
+//GET ROUTES
+//initial list of trips
 
 router.get('/trips', (req, res) => {
   const query = `SELECT * FROM "itinerary" ORDER BY "start"`;
@@ -35,7 +37,6 @@ router.get('/activity', (req, res) => {
 
 
 // update call for trip location after testing
-
 //changed this to pull from store instead
 
 router.get(`/details/:tripId`, (req, res) => {
@@ -62,6 +63,40 @@ ORDER BY "itinerary_activity"."date"`;
     })
 });
 
+//POST ROUTES
+//update itinerary activity
+
+router.post('/activity', (req, res, next) => {
+  const queryText = `INSERT INTO "itinerary_activity" ("name", "constraints", "activity_url", "activity_location") 
+    VALUES ($1, $2, $3, $4)`;
+  pool.query(queryText, [req.body.name, req.body.constraints, req.body.activity_url, req.body.activity_location])
+    .then(response => {
+      console.log('New Activity added', response.rows);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('Activity could not be added', err);
+      res.sendStatus(500);
+    });
+});
+
+//change activity time of day and date in itinerary
+
+router.post('/activity', (req, res) => {
+  let activityTime = req.params.activityTime;
+  console.log('here is the activity being edited', activityTime);
+
+  const query = `UPDATE "itinerary_activity" SET "time_of_day" = 'morning'
+  WHERE "itinerary_activity"."activity_id" = $1;`;
+  pool.query(query, [activityTime])
+    .then((response) => {
+      console.log('Editing this itinerary', response.rows);
+      res.send(response.rows);
+    })
+    .catch((error) => {
+      res.sendStatus(500)
+    })
+});
 //post new activity
 //new activity works
 router.post('/activity', (req, res, next) => {
@@ -96,6 +131,7 @@ router.post('/trip', (req, res, next) => {
     });
 });
 
+//DELETE ROUTES
 //delete activity
 //delete activity works
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
@@ -124,21 +160,5 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
     })
 })
-
-//update activity day and time of day
-// router.put('/edit/:itinId', (req, res) => {
-//   console.log(req.params);
-//   const itinId = req.params.id;
-//   const queryText = `UPDATE "itinerary_activity" SET "date" = $1, "time_of_day" = $2 
-//   WHERE "itinerary_activity"."id" = $3`;
-//   pool.query(queryText, [date, tod, itinId])
-//     .then(() => {
-//       res.sendStatus(202); //202 accepted
-//     }).catch((err) => {
-//       console.log(`Error making query ${queryText}`, err);
-//       res.sendStatus(500);
-//     });
-// });
-
 
 module.exports = router;

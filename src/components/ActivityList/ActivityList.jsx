@@ -22,18 +22,6 @@ function ActivityList() {
     const handleShow = () => setShow(true);
 
 
-    const [showEdit, setShowEdit] = useState(false);
-    const handleShowEdit = () => setShow(false);
-    const handleCloseEdit = () => setShow(true);
-
-    const [showAdd, setShowAdd] = useState(false);
-    const handleShowAdd = () => setShow(false);
-    const handleCloseAdd = () => setShow(true);
-
-    const [showNew, setShowNew] = useState(false);
-    const handleShowNew = () => setShow(false);
-    const handleCloseNew = () => setShow(true);
-
 
 
     const deleteActivity = (activityId) => {
@@ -88,7 +76,8 @@ function ActivityList() {
                                                 setActivityDetails(info.id);
                                             }}
                                         >
-                                            <FontAwesomeIcon icon="info-circle" /></Button>
+                                            <FontAwesomeIcon icon="info-circle" />
+                                        </Button>
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Body><ActivityInfo /></Modal.Body>
                                             <Modal.Footer>
@@ -98,8 +87,11 @@ function ActivityList() {
                                             </Modal.Footer>
                                         </Modal>
 
-                                        <Button variant="outline-primary" size='sm' onClick={handleShowEdit}> <FontAwesomeIcon icon="edit" /></Button>
-                                        <Modal show={showEdit} onHide={handleClose}>
+                                        <Button variant="outline-primary" size='sm'
+                                            onClick={handleShow}>
+                                            <FontAwesomeIcon icon="edit" />
+                                        </Button>
+                                        <Modal show={show} onHide={handleClose}>
                                             <Modal.Body><EditActivityInfo /></Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="primary" onClick={handleClose}>
@@ -116,19 +108,32 @@ function ActivityList() {
                                         {info.activity_location}
                                     </td>
                                     <td>
-                                        <Button variant="outline-primary" size='sm' onClick={handleShowAdd}>
+                                        <Button variant="outline-primary" size='sm'
+                                            onClick={handleShow}>
                                             <FontAwesomeIcon icon="plus-square" />
                                         </Button>
+                                        <Modal show={show} onHide={handleClose}>
+                                            {/* <Modal.Body><EditActivityTime /></Modal.Body> */}
+                                            <Modal.Footer>
+                                                <Button variant="primary" onClick={handleClose}>
+                                                    Close
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
                                     </td>
 
-                                    <td><Button variant="outline-primary" size='sm' onClick={(event) => deleteActivity(info.id)}><FontAwesomeIcon icon="trash-alt" /></Button></td>
+                                    <td><Button variant="outline-primary" size='sm'
+                                        onClick={(event) => deleteActivity(info.id)}>
+                                        <FontAwesomeIcon icon="trash-alt" />
+                                    </Button></td>
                                 </tr>)
                         })}
                     </tbody>
                 </Table >
 
-                <Button variant="primary" onClick={handleShowNew}>New Activity</Button>
-                <Modal show={showNew} onHide={handleClose}>
+                <Button variant="primary"
+                    onClick={handleShow}>New Activity</Button>
+                <Modal show={show} onHide={handleClose}>
                     <Modal.Body><NewActivity /></Modal.Body>
 
                 </Modal>
