@@ -26,9 +26,9 @@ function* fetchDetails(action) {
 function* editActivityInfo(action) {
     //edit initial info of activity
     try {
-        const activityInfo = yield axios.post(`/api/travel/activity`);
+        const activityInfo = yield axios.put(`/api/travel/editinfo`);
         console.log('payload for activity info is', action.payload);
-        yield put({ type: 'EDIT_ACTIVITY', payload: activityInfo.data });
+        yield put({ type: 'UPDATE_ACTIVITY_INFO', payload: activityInfo.data });
     } catch (error) {
         console.log('Error editing info.', error);
     }
@@ -69,7 +69,7 @@ function* addTrip(action) {
 
 function* addActivity(action) {
     try {
-        yield axios.post('/api/travel/activity', action.payload);
+        yield axios.post('/api/travel/add', action.payload);
         yield put({ type: 'FETCH_ACTIVITIES' });
     } catch (error) {
         console.log(`Error fetching activities`, error);

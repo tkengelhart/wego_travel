@@ -11,9 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function AddActivity() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const [show, setShow] = useState(false);
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
 
 
     const [name, setName] = useState('');
@@ -24,7 +24,6 @@ function AddActivity() {
     const handleSubmit = event => {
         event.preventDefault();
         console.log(`Adding new activity`, { name, constraints, website, location });
-
         dispatch({
             type: 'ADD_ACTIVITY',
             payload: {
@@ -34,6 +33,7 @@ function AddActivity() {
                 activity_location: location,
             }
         });
+        history.push('/activity')
 
 
     }

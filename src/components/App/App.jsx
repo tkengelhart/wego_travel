@@ -24,6 +24,8 @@ import TripPage from '../TripPage/TripPage';
 import ActivityList from '../ActivityList/ActivityList';
 import TripDetails from '../TripDetails/TripDetails';
 import ActivityInfo from '../ActivityInfo/ActivityInfo';
+import AddActivity from '../AddActivity/AddActivity';
+import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
 import './App.css';
 import "bootswatch/dist/minty/bootstrap.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -48,6 +50,8 @@ function App() {
           <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
+
+
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
@@ -72,6 +76,11 @@ function App() {
           <Route path="/activity/:activityId">
             <ActivityInfo />
           </Route>
+          <Route path='/add'><AddActivity /></Route>
+          <Route path='/activity/:activityId'><ActivityInfo /></Route>
+          <Route path='/editinfo'><EditActivityInfo /></Route>
+
+
 
 
           {/* <Route

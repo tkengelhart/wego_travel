@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Button, Modal } from 'react-bootstrap';
+import { Container, Button, Modal, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ActivityInfo() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
 
   useEffect(() => {
@@ -35,14 +36,14 @@ function ActivityInfo() {
 
   return (
     <Container>
-      <ul>
-        <li>Name: {activity.name}</li>
-        <li>Location: {activity.activity_location}</li>
-        <li>{activity.activity_url}</li>
-      </ul>
-
-
-    </Container>
+      <Card>
+        <Card.Header>Name: {activity.name}</Card.Header>
+        <Card.Body>Location: {activity.activity_location}</Card.Body>
+        <Card.Link href="Website"> {activity.activity_url}</Card.Link>
+      </Card>
+      <Button variant="primary"
+        onClick={() => history.goBack()}>Back</Button>
+    </Container >
 
   )
 }

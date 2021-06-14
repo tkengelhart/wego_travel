@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react';
@@ -12,16 +12,17 @@ import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
 
 
 function ActivityList() {
+    useEffect(() => {
+        dispatch({ type: 'FETCH_ACTIVITIES' });
+    }, []);
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
     console.log('info is', activities);
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-
+    // const [show, setShow] = useState(false);
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
 
 
     const deleteActivity = (activityId) => {
@@ -35,111 +36,85 @@ function ActivityList() {
         history.push(`/activity/${activityId}`);
     }
 
-    const editActivity = (activityId) => {
-        dispatch({
-            type: 'EDIT_ACTIVITY',
-            payload: activityId
-        })
-        history.push(`/activity/${activityId}`)
+    // const editActivity = (activityId) => {
+    //     dispatch({
+    //         type: 'EDIT_ACTIVITY',
+    //         payload: activityId
+    //     })
+    //     history.push(`/activity/${activityId}`)
 
-    }
+    // }
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITIES' });
-    }, []);
+
 
 
 
 
     return (
-        <>
-            <Container>
+        <Container>
 
-                <Table striped hover>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Constraints</th>
-                            <th>Location</th>
-                        </tr>
-                    </thead>
+            <Table striped hover>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Constraints</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
 
-                    <tbody>
-                        {activities.map(info => {
-                            return (
-                                <tr key={info.id}>
-                                    <td>
-                                        {info.name}<br />
-                                        <Button variant="outline-primary" size='sm'
-                                            onClick={() => {
-                                                handleShow();
-                                                setActivityDetails(info.id);
-                                            }}
-                                        >
-                                            <FontAwesomeIcon icon="info-circle" />
-                                        </Button>
-                                        <Modal show={show} onHide={handleClose}>
-                                            <Modal.Body><ActivityInfo /></Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="primary" onClick={handleClose}>
-                                                    Close
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
+                <tbody>
+                    {activities.map(info => {
+                        return (
+                            <tr key={info.id}>
+                                <td>
+                                    {info.name}<br />
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={() => {
+                                            setActivityDetails(info.id);
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon="info-circle" />
+                                    </Button>
 
-                                        <Button variant="outline-primary" size='sm'
-                                            onClick={handleShow}>
-                                            <FontAwesomeIcon icon="edit" />
-                                        </Button>
-                                        <Modal show={show} onHide={handleClose}>
-                                            <Modal.Body><EditActivityInfo /></Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="primary" onClick={handleClose}>
-                                                    Close
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
-                                    </td>
 
-                                    <td>
-                                        {info.constraints}
-                                    </td>
-                                    <td>
-                                        {info.activity_location}
-                                    </td>
-                                    <td>
-                                        <Button variant="outline-primary" size='sm'
-                                            onClick={handleShow}>
-                                            <FontAwesomeIcon icon="plus-square" />
-                                        </Button>
-                                        <Modal show={show} onHide={handleClose}>
-                                            {/* <Modal.Body><EditActivityTime /></Modal.Body> */}
-                                            <Modal.Footer>
-                                                <Button variant="primary" onClick={handleClose}>
-                                                    Close
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
-                                    </td>
 
-                                    <td><Button variant="outline-primary" size='sm'
-                                        onClick={(event) => deleteActivity(info.id)}>
-                                        <FontAwesomeIcon icon="trash-alt" />
-                                    </Button></td>
-                                </tr>)
-                        })}
-                    </tbody>
-                </Table >
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={() => {
+                                            history.push('/editinfo');
+                                        }}>
+                                        <FontAwesomeIcon icon="edit" />
+                                    </Button>
 
-                <Button variant="primary"
-                    onClick={handleShow}>New Activity</Button>
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Body><NewActivity /></Modal.Body>
+                                </td>
 
-                </Modal>
+                                <td>
+                                    {info.constraints}
+                                </td>
+                                <td>
+                                    {info.activity_location}
+                                </td>
+                                <td>
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={() => {
+                                            history.push('/edittime')
+                                        }}>
+                                        <FontAwesomeIcon icon="plus-square" />
+                                    </Button>
+                                </td>
+                                <td><Button variant="outline-primary" size='sm'
+                                    onClick={(event) => deleteActivity(info.id)}>
+                                    <FontAwesomeIcon icon="trash-alt" />
+                                </Button></td>
+                            </tr>)
+                    })}
+                </tbody>
+            </Table >
 
-            </Container >
-        </>
+            <Button variant="primary"
+                onClick={() => history.push('/add')}>New Activity</Button>
+
+        </Container >
+
     );
 }
 
@@ -148,3 +123,89 @@ function ActivityList() {
 export default ActivityList;
 
 
+// <Container>
+
+// <Table striped hover>
+//     <thead>
+//         <tr>
+//             <th>Name</th>
+//             <th>Constraints</th>
+//             <th>Location</th>
+//         </tr>
+//     </thead>
+
+//     <tbody>
+//         {activities.map(info => {
+//             return (
+//                 <tr key={info.id}>
+//                     <td>
+//                         {info.name}<br />
+//                         <Button variant="outline-primary" size='sm'
+//                             onClick={() => {
+//                                 handleShow();
+//                                 setActivityDetails(info.id);
+//                             }}
+//                         >
+//                             <FontAwesomeIcon icon="info-circle" />
+//                         </Button>
+//                         <Modal show={show} onHide={handleClose}>
+//                             <Modal.Body><ActivityInfo /></Modal.Body>
+//                             <Modal.Footer>
+//                                 <Button variant="primary" onClick={handleClose}>
+//                                     Close
+//                                 </Button>
+//                             </Modal.Footer>
+//                         </Modal>
+
+//                         <Button variant="outline-primary" size='sm'
+//                             onClick={handleShow}>
+//                             <FontAwesomeIcon icon="edit" />
+//                         </Button>
+//                         <Modal show={show} onHide={handleClose}>
+//                             <Modal.Body><Route><EditActivityInfo /></Route></Modal.Body>
+//                             <Modal.Footer>
+//                                 <Button variant="primary" onClick={handleClose}>
+//                                     Close
+//                                 </Button>
+//                             </Modal.Footer>
+//                         </Modal>
+//                     </td>
+
+//                     <td>
+//                         {info.constraints}
+//                     </td>
+//                     <td>
+//                         {info.activity_location}
+//                     </td>
+//                     <td>
+//                         <Button variant="outline-primary" size='sm'
+//                             onClick={handleShow}>
+//                             <FontAwesomeIcon icon="plus-square" />
+//                         </Button>
+//                         <Modal show={show} onHide={handleClose}>
+//                             {/* <Modal.Body><EditActivityTime /></Modal.Body> */}
+//                             <Modal.Footer>
+//                                 <Button variant="primary" onClick={handleClose}>
+//                                     Close
+//                                 </Button>
+//                             </Modal.Footer>
+//                         </Modal>
+//                     </td>
+
+//                     <td><Button variant="outline-primary" size='sm'
+//                         onClick={(event) => deleteActivity(info.id)}>
+//                         <FontAwesomeIcon icon="trash-alt" />
+//                     </Button></td>
+//                 </tr>)
+//         })}
+//     </tbody>
+// </Table >
+
+// <Button variant="primary"
+//     onClick={handleShow}>New Activity</Button>
+// <Modal show={show} onHide={handleClose}>
+//     <Modal.Body><NewActivity /></Modal.Body>
+
+// </Modal>
+
+// </Container >

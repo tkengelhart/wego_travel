@@ -10,6 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function EditActivityInfo() {
     const dispatch = useDispatch();
+    const history = useHistory();
+
 
 
     useEffect(() => {
@@ -35,6 +37,7 @@ function EditActivityInfo() {
                 activity_location: editLocation,
             }
         });
+        history.push('/activity')
     }
 
     // let params = useParams();

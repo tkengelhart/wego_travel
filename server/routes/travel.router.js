@@ -63,15 +63,15 @@ ORDER BY "itinerary_activity"."date"`;
     })
 });
 
-//POST ROUTES
-//update itinerary activity
+//PUT ROUTES
+//Update activity info
 
-router.post('/activity', (req, res, next) => {
-  const queryText = `INSERT INTO "itinerary_activity" ("name", "constraints", "activity_url", "activity_location") 
+router.put('/editinfo', (req, res, next) => {
+  const queryText = `INSERT INTO "activity" ("name", "constraints", "activity_url", "activity_location") 
     VALUES ($1, $2, $3, $4)`;
   pool.query(queryText, [req.body.name, req.body.constraints, req.body.activity_url, req.body.activity_location])
     .then(response => {
-      console.log('New Activity added', response.rows);
+      console.log('Activity Updated', response.rows);
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -97,9 +97,12 @@ router.post('/activity', (req, res) => {
       res.sendStatus(500)
     })
 });
+
+//POST ROUTES
+//update itinerary activity
 //post new activity
 //new activity works
-router.post('/activity', (req, res, next) => {
+router.post('/add', (req, res, next) => {
   const queryText = `INSERT INTO "activity" ("name", "constraints", "activity_url", "activity_location") 
     VALUES ($1, $2, $3, $4)`;
   pool.query(queryText, [req.body.name, req.body.constraints, req.body.activity_url, req.body.activity_location])

@@ -25,6 +25,9 @@ function TripDetails() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const setActivityDetails = (activityId) => {
+        history.push(`/activity/${activityId}`);
+    }
 
     return (
         <Container>
@@ -51,7 +54,14 @@ function TripDetails() {
                                     <Button onClick={() => { history.push('/edit') }}><Icon icon="edit" /></Button>
                                 </td> */}
                                 <td>{moment(item.date).format('MMM Do YYYY')}</td>
-                                <td>{item.name}</td>
+                                <td>{item.name}<br />
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={() => {
+                                            setActivityDetails(item.id);
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon="info-circle" />
+                                    </Button></td>
 
                                 <td>{item.time_of_day}</td>
 
