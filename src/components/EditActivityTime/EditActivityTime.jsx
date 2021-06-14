@@ -38,6 +38,8 @@ function EditActivityTime() {
                         history.push(`/${itinId}`)
                 }
 
+
+
         }
         return (
                 <Container>
@@ -46,12 +48,14 @@ function EditActivityTime() {
                                         Time of Day
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                        <Dropdown.Item>Morning</Dropdown.Item>
-                                        <Dropdown.Item>Noon</Dropdown.Item>
-                                        <Dropdown.Item>Afternoon</Dropdown.Item>
-                                        <Dropdown.Item>Evening</Dropdown.Item>
+                                        <Dropdown.Item key="1">Morning</Dropdown.Item>
+                                        <Dropdown.Item key="2">Noon</Dropdown.Item>
+                                        <Dropdown.Item key="3">Afternoon</Dropdown.Item>
+                                        <Dropdown.Item key="4">Evening</Dropdown.Item>
+                                        <Dropdown.Item key="5">All Day</Dropdown.Item>
                                 </Dropdown.Menu>
                         </Dropdown>
+
                         <Dropdown>
                                 <Dropdown.Toggle>
                                         <Dropdown.Menu>

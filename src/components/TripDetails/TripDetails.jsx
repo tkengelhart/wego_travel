@@ -9,6 +9,7 @@ import moment from 'moment';
 // import EditActivity from '../EditActivity/EditActivity';
 import { useState } from 'react';
 import ActivityList from '../ActivityList/ActivityList';
+import EditActivityTime from '../EditActivityTime/EditActivityTime';
 
 
 
@@ -28,6 +29,7 @@ function TripDetails() {
     const setActivityDetails = (activityId) => {
         history.push(`/activity/${activityId}`);
     }
+
 
     return (
         <Container>
@@ -53,15 +55,24 @@ function TripDetails() {
                                     &nbsp;&nbsp;
                                     <Button onClick={() => { history.push('/edit') }}><Icon icon="edit" /></Button>
                                 </td> */}
-                                <td>{moment(item.date).format('MMM Do YYYY')}</td>
-                                <td>{item.name}<br />
+                                <td>{moment(item.date).format('MMM Do YYYY')}<br />
                                     <Button variant="outline-primary" size='sm'
                                         onClick={() => {
                                             setActivityDetails(item.id);
                                         }}
                                     >
                                         <FontAwesomeIcon icon="info-circle" />
-                                    </Button></td>
+                                    </Button>
+                                    {/* <Button variant="outline-primary" size='sm'
+                                        onClick={() => {
+                                            editDetails(item.id);
+
+                                        }}>
+                                        <FontAwesomeIcon icon="edit" />
+                                    </Button> */}
+                                </td>
+
+                                <td>{item.name}</td>
 
                                 <td>{item.time_of_day}</td>
 

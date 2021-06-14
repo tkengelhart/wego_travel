@@ -26,6 +26,7 @@ import TripDetails from '../TripDetails/TripDetails';
 import ActivityInfo from '../ActivityInfo/ActivityInfo';
 import AddActivity from '../AddActivity/AddActivity';
 import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
+import ChooseItinerary from '../ChooseItinerary/ChooseItinerary';
 import './App.css';
 import "bootswatch/dist/minty/bootstrap.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -78,7 +79,8 @@ function App() {
           </Route>
           <Route path='/add'><AddActivity /></Route>
           <Route path='/activity/:activityId'><ActivityInfo /></Route>
-          <Route path='/editinfo'><EditActivityInfo /></Route>
+          <Route path='/additinerary'><ChooseItinerary /></Route>
+          
 
 
 

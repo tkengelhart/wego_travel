@@ -5,10 +5,11 @@ import { useHistory, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react';
-import NewActivity from '../NewActivity/NewActivity';
+import NewActivity from '../ChooseItinerary/ChooseItinerary';
 import AddActivity from '../AddActivity/AddActivity';
 import ActivityInfo from '../ActivityInfo/ActivityInfo';
 import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
+import ChooseItinerary from '../ChooseItinerary/ChooseItinerary';
 
 
 function ActivityList() {
@@ -36,19 +37,9 @@ function ActivityList() {
         history.push(`/activity/${activityId}`);
     }
 
-    // const editActivity = (activityId) => {
-    //     dispatch({
-    //         type: 'EDIT_ACTIVITY',
-    //         payload: activityId
-    //     })
-    //     history.push(`/activity/${activityId}`)
-
-    // }
-
-
-
-
-
+    const chooseItinerary = (activityId) => {
+        history.push(`/additinerary`);
+    }
 
     return (
         <Container>
@@ -71,20 +62,21 @@ function ActivityList() {
                                     <Button variant="outline-primary" size='sm'
                                         onClick={() => {
                                             setActivityDetails(info.id);
-                                        }}
-                                    >
+                                        }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
 
-
-
                                     <Button variant="outline-primary" size='sm'
                                         onClick={() => {
-                                            history.push('/editinfo');
+                                            chooseItinerary(info.id)
                                         }}>
-                                        <FontAwesomeIcon icon="edit" />
+                                        <FontAwesomeIcon icon="plus-square" />
                                     </Button>
 
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={(event) => deleteActivity(info.id)}>
+                                        <FontAwesomeIcon icon="trash-alt" />
+                                    </Button>
                                 </td>
 
                                 <td>
@@ -93,18 +85,7 @@ function ActivityList() {
                                 <td>
                                     {info.activity_location}
                                 </td>
-                                <td>
-                                    <Button variant="outline-primary" size='sm'
-                                        onClick={() => {
-                                            history.push('/edittime')
-                                        }}>
-                                        <FontAwesomeIcon icon="plus-square" />
-                                    </Button>
-                                </td>
-                                <td><Button variant="outline-primary" size='sm'
-                                    onClick={(event) => deleteActivity(info.id)}>
-                                    <FontAwesomeIcon icon="trash-alt" />
-                                </Button></td>
+
                             </tr>)
                     })}
                 </tbody>

@@ -66,7 +66,7 @@ ORDER BY "itinerary_activity"."date"`;
 //PUT ROUTES
 //Update activity info
 
-router.put('/editinfo', (req, res, next) => {
+router.put('/editinfo/:activityId', (req, res, next) => {
   const queryText = `INSERT INTO "activity" ("name", "constraints", "activity_url", "activity_location") 
     VALUES ($1, $2, $3, $4)`;
   pool.query(queryText, [req.body.name, req.body.constraints, req.body.activity_url, req.body.activity_location])
@@ -82,7 +82,7 @@ router.put('/editinfo', (req, res, next) => {
 
 //change activity time of day and date in itinerary
 
-router.post('/activity', (req, res) => {
+router.put('/activity', (req, res) => {
   let activityTime = req.params.activityTime;
   console.log('here is the activity being edited', activityTime);
 
@@ -130,6 +130,20 @@ router.post('/trip', (req, res, next) => {
     })
     .catch((err) => {
       console.log('Trip could not be added', err);
+      res.sendStatus(500);
+    });
+});
+
+router.post('/additinerary', (req, res, next) => {
+  const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
+  VALUES ($1, $2, $3, $4, $5)`;
+  pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.date.notes])
+    .then(response => {
+      console.log('Added to itinerary', response.rows);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('Could not be added', err);
       res.sendStatus(500);
     });
 });

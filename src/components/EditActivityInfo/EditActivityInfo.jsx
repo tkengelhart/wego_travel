@@ -24,6 +24,8 @@ function EditActivityInfo() {
     const [editWebsite, setEditWebsite] = useState('');
     const [editLocation, setEditLocation] = useState('');
 
+
+
     const handleSubmit = event => {
         event.preventDefault();
         console.log(`Updating activity`, { editName, editConstraints, editWebsite, editLocation });
@@ -40,10 +42,10 @@ function EditActivityInfo() {
         history.push('/activity')
     }
 
-    // let params = useParams();
+    // const params = useParams();
     // console.log(params);
 
-    // let activityId = params.activityId;
+    // const activityId = params.activityId;
 
 
     // let activity = activityList.find(activity => activity.id === Number(activityId));
@@ -55,13 +57,13 @@ function EditActivityInfo() {
     // }
 
 
+
     return (
         <Container>
             <>
                 {activityList.map(edit => {
                     return (
-
-                        <Form onSubmit={(event) => handleSubmit(event)}>
+                        <Form key={edit.id} onSubmit={(event) => handleSubmit(event)}>
                             <Form.Group>
                                 <Form.Label>Activity Name</Form.Label>
                                 <Form.Control
