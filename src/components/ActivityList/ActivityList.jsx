@@ -38,7 +38,7 @@ function ActivityList() {
     }
 
     const chooseItinerary = (activityId) => {
-        history.push(`/additinerary`);
+        history.push(`/activity`);
     }
 
     return (

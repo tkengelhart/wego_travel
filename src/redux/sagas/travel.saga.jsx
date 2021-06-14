@@ -27,7 +27,7 @@ function* fetchDetails(action) {
 function* chooseItinerary(action) {
     //add an activity to chosen itinerary
     try {
-        const chosenTrip = yield axios.post(`api/travel/additinerary/${action.payload.id}`);
+        const chosenTrip = yield axios.put(`api/travel/additinerary/${action.payload.id}`);
         console.log('payload for chosen itinerary is', action.payload);
         console.log('which trip?', action.payload.id);
         yield put({ type: 'LOAD_TRIP_DETAILS', payload: chosenTrip.data });
