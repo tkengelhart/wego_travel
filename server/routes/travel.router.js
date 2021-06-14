@@ -8,7 +8,7 @@ const {
 
 //GET ROUTES
 //initial list of trips
-
+//working
 router.get('/trips', (req, res) => {
   const query = `SELECT * FROM "itinerary" ORDER BY "start"`;
   pool.query(query)
@@ -23,6 +23,7 @@ router.get('/trips', (req, res) => {
 });
 
 //GET initial activity list ordered by location - will need to select by location based on selection
+//working
 router.get('/activity', (req, res) => {
   const query = `SELECT * FROM "activity" ORDER BY "activity_location"`;
   pool.query(query)
@@ -38,13 +39,13 @@ router.get('/activity', (req, res) => {
 
 // update call for trip location after testing
 //changed this to pull from store instead
-
+//working
 router.get(`/details/:tripId`, (req, res) => {
   let tripId = req.params.tripId;
   console.log('here is the trip id', tripId);
   // console.log('here is the url', `/details/:tripId`);
   const query =
-    `SELECT "activity"."id", "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
+    `SELECT "itinerary_activity"."id" AS "itineraryId", "activity"."id", "date", "activity"."name", "time_of_day", "constraints", "notes" FROM "itinerary_activity"
 LEFT JOIN
 "activity"
 ON 
@@ -64,14 +65,20 @@ ORDER BY "itinerary_activity"."date"`;
 });
 
 //PUT ROUTES
-//Update activity info
+//Update activity info, route works
 
-router.put('/editinfo/:activityId', (req, res, next) => {
-  const queryText = `INSERT INTO "activity" ("name", "constraints", "activity_url", "activity_location") 
-    VALUES ($1, $2, $3, $4)`;
-  pool.query(queryText, [req.body.name, req.body.constraints, req.body.activity_url, req.body.activity_location])
+router.put('/edit', (req, res, next) => {
+  let activityId = req.body.activityId
+  let name = req.body.name;
+  let constraints = req.body.constraints;
+  let activity_url = req.body.activity_url;
+  let activity_location = req.body.activity_location;
+
+  const queryText = `UPDATE "activity" SET "name" = $1, "constraints" = $2, "activity_url"= $3, "activity_location" = $4
+ WHERE "activity"."id" = $5`;
+  pool.query(queryText, [name, constraints, activity_url, activity_location, activityId])
     .then(response => {
-      console.log('Activity Updated', response.rows);
+      console.log('Activity Updated', activityId);
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -81,7 +88,7 @@ router.put('/editinfo/:activityId', (req, res, next) => {
 });
 
 //change activity time of day and date in itinerary
-
+//working
 router.put('/activityupdate', (req, res) => {
   let activityTime = req.body.activityTime;
   let activityId = req.body.activityId;
@@ -101,22 +108,9 @@ router.put('/activityupdate', (req, res) => {
       res.sendStatus(500)
     })
 });
-router.post('/additinerary', (req, res, next) => {
-  const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
-  VALUES ($1, $2, $3, $4, $5)`;
-  pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.date.notes])
-    .then(response => {
-      console.log('Added to itinerary', response.rows);
-      res.sendStatus(201);
-    })
-    .catch((err) => {
-      console.log('Could not be added', err);
-      res.sendStatus(500);
-    });
-});
+
 
 //POST ROUTES
-//update itinerary activity
 //post new activity
 //new activity works
 router.post('/add', (req, res, next) => {
@@ -133,7 +127,21 @@ router.post('/add', (req, res, next) => {
     });
 });
 
+//update itinerary activity
 
+router.post('/additinerary', (req, res, next) => {
+  const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
+  VALUES ($1, $2, $3, $4, $5)`;
+  pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.body.notes])
+    .then(response => {
+      console.log('Added to itinerary', response.rows);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('Could not be added', err);
+      res.sendStatus(500);
+    });
+});
 //post new trip 
 //new trip works
 router.post('/trip', (req, res, next) => {
@@ -151,19 +159,6 @@ router.post('/trip', (req, res, next) => {
     });
 });
 
-router.post('/additinerary', (req, res, next) => {
-  const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
-  VALUES ($1, $2, $3, $4, $5)`;
-  pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.date.notes])
-    .then(response => {
-      console.log('Added to itinerary', response.rows);
-      res.sendStatus(201);
-    })
-    .catch((err) => {
-      console.log('Could not be added', err);
-      res.sendStatus(500);
-    });
-});
 
 //DELETE ROUTES
 //delete activity

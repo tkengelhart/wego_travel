@@ -10,6 +10,8 @@ function* travelSaga() {
     yield takeEvery('EDIT_ACTIVITY_ITINERARY', editActivityInfo);
     yield takeEvery('DELETE_ACTIVITY', deleteActivity);
     yield takeEvery('ADD_TO_ITINERARY', chooseItinerary);
+    yield takeEvery('EDIT_ACTIVITY_INFO', editActivity);
+
 }
 
 function* fetchDetails(action) {
@@ -27,20 +29,35 @@ function* fetchDetails(action) {
 function* chooseItinerary(action) {
     //add an activity to chosen itinerary
     try {
-        const chosenTrip = yield axios.post(`api/travel/additinerary/${action.payload.id}`);
+        const chosenTrip = yield axios.post(`api/travel/additinerary`);
         console.log('payload for chosen itinerary is', action.payload);
-        console.log('which trip?', action.payload.id);
+        console.log('which trip?', action.payload);
         yield put({ type: 'LOAD_TRIP_DETAILS', payload: chosenTrip.data });
     } catch (error) {
         console.log('Error adding to itinerary', error);
     }
 }
 function* editActivityInfo(action) {
-    //edit initial info of activity
+    //edit time and date of activity after its in itinerary
     try {
-        const activityInfo = yield axios.put(`/api/travel/activityupdate`);
+        console.log('action payload is', action.payload);
+        yield axios.put(`/api/travel/activityupdate`, action.payload);
         console.log('payload for activity info is', action.payload);
-        yield put({ type: 'UPDATE_ACTIVITY_INFO', payload: activityInfo.data });
+        yield put({ type: 'FETCH_TRIPS' });
+        yield put({ type: 'RESET_ITINERARY_ACTIVITY' });
+
+    } catch (error) {
+        console.log('Error editing info.', error);
+    }
+}
+
+function* editActivity(action) {
+    //edit time and date of activity after its in itinerary
+    try {
+        console.log('action payload is', action.payload);
+        yield axios.put(`/api/travel/edit`, action.payload);
+        console.log('payload for activity info is', action.payload);
+        yield put({ type: 'FETCH_ACTIVITIES' });
     } catch (error) {
         console.log('Error editing info.', error);
     }
@@ -98,8 +115,6 @@ function* deleteActivity(action) {
         console.log('Error deleting item', error);
     }
 }
-
-
 
 export default travelSaga;
 

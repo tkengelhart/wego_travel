@@ -19,7 +19,6 @@ function ActivityList() {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
-    console.log('info is', activities);
 
     // const [show, setShow] = useState(false);
     // const handleClose = () => setShow(false);
@@ -41,14 +40,15 @@ function ActivityList() {
         history.push(`/additinerary`);
     }
 
-    const editActivity = (activityId) => {
+    const editDetails = (info) => {
+        console.log(`Editing activity`, info);
         dispatch({
-            type: 'EDIT_ACTIVITY',
-            payload: activityId
+            type: 'UPDATE_ACTIVITY_DETAILS',
+            payload: info
         })
-        history.push(`/activity/${activityId}`)
+        history.push(`/edit`);
 
-    }
+    };
 
     return (
         <Container>
@@ -74,7 +74,13 @@ function ActivityList() {
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                 
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={() => {
+                                            editDetails(info.id);
+
+                                        }}>
+                                        <FontAwesomeIcon icon="edit" />
+                                    </Button>
 
 
                                     <Button variant="outline-primary" size='sm'

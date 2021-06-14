@@ -82,6 +82,7 @@ function App() {
           <Route path='/activity/:activityId'><ActivityInfo /></Route>
           <Route path='/additinerary'><ChooseItinerary /></Route>
           <Route path='/activityupdate'><EditActivityTime /></Route>
+          <Route path='/edit'><EditActivityInfo /></Route>
 
 
 

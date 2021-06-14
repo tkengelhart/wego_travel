@@ -16,19 +16,23 @@ function ChooseItinerary() {
     const dispatch = useDispatch();
     const history = useHistory();
     const trips = useSelector(store => store.trips);
+    const currentChosenActivity = useSelector(store => store.currentitineraryactivity);
+
 
     const [itinerary, setItinerary] = useState('');
     const [tod, setTod] = useState('');
     // const [date, setDate] = useState('');
     const [notes, setNotes] = useState('');
 
-    const handleSubmit = event => {
+    const handleSubmit = (trip) => {
         event.preventDefault();
         console.log(`Chosen trip`, { itinerary, tod, notes });
 
         dispatch({
             type: 'ADD_TO_ITINERARY',
             payload: {
+                itinerary_id: currentChosenActivity.itinerary_id,
+                activity_id: currentChosenActivity.activity_id,
                 trip_name: itinerary,
                 time_of_day: tod,
                 // date: date,
@@ -42,51 +46,44 @@ function ChooseItinerary() {
 
 
     return (
+        <>
+            <Container>
+                <Form onSubmit={(event) => handleSubmit(event)}>
 
-        <Container>
-            <Form onSubmit={(event) => handleSubmit(event)}>
+                    <select
 
-                <Dropdown>
-                    <Dropdown.Toggle variant="primary">
-                        Which trip?
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu onSelect={(event) => setItinerary(event.target.value)} >
-                        {trips.map((trip) => <Dropdown.Item key={trip.id} value={itinerary} >
-                            {trip.trip_name}
-                        </Dropdown.Item>)}
-                    </Dropdown.Menu>
-                </Dropdown>
+                        onChange={(event) => setItinerary(event.target.value)}>
+                        {trips.map(trip =>
+                            <option key={trip.id} value={trip.trip_name} >{trip.trip_name}
+                            </option>
+                        )}
 
+                    </select>
 
-                <Dropdown>
-                    <Dropdown.Toggle variant="primary">
-                        What time of day?
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu onSelect={(event) => setTod(event.target.value)}>
-                        <Dropdown.Item key="1">Morning
-                        </Dropdown.Item>
-                        <Dropdown.Item key="2">Lunch
-                        </Dropdown.Item> <Dropdown.Item key="3">Afternoon
-                        </Dropdown.Item> <Dropdown.Item key="4">Evening
-                        </Dropdown.Item>
-                        <Dropdown.Item key="5">All Day
-                        </Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                    <select
+                        onChange={(event) => setTod(event.target.value)}>
+                        <option value='Select'>Time Of Day</option>
+                        <option value='Morning'>Morning</option>
+                        <option value='Noon'>Noon</option>
+                        <option value='Afternoon'>Afternoon</option>
+                        <option value='Evening'>Evening</option>
+                        <option value='All Day'>All Day</option>
+                    </select>
 
+                    <textarea
+                        type="text"
+                        placeholder="Notes go here"
+                        value={notes}
+                        onChange={(event) => setNotes(event.target.value)}>
 
+                    </textarea>
 
-                <InputGroup>
-                    <InputGroup.Prepend>
-                        <InputGroup.Text onChange={(event) => setNotes(event.target.value)}>Any Notes?</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl as="textarea" aria-label="With textarea" />
-                </InputGroup>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button><Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
-            </Form>
-        </Container >
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button><Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
+                </Form>
+            </Container >
+        </>
     )
 }
 

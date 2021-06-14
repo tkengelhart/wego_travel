@@ -30,9 +30,16 @@ function TripDetails() {
         history.push(`/activity/${activityId}`);
     }
 
-    const editDetails = event => {
-        console.log(`Editing activity itinerary`, activities);
-        history.push(`/activityupdate`)
+
+    const editDetails = (item) => {
+        console.log(`Editing activity itinerary`);
+        console.log('itinerary item is', item);
+        dispatch({
+            type: 'UPDATE_ITINERARY_ACTIVITY',
+            payload: item
+        })
+        history.push(`/activityupdate`);
+
     };
 
 
@@ -73,7 +80,7 @@ function TripDetails() {
                                     </Button>
                                     <Button variant="outline-primary" size='sm'
                                         onClick={() => {
-                                            editDetails(item.id);
+                                            editDetails(item);
 
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
