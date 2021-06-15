@@ -88,7 +88,8 @@ function EditActivityInfo(info) {
                         <Button variant="outline-info" type="submit">Submit</Button>
                     </Form>
                 )}
-
+                <Button variant="outline-info"
+                    onClick={() => history.goBack()}>Back</Button>
             </>
         </Container >
 
