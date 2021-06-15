@@ -32,6 +32,7 @@ import "bootswatch/dist/minty/bootstrap.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInfoCircle, faEdit, faPlusSquare, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import EditActivityTime from '../EditActivityTime/EditActivityTime';
+import AboutPage from '../AboutPage/AboutPage';
 
 library.add(faInfoCircle, faEdit, faPlusSquare, faTrashAlt);
 
@@ -55,7 +56,6 @@ function App() {
 
 
           <Route
-            // shows AboutPage at all times (logged in or not)
             exact
             path="/trips"
           >
@@ -63,7 +63,6 @@ function App() {
             {/* <TripForm /> */}
           </Route>
           <Route
-            // shows AboutPage at all times (logged in or not)
             exact
             path="/details/:tripId"
           >
@@ -83,18 +82,14 @@ function App() {
           <Route path='/additinerary'><ChooseItinerary /></Route>
           <Route path='/activityupdate'><EditActivityTime /></Route>
           <Route path='/edit'><EditActivityInfo /></Route>
+          <Route path='/about'><AboutPage /></Route>
 
 
 
 
 
 
-          {/* <Route
-            exact
-            path="/edit"
-          >
-            <EditActivity />
-          </Route> */}
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -107,13 +102,7 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
+
 
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will

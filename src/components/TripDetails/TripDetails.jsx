@@ -43,6 +43,8 @@ function TripDetails() {
     };
 
     const deleteActivity = (activityId) => {
+        alert('Are you sure you want to delete?');
+
         console.log('id is', activityId);
         dispatch({
             type: 'DELETE_ACTIVITY',
@@ -73,21 +75,21 @@ function TripDetails() {
                             <tr key={item.id}>
 
                                 <td>{moment(item.date).format('MMM Do YYYY')}<br />
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             setActivityDetails(item.id);
                                         }}
                                     >
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             editDetails(item);
 
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
                                     </Button>
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={(event) => deleteActivity(item.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -105,7 +107,10 @@ function TripDetails() {
                     })}
                 </tbody>
             </Table>
-
+            <Button variant="outline-info"
+                onClick={() => history.goBack()}>Back</Button>
+            <Button variant="outline-info"
+                onClick={() => history.push('/activity')}>Add Activities</Button>
         </Container >
 
     );

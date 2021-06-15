@@ -28,17 +28,19 @@ function Nav() {
           <Link className="navLink" to={loginLinkData.path}>
             {loginLinkData.text}
           </Link>
-          <Link className="navLink" to="/trips">
-            Trips
+          <Link className="navLink" to="/about">
+            About
           </Link>
-          <Link className="navLink" to="/activity">
-            Activity List
-          </Link>
+
           {user.id && (
             <>
-              {/* <Link className="navLink" to="/info">
-                Info Page
-              </Link> */}
+              <Link className="navLink" to="/trips">
+                Trips
+              </Link>
+              <Link className="navLink" to="/activity">
+                Activity List
+              </Link>
+
               <LogOutButton className="navLink" />
             </>
           )}

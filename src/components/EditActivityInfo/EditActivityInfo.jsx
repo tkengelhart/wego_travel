@@ -43,54 +43,51 @@ function EditActivityInfo(info) {
         history.push('/activity')
     }
 
-
-
-
-
     return (
         <Container>
             <>
-                <Form onSubmit={(event) => handleSubmit(event)}>
-                    <Form.Group>
-                        <Form.Label>Activity Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder='Name'
-                            value={editName}
-                            onChange={(event) => setEditName(event.target.value)} />
-                    </Form.Group>
+                {activityList.map(activity =>
 
-                    <Form.Group>
-                        <Form.Label>Constraints</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder='Constraints'
-                            value={editConstraints}
-                            onChange={(event) => setEditConstraints(event.target.value)} />
-                    </Form.Group>
+                    <Form onSubmit={(event) => handleSubmit(event)}>
+                        <Form.Group>
+                            <Form.Label>Activity Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder={activity.name}
+                                value={editName}
+                                onChange={(event) => setEditName(event.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Website:</Form.Label>
-                        <Form.Control
-                            type="url"
-                            placeholder='Website address'
-                            value={editWebsite}
-                            onChange={(event) => setEditWebsite(event.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Constraints</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder='Constraints'
+                                value={editConstraints}
+                                onChange={(event) => setEditConstraints(event.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Location:</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder='Location'
-                            value={editLocation}
-                            onChange={(event) => setEditLocation(event.target.value)} />
-                    </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Website:</Form.Label>
+                            <Form.Control
+                                type="url"
+                                placeholder='Website address'
+                                value={editWebsite}
+                                onChange={(event) => setEditWebsite(event.target.value)} />
+                        </Form.Group>
 
+                        <Form.Group>
+                            <Form.Label>Location:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder='Location'
+                                value={editLocation}
+                                onChange={(event) => setEditLocation(event.target.value)} />
+                        </Form.Group>
 
-                    <Button variant="primary" type="submit">Submit</Button>
-                </Form>
-
+                        <Button variant="outline-info" type="submit">Submit</Button>
+                    </Form>
+                )}
 
             </>
         </Container >

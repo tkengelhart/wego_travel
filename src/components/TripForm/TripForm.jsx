@@ -62,7 +62,7 @@ function TripForm() {
                 </Form.Group>
 
 
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="outline-info" type="submit">Submit</Button>
             </Form>
         </Container>
     )

@@ -58,6 +58,7 @@ function* editActivity(action) {
         yield axios.put(`/api/travel/edit`, action.payload);
         console.log('payload for activity info is', action.payload);
         yield put({ type: 'FETCH_ACTIVITIES' });
+        yield put({ type: 'RESET_ACTIVITIES' });
     } catch (error) {
         console.log('Error editing info.', error);
     }

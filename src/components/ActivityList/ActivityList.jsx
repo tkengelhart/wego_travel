@@ -23,6 +23,7 @@ function ActivityList() {
 
 
     const deleteActivity = (activityId) => {
+        alert('Are you sure you want to delete?');
         console.log('id is', activityId);
         dispatch({
             type: 'DELETE_ACTIVITY',
@@ -48,7 +49,7 @@ function ActivityList() {
             type: 'UPDATE_ACTIVITY_DETAILS',
             payload: info
         })
-        history.push(`/additinerary`);
+        history.push(`/edit`);
 
     };
 
@@ -69,14 +70,14 @@ function ActivityList() {
                         return (
                             <tr key={info.id}>
                                 <td>
-                                    {info.name}<br />
-                                    <Button variant="outline-primary" size='sm'
+                                    {info.name}<br /><br />
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             setActivityDetails(info.id);
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             editDetails(info.id);
 
@@ -85,14 +86,14 @@ function ActivityList() {
                                     </Button>
 
 
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             chooseItinerary(info.id)
                                         }}>
                                         <FontAwesomeIcon icon="plus-square" />
                                     </Button>
 
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={(event) => deleteActivity(info.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -111,9 +112,10 @@ function ActivityList() {
                 </tbody>
             </Table >
 
-            <Button variant="primary"
+            <Button variant="outline-info"
                 onClick={() => history.push('/add')}>New Activity</Button>
-
+            <Button variant="outline-info"
+                onClick={() => history.push('/trips')}>View Trips</Button>
         </Container >
 
     );

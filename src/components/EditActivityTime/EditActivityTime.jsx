@@ -69,7 +69,7 @@ function EditActivityTime(itemId) {
 
                                 <br />
 
-                                <Button variant="primary" type="submit">Submit</Button>
+                                <Button variant="outline-info" type="submit">Submit</Button>
                         </Form>
                 </Container >
         )
