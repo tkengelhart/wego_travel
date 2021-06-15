@@ -9,6 +9,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import './theme.css';
+
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
