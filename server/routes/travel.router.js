@@ -129,7 +129,8 @@ router.post('/add', (req, res, next) => {
 
 //update itinerary activity
 
-router.post('/additinerary', (req, res, next) => {
+router.post('/additinerary', (req, res) => {
+  console.log('req body is', req.body);
   const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
   VALUES ($1, $2, $3, $4, $5)`;
   pool.query(queryText, [req.body.itinerary_id, req.body.activity_id, req.body.time_of_day, req.body.date, req.body.notes])

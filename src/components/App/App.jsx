@@ -124,7 +124,7 @@ function App() {
             // - else shows LoginPage at /login
             exact
             path="/login"
-            authRedirect="/user"
+            authRedirect="/trips"
           >
             <LoginPage />
           </ProtectedRoute>
@@ -135,7 +135,7 @@ function App() {
             // - else shows RegisterPage at "/registration"
             exact
             path="/registration"
-            authRedirect="/user"
+            authRedirect="/trips"
           >
             <RegisterPage />
           </ProtectedRoute>
@@ -146,7 +146,7 @@ function App() {
             // - else shows LandingPage at "/home"
             exact
             path="/home"
-            authRedirect="/user"
+            authRedirect="/trips"
           >
             <LandingPage />
           </ProtectedRoute>

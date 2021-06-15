@@ -10,6 +10,7 @@ import AddActivity from '../AddActivity/AddActivity';
 import ActivityInfo from '../ActivityInfo/ActivityInfo';
 import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
 import ChooseItinerary from '../ChooseItinerary/ChooseItinerary';
+import currentitineraryactivity from '../../redux/reducers/currentitineraryactivity.reducer';
 
 
 function ActivityList() {
@@ -19,10 +20,6 @@ function ActivityList() {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
-
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
 
     const deleteActivity = (activityId) => {
@@ -36,7 +33,12 @@ function ActivityList() {
         history.push(`/activity/${activityId}`);
     }
 
-    const chooseItinerary = (activityId) => {
+    const chooseItinerary = (info) => {
+        console.log(`Choosing your itinerary`, info);
+        dispatch({
+            type: 'CHOOSE_YOUR_ITINERARY',
+            payload: info
+        })
         history.push(`/additinerary`);
     }
 
@@ -46,7 +48,7 @@ function ActivityList() {
             type: 'UPDATE_ACTIVITY_DETAILS',
             payload: info
         })
-        history.push(`/edit`);
+        history.push(`/additinerary`);
 
     };
 
@@ -102,6 +104,7 @@ function ActivityList() {
                                 <td>
                                     {info.activity_location}
                                 </td>
+
 
                             </tr>)
                     })}

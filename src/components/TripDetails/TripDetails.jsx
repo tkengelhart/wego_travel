@@ -42,7 +42,13 @@ function TripDetails() {
 
     };
 
-
+    const deleteActivity = (activityId) => {
+        console.log('id is', activityId);
+        dispatch({
+            type: 'DELETE_ACTIVITY',
+            payload: activityId,
+        });
+    }
 
 
 
@@ -60,16 +66,12 @@ function TripDetails() {
                     </tr>
                 </thead>
                 <tbody>
+
                     {itinerary.map(item => {
                         return (
 
                             <tr key={item.id}>
-                                {/* <td>
-                                    {moment(item.date).format('MMM Do YYYY')}<br /><Button onClick={() => { history.push('/edit') }}><FontAwesomeIcon icon="info-circle" />
-                                    </Button>
-                                    &nbsp;&nbsp;
-                                    <Button onClick={() => { history.push('/edit') }}><Icon icon="edit" /></Button>
-                                </td> */}
+
                                 <td>{moment(item.date).format('MMM Do YYYY')}<br />
                                     <Button variant="outline-primary" size='sm'
                                         onClick={() => {
@@ -84,6 +86,10 @@ function TripDetails() {
 
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
+                                    </Button>
+                                    <Button variant="outline-primary" size='sm'
+                                        onClick={(event) => deleteActivity(item.id)}>
+                                        <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
                                 </td>
 

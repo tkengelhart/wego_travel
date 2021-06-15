@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
-function ChooseItinerary() {
+function ChooseItinerary(trip) {
     useEffect(() => {
         dispatch({ type: 'FETCH_TRIPS' });
     }, []);
@@ -17,29 +17,29 @@ function ChooseItinerary() {
     const history = useHistory();
     const trips = useSelector(store => store.trips);
     const currentChosenActivity = useSelector(store => store.currentitineraryactivity);
-
+    console.log('store is', currentChosenActivity);
 
     const [itinerary, setItinerary] = useState('');
     const [tod, setTod] = useState('');
-    // const [date, setDate] = useState('');
+    const [date, setDate] = useState('');
     const [notes, setNotes] = useState('');
 
-    const handleSubmit = (trip) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Chosen trip`, { itinerary, tod, notes });
+        console.log(`Chosen trip`, { tod, date, notes });
 
         dispatch({
             type: 'ADD_TO_ITINERARY',
             payload: {
-                itinerary_id: currentChosenActivity.itinerary_id,
-                activity_id: currentChosenActivity.activity_id,
-                trip_name: itinerary,
+                itinerary_id: itinerary,
+                activity_id: Number(currentChosenActivity),
                 time_of_day: tod,
-                // date: date,
+                date: date,
                 notes: notes,
             }
         });
-        history.push('/activity');
+
+        history.goBack()
     };
 
 
@@ -54,30 +54,39 @@ function ChooseItinerary() {
 
                         onChange={(event) => setItinerary(event.target.value)}>
                         {trips.map(trip =>
-                            <option key={trip.id} value={trip.trip_name} >{trip.trip_name}
+                            <option key={trip.id} value={trip.id} > {trip.trip_name}
                             </option>
                         )}
 
                     </select>
-
+                    <br />
+                    <br />
                     <select
                         onChange={(event) => setTod(event.target.value)}>
-                        <option value='Select'>Time Of Day</option>
+                        <option defaultValue='Select'>Time Of Day</option>
                         <option value='Morning'>Morning</option>
                         <option value='Noon'>Noon</option>
                         <option value='Afternoon'>Afternoon</option>
                         <option value='Evening'>Evening</option>
                         <option value='All Day'>All Day</option>
                     </select>
-
+                    <br />
+                    <br />
+                    <input
+                        type="date"
+                        placeholder="Enter New Date"
+                        onChange={(event) => setDate(event.target.value)}></input>
+                    <br />
+                    <br />
                     <textarea
                         type="text"
-                        placeholder="Notes go here"
+                        placeholder="Notes"
                         value={notes}
                         onChange={(event) => setNotes(event.target.value)}>
 
                     </textarea>
-
+                    <br />
+                    <br />
                     <Button variant="primary" type="submit">
                         Submit
                     </Button><Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>

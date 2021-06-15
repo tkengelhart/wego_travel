@@ -13,6 +13,8 @@ function EditActivityTime(itemId) {
         const dispatch = useDispatch();
         const history = useHistory();
         const [tod, setTod] = useState('');
+        const [date, setDate] = useState('');
+        const [note, setNote] = useState('');
         const itinerary = useSelector(store => store.itinerary);
         console.log('itinerary store is', itinerary);
 
@@ -26,6 +28,8 @@ function EditActivityTime(itemId) {
                         type: 'EDIT_ACTIVITY_ITINERARY',
                         payload: {
                                 activityTime: tod,
+                                activityDate: date,
+                                activityNote: note,
                                 activityId: currentActivityUpdate.itineraryId
                         }
                 });
@@ -36,14 +40,32 @@ function EditActivityTime(itemId) {
                 <Container>
                         <Form onSubmit={(event) => handleSubmit(event)}>
                                 <select
+                                        label="Time Of Day"
+                                        placeholder="Time Of Day"
                                         required
                                         onChange={(event) => setTod(event.target.value)}>
+                                        <option defaultValue='Time Of Day' >Time Of Day</option>
                                         <option value='Morning' >Morning</option>
                                         <option value='Noon' >Noon</option>
                                         <option value='Afternoon' >Afternoon</option>
                                         <option value='Evening' >Evening</option>
                                         <option value='All Day' >All Day</option>
                                 </select>
+                                <input
+                                        type="date"
+                                        placeholder="Enter New Date"
+                                        onChange={(event) => setDate(event.target.value)}></input>
+                                <br />
+                                <br />
+
+                                <textarea
+                                        type="text"
+                                        value={note}
+                                        placeholder="Notes"
+                                        onChange={(event) => setNote(event.target.value)}>
+
+                                </textarea>
+
 
                                 <br />
 

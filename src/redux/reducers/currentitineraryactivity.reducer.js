@@ -4,6 +4,8 @@ const currentitineraryactivity = (state = [], action) => {
             return action.payload;
         case 'UPDATE_ACTIVITY_DETAILS':
             return action.payload;
+        case 'CHOOSE_YOUR_ITINERARY':
+            return action.payload;
         case 'RESET_ITINERARY_ACTIVITY':
             return [];
         case 'RESET_ACTIVITIES':
