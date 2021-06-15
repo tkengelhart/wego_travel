@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { useHistory, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react';
 import NewActivity from '../ChooseItinerary/ChooseItinerary';

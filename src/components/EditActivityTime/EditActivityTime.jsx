@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ActivityList from '../ActivityList/ActivityList';
 
 

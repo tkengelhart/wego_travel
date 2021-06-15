@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Container, Button, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardColumns, CardDeck, CardGroup, CardImg, Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import moment from 'moment';
 import { useState } from 'react';
 import TripForm from '../TripForm/TripForm';
