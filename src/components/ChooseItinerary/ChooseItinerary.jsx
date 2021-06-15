@@ -49,10 +49,11 @@ function ChooseItinerary(trip) {
         <>
             <Container>
                 <Form onSubmit={(event) => handleSubmit(event)}>
-
                     <select
 
                         onChange={(event) => setItinerary(event.target.value)}>
+                        <option defaultValue='Select'>Which Trip</option>
+
                         {trips.map(trip =>
                             <option key={trip.id} value={trip.id} > {trip.trip_name}
                             </option>
@@ -70,6 +71,7 @@ function ChooseItinerary(trip) {
                         <option value='Evening'>Evening</option>
                         <option value='All Day'>All Day</option>
                     </select>
+
                     <br />
                     <br />
                     <input

@@ -4,8 +4,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import "bootswatch/dist/minty/bootstrap.min.css";
+import '../src/style.scss';
+
+
+
 
 
 import rootReducer from './redux/reducers/_root.reducer'; // imports ./redux/reducers/index.js

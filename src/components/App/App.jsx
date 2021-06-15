@@ -14,7 +14,6 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-// import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../UnusedComponents/InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -27,8 +26,6 @@ import ActivityInfo from '../ActivityInfo/ActivityInfo';
 import AddActivity from '../AddActivity/AddActivity';
 import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
 import ChooseItinerary from '../ChooseItinerary/ChooseItinerary';
-import './App.css';
-import "bootswatch/dist/minty/bootstrap.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInfoCircle, faEdit, faPlusSquare, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import EditActivityTime from '../EditActivityTime/EditActivityTime';

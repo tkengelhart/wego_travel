@@ -60,7 +60,7 @@ function ActivityList() {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Constraints</th>
+                        <th>Things to Consider</th>
                         <th>Location</th>
                     </tr>
                 </thead>

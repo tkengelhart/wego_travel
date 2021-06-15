@@ -63,7 +63,7 @@ function TripDetails() {
                         <th>Date</th>
                         <th>Name</th>
                         <th>Time of Day</th>
-                        <th>Constraints</th>
+                        <th>Things to Consider</th>
                         <th>Notes</th>
                     </tr>
                 </thead>
