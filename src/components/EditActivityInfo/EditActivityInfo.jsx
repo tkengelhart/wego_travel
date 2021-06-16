@@ -84,10 +84,10 @@ function EditActivityInfo(info) {
                                 onChange={(event) => setEditLocation(event.target.value)} />
                         </Form.Group>
 
-                        <Button variant="outline-info" type="submit">Submit</Button>
+                        <Button variant="warning" type="submit">Submit</Button>
                     </Form>
                 )}
-                <Button variant="outline-info"
+                <Button variant="warning"
                     onClick={() => history.goBack()}>Back</Button>
             </>
         </Container >
