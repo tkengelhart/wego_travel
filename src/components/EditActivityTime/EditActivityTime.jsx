@@ -50,6 +50,8 @@ function EditActivityTime(itemId) {
                                         <option value='Evening' >Evening</option>
                                         <option value='All Day' >All Day</option>
                                 </select>
+                                <br />
+                                <br />
                                 <input
                                         type="date"
                                         placeholder="Enter New Date"
@@ -68,10 +70,10 @@ function EditActivityTime(itemId) {
 
                                 <br />
 
-                                <Button variant="secondary" type="submit">Submit</Button>
+                                <Button variant="primary" type="submit">Submit</Button>
                                 &nbsp;
                                 &nbsp;
-                                <Button variant="secondary"
+                                <Button variant="primary"
                                         onClick={() => history.goBack()}>Back</Button>
                         </Form>
 

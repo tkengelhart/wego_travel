@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Carousel, Button } from 'react-bootstrap';
+
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -57,9 +59,9 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <Button variant="primary"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
       </div>
-    </form>
+    </form >
   );
 }
 

@@ -55,7 +55,7 @@ function ActivityList() {
     return (
         <Container>
 
-            <Table striped hover variant="secondary">
+            <Table striped hover size="sm">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -70,13 +70,13 @@ function ActivityList() {
                             <tr key={info.id}>
                                 <td>
                                     {info.name}<br /><br />
-                                    <Button variant="outline-info" size='sm'
+                                    <Button variant="outline-primary" size='sm'
                                         onClick={() => {
                                             setActivityDetails(info.id);
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-info" size='sm'
+                                    <Button variant="outline-primary" size='sm'
                                         onClick={() => {
                                             editDetails(info.id);
 
@@ -85,14 +85,14 @@ function ActivityList() {
                                     </Button>
 
 
-                                    <Button variant="outline-info" size='sm'
+                                    <Button variant="outline-primary" size='sm'
                                         onClick={() => {
                                             chooseItinerary(info.id)
                                         }}>
                                         <FontAwesomeIcon icon="plus-square" />
                                     </Button>
 
-                                    <Button variant="outline-info" size='sm'
+                                    <Button variant="outline-primary" size='sm'
                                         onClick={(event) => deleteActivity(info.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -111,11 +111,11 @@ function ActivityList() {
                 </tbody>
             </Table >
 
-            <Button variant="secondary"
+            <Button variant="primary"
                 onClick={() => history.push('/add')}>New Activity</Button>
             &nbsp;
             &nbsp;
-            <Button variant="secondary"
+            <Button variant="primary"
                 onClick={() => history.push('/trips')}>View Trips</Button>
         </Container >
 
@@ -125,91 +125,3 @@ function ActivityList() {
 
 
 export default ActivityList;
-
-
-// <Container>
-
-// <Table striped hover>
-//     <thead>
-//         <tr>
-//             <th>Name</th>
-//             <th>Constraints</th>
-//             <th>Location</th>
-//         </tr>
-//     </thead>
-
-//     <tbody>
-//         {activities.map(info => {
-//             return (
-//                 <tr key={info.id}>
-//                     <td>
-//                         {info.name}<br />
-//                         <Button variant="outline-primary" size='sm'
-//                             onClick={() => {
-//                                 handleShow();
-//                                 setActivityDetails(info.id);
-//                             }}
-//                         >
-//                             <FontAwesomeIcon icon="info-circle" />
-//                         </Button>
-//                         <Modal show={show} onHide={handleClose}>
-//                             <Modal.Body><ActivityInfo /></Modal.Body>
-//                             <Modal.Footer>
-//                                 <Button variant="primary" onClick={handleClose}>
-//                                     Close
-//                                 </Button>
-//                             </Modal.Footer>
-//                         </Modal>
-
-//                         <Button variant="outline-primary" size='sm'
-//                             onClick={handleShow}>
-//                             <FontAwesomeIcon icon="edit" />
-//                         </Button>
-//                         <Modal show={show} onHide={handleClose}>
-//                             <Modal.Body><Route><EditActivityInfo /></Route></Modal.Body>
-//                             <Modal.Footer>
-//                                 <Button variant="primary" onClick={handleClose}>
-//                                     Close
-//                                 </Button>
-//                             </Modal.Footer>
-//                         </Modal>
-//                     </td>
-
-//                     <td>
-//                         {info.constraints}
-//                     </td>
-//                     <td>
-//                         {info.activity_location}
-//                     </td>
-//                     <td>
-//                         <Button variant="outline-primary" size='sm'
-//                             onClick={handleShow}>
-//                             <FontAwesomeIcon icon="plus-square" />
-//                         </Button>
-//                         <Modal show={show} onHide={handleClose}>
-//                             {/* <Modal.Body><EditActivityTime /></Modal.Body> */}
-//                             <Modal.Footer>
-//                                 <Button variant="primary" onClick={handleClose}>
-//                                     Close
-//                                 </Button>
-//                             </Modal.Footer>
-//                         </Modal>
-//                     </td>
-
-//                     <td><Button variant="outline-primary" size='sm'
-//                         onClick={(event) => deleteActivity(info.id)}>
-//                         <FontAwesomeIcon icon="trash-alt" />
-//                     </Button></td>
-//                 </tr>)
-//         })}
-//     </tbody>
-// </Table >
-
-// <Button variant="primary"
-//     onClick={handleShow}>New Activity</Button>
-// <Modal show={show} onHide={handleClose}>
-//     <Modal.Body><NewActivity /></Modal.Body>
-
-// </Modal>
-
-// </Container >

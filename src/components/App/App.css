@@ -10,7 +10,12 @@ body {
   font-family:muli;
   margin: 0px;
 }
-
+.footer {
+  text-align: right;
+  justify-content: right;  
+  font-size: small;
+  font-family: serif;
+}
 img {
   display: inline-block;
   max-width: 100%;
@@ -34,7 +39,7 @@ Container
 .about-section {
   background-color: #BFC0C0;
   padding: 300px;
-  margin: 100px;
+  margin:
 }
 /* --------------------------------------------------------------------------------
 Button
@@ -124,4 +129,16 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.carousel .carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 300px;
 }

@@ -19,7 +19,7 @@ function Nav() {
   }
 
   return (
-    <Container>
+    <Container className="navbar">
       <div className="nav">
         <Link to="/home">
           <h2 className="nav-title">WeGo Travel</h2>
@@ -44,13 +44,6 @@ function Nav() {
               <LogOutButton className="navLink" />
             </>
           )}
-
-
-          {/* <Link className="navLink" to="/details">
-            Trip Details
-          </Link> */}
-          {/* <Link className="navLink" to="/itinId">
-            Edit activity        </Link> */}
         </div>
       </div>
 

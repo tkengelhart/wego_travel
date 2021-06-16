@@ -38,9 +38,9 @@ function TripPage() {
 
               {trips.map(trip => {
                 return (
-                  <Card key={trip.id} border="dark">
+                  <Card key={trip.id} border="dark" style={{ width: '10rem' }}>
                     <Card.Body onClick={() => setTripDetails(trip)}>
-                      <Card.Title >{trip.trip_name}</Card.Title>
+                      <Card.Title as="h3">{trip.trip_name}</Card.Title>
                       <Card.Subtitle>Travel Dates</Card.Subtitle>
                       <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
                     </Card.Body>
@@ -57,11 +57,11 @@ function TripPage() {
         <CardGroup>
           <Card border="dark">
             <Card.Body>
-              <Button variant="secondary" onClick={handleShow}>New Trip</Button>
+              <Button variant="primary" onClick={handleShow}>New Trip</Button>
               <Modal show={show} onHide={handleClose}>
                 <Modal.Body><TripForm /></Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
+                  <Button variant="primary" onClick={handleClose}>
                     Close
                   </Button>
                 </Modal.Footer>

@@ -7,7 +7,7 @@ import React from 'react';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-  return <footer>&copy; Technical Tanya 2021</footer>;
+  return <footer id="footer">&copy; Technical Tanya 2021</footer>;
 }
 
 export default Footer;

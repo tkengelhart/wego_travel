@@ -11,7 +11,7 @@ function RegisterPage() {
       <RegisterForm />
 
       <center>
-        <button
+        <Button variant="primary"
           type="button"
           className="btn btn_asLink"
           onClick={() => {
@@ -19,7 +19,7 @@ function RegisterPage() {
           }}
         >
           Login
-        </button>
+        </Button>
       </center>
     </div>
   );

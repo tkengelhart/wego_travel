@@ -35,12 +35,12 @@ function ActivityInfo() {
 
   return (
     <Container>
-      <Card>
+      <Card variant="primary">
         <Card.Header>Name: {activity.name}</Card.Header>
         <Card.Body>Location: {activity.activity_location}</Card.Body>
         <Card.Link href="Website"> {activity.activity_url}</Card.Link>
       </Card>
-      <Button variant="secondary"
+      <Button variant="primary"
         onClick={() => history.goBack()}>Back</Button>
     </Container >
 

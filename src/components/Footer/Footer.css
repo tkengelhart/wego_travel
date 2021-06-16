@@ -1,6 +1,7 @@
-footer {
+#footer {
+  align-content: space-around;
+  text-align: right;
+  justify-content: right;
   font-size: small;
-  margin-top: 80px;
-  padding: 100px;
-
+  font-family: muli;
 }
