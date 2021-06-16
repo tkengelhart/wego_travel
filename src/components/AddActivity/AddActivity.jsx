@@ -76,10 +76,10 @@ function AddActivity() {
                 </Form.Group>
 
 
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="success" type="submit">Submit</Button>
                 &nbsp;
                 &nbsp;
-                <Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
+                <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
 
 
             </Form>

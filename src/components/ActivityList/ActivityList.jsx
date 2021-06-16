@@ -70,13 +70,13 @@ function ActivityList() {
                             <tr key={info.id}>
                                 <td>
                                     {info.name}<br /><br />
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-danger" size='sm'
                                         onClick={() => {
                                             setActivityDetails(info.id);
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-danger" size='sm'
                                         onClick={() => {
                                             editDetails(info.id);
 
@@ -85,14 +85,14 @@ function ActivityList() {
                                     </Button>
 
 
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-danger" size='sm'
                                         onClick={() => {
                                             chooseItinerary(info.id)
                                         }}>
                                         <FontAwesomeIcon icon="plus-square" />
                                     </Button>
 
-                                    <Button variant="outline-primary" size='sm'
+                                    <Button variant="outline-danger" size='sm'
                                         onClick={(event) => deleteActivity(info.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -111,11 +111,11 @@ function ActivityList() {
                 </tbody>
             </Table >
 
-            <Button variant="primary"
+            <Button variant="success"
                 onClick={() => history.push('/add')}>New Activity</Button>
             &nbsp;
             &nbsp;
-            <Button variant="primary"
+            <Button variant="success"
                 onClick={() => history.push('/trips')}>View Trips</Button>
         </Container >
 

@@ -51,9 +51,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block;
-}
+
 
 body {
   margin: 0;
@@ -62,8 +60,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  text-align: left;
-  background-color: #FAFAFA;
+  background-color: lightgray;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -455,21 +452,6 @@ mark,
 .initialism {
   font-size: 90%;
   text-transform: uppercase;
-}
-
-.blockquote {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
-
-.blockquote-footer {
-  display: block;
-  font-size: 80%;
-  color: #6c757d;
-}
-
-.blockquote-footer::before {
-  content: "\2014\00A0";
 }
 
 .img-fluid {
@@ -3449,10 +3431,15 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  color: #373f51;
+  background-color: #f8f9fa;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 2px solid #373f51;
+  border-left: 2px solid #373f51;
   border-radius: 0.25rem;
+  padding: 5px;
+  margin: 30px;
+  
 }
 
 .card > hr {
@@ -3463,6 +3450,8 @@ input[type="button"].btn-block {
 .card > .list-group {
   border-top: inherit;
   border-bottom: inherit;
+  border-left: inherit;
+  border-right: inherit;
 }
 
 .card > .list-group:first-child {
@@ -3481,6 +3470,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  font-weight: bolder;
 }
 
 .card-title {
@@ -3635,7 +3625,7 @@ input[type="button"].btn-block {
   margin-bottom: 0.75rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 576px){
   .card-columns {
     column-count: 3;
     column-gap: 1.25rem;
@@ -3644,7 +3634,7 @@ input[type="button"].btn-block {
   }
   .card-columns .card {
     display: inline-block;
-    width: 100%;
+    width: 33%;
   }
 }
 
@@ -5073,6 +5063,7 @@ a.close.disabled {
   position: relative;
   width: 100%;
   overflow: hidden;
+  height: 500px;
 }
 
 .carousel-inner::after {
@@ -5088,6 +5079,7 @@ a.close.disabled {
   width: 100%;
   margin-right: -100%;
   backface-visibility: hidden;
+  height: 500px;
   transition: transform 0.6s ease-in-out;
 }
 
@@ -5095,6 +5087,13 @@ a.close.disabled {
   .carousel-item {
     transition: none;
   }
+}
+.carousel-item img {
+  position: absolute;
+  object-fit:cover;
+  top: 0;
+  left: 0;
+  min-height: 500px;
 }
 
 .carousel-item.active,

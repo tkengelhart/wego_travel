@@ -1,7 +1,12 @@
-#footer {
-  align-content: space-around;
-  text-align: right;
+#footer{
   justify-content: right;
+text-align: right;
+  font-size: small;
+  font-family: muli;
+}
+footer {
+justify-content: right;
+text-align: right;
   font-size: small;
   font-family: muli;
 }

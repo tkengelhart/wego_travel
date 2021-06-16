@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Container, Button, Modal, Dropdown, InputGroup, FormControl } from 'react-bootstrap';
+import { Form, Container, Button, Modal, Dropdown, InputGroup, FormControl, Spinner, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import moment from 'moment';
 
 
 
@@ -18,10 +19,28 @@ function ChooseItinerary(trip) {
     const currentChosenActivity = useSelector(store => store.currentitineraryactivity);
     console.log('store is', currentChosenActivity);
 
+
     const [itinerary, setItinerary] = useState('');
+
+    const currentTrip = trips.find(trip => trip.id === Number(itinerary));
+
+    console.log(' current trip is', currentTrip);
+
     const [tod, setTod] = useState('');
     const [date, setDate] = useState('');
     const [notes, setNotes] = useState('');
+
+    const handleTripDropdown = (event) => {
+        setItinerary(event.target.value)
+    }
+
+    useEffect(() => {
+        if (currentTrip) {
+            console.log('current start is', moment(currentTrip?.start).format('YYYY-MM-DD'));
+            setDate(moment(currentTrip?.start).format('YYYY-MM-DD'));
+        }
+
+    }, [itinerary]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -50,7 +69,7 @@ function ChooseItinerary(trip) {
                 <Form onSubmit={(event) => handleSubmit(event)}>
                     <select
 
-                        onChange={(event) => setItinerary(event.target.value)}>
+                        onChange={handleTripDropdown}>
                         <option defaultValue='Select'>Which Trip</option>
 
                         {trips.map(trip =>
@@ -59,9 +78,11 @@ function ChooseItinerary(trip) {
                         )}
 
                     </select>
+
                     <br />
                     <br />
                     <select
+                        value={tod}
                         onChange={(event) => setTod(event.target.value)}>
                         <option defaultValue='Select'>Time Of Day</option>
                         <option value='Morning'>Morning</option>
@@ -74,6 +95,7 @@ function ChooseItinerary(trip) {
                     <br />
                     <br />
                     <input
+                        value={date}
                         type="date"
                         placeholder="Enter New Date"
                         onChange={(event) => setDate(event.target.value)}></input>
@@ -88,12 +110,12 @@ function ChooseItinerary(trip) {
                     </textarea>
                     <br />
                     <br />
-                    <Button variant="primary" type="submit">
+                    <Button variant="success" type="submit">
                         Submit
                     </Button>
                     &nbsp;
                     &nbsp;
-                    <Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
+                    <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
                 </Form>
             </Container >
         </>

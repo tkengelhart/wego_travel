@@ -14,14 +14,23 @@ function EditActivityInfo(info) {
     useEffect(() => {
         dispatch({ type: 'FETCH_ACTIVITIES' });
     }, []);
-
     const activityList = useSelector(store => store.activities);
-    const [editName, setEditName] = useState('');
-    const [editConstraints, setEditConstraints] = useState('');
-    const [editWebsite, setEditWebsite] = useState('');
-    const [editLocation, setEditLocation] = useState('');
 
     const currentActivityEdit = useSelector(store => store.currentitineraryactivity);
+
+    const activity = activityList.find(activity => activity.id === currentActivityEdit);
+    if (!activity) {
+        return (
+            <h1>Loading</h1>
+        )
+    }
+    console.log('current activity is', activity);
+
+
+    const [editName, setEditName] = useState(activity.name);
+    const [editConstraints, setEditConstraints] = useState(activity.constraints);
+    const [editWebsite, setEditWebsite] = useState(activity.activity_url);
+    const [editLocation, setEditLocation] = useState(activity.activity_location);
 
 
 
@@ -45,52 +54,50 @@ function EditActivityInfo(info) {
     return (
         <Container>
             <>
-                {activityList.map(activity =>
+                <Form key={activity.id} onSubmit={(event) => handleSubmit(event)}>
+                    <Form.Group>
+                        <Form.Label>Activity Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder={activity.name}
+                            value={editName}
+                            onChange={(event) => setEditName(event.target.value)} />
+                    </Form.Group>
 
-                    <Form onSubmit={(event) => handleSubmit(event)}>
-                        <Form.Group>
-                            <Form.Label>Activity Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder={activity.name}
-                                value={editName}
-                                onChange={(event) => setEditName(event.target.value)} />
-                        </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Constraints</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder='Constraints'
+                            value={editConstraints}
+                            onChange={(event) => setEditConstraints(event.target.value)} />
+                    </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Constraints</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder='Constraints'
-                                value={editConstraints}
-                                onChange={(event) => setEditConstraints(event.target.value)} />
-                        </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Website:</Form.Label>
+                        <Form.Control
+                            type="url"
+                            placeholder='Website address'
+                            value={editWebsite}
+                            onChange={(event) => setEditWebsite(event.target.value)} />
+                    </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Website:</Form.Label>
-                            <Form.Control
-                                type="url"
-                                placeholder='Website address'
-                                value={editWebsite}
-                                onChange={(event) => setEditWebsite(event.target.value)} />
-                        </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Location:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder='Location'
+                            value={editLocation}
+                            onChange={(event) => setEditLocation(event.target.value)} />
+                    </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Location:</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder='Location'
-                                value={editLocation}
-                                onChange={(event) => setEditLocation(event.target.value)} />
-                        </Form.Group>
+                    <Button variant="success" type="submit">Submit</Button>
+                    &nbsp;&nbsp;
+                    <Button variant="success"
+                        onClick={() => history.goBack()}>Back</Button>
 
-                        <Button variant="primary" type="submit">Submit</Button>
-                        &nbsp;&nbsp;
-                        <Button variant="primary"
-                            onClick={() => history.goBack()}>Back</Button>
+                </Form>
 
-                    </Form>
-                )}
 
             </>
         </Container >
