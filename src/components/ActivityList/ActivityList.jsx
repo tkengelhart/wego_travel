@@ -55,7 +55,7 @@ function ActivityList() {
     return (
         <Container>
 
-            <Table striped hover>
+            <Table striped hover variant="secondary">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -70,13 +70,13 @@ function ActivityList() {
                             <tr key={info.id}>
                                 <td>
                                     {info.name}<br /><br />
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             setActivityDetails(info.id);
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             editDetails(info.id);
 
@@ -85,14 +85,14 @@ function ActivityList() {
                                     </Button>
 
 
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             chooseItinerary(info.id)
                                         }}>
                                         <FontAwesomeIcon icon="plus-square" />
                                     </Button>
 
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={(event) => deleteActivity(info.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -111,9 +111,11 @@ function ActivityList() {
                 </tbody>
             </Table >
 
-            <Button variant="warning"
+            <Button variant="secondary"
                 onClick={() => history.push('/add')}>New Activity</Button>
-            <Button variant="warning"
+            &nbsp;
+            &nbsp;
+            <Button variant="secondary"
                 onClick={() => history.push('/trips')}>View Trips</Button>
         </Container >
 

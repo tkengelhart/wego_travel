@@ -40,7 +40,7 @@ function ActivityInfo() {
         <Card.Body>Location: {activity.activity_location}</Card.Body>
         <Card.Link href="Website"> {activity.activity_url}</Card.Link>
       </Card>
-      <Button variant="warning"
+      <Button variant="secondary"
         onClick={() => history.goBack()}>Back</Button>
     </Container >
 

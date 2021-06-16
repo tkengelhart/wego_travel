@@ -7,7 +7,7 @@ body,
 
 body {
   background-color: #e8e5cf;
-  font-family:serif;
+  font-family:muli;
   margin: 0px;
 }
 
@@ -22,15 +22,19 @@ Container
 
 .container {
   background-color: #BFC0C0;
-
+  justify-content: center;
+  text-align: center;
   padding: 20px;
 
 }
-
+#about-section {
+  padding: 100px;
+  margin: 50px;
+}
 .about-section {
   background-color: #BFC0C0;
-
-  padding: 50px;
+  padding: 300px;
+  margin: 100px;
 }
 /* --------------------------------------------------------------------------------
 Button

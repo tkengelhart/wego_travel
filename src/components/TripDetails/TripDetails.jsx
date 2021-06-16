@@ -74,21 +74,21 @@ function TripDetails() {
                             <tr key={item.id}>
 
                                 <td>{moment(item.date).format('MMM Do YYYY')}<br />
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             setActivityDetails(item.id);
                                         }}
                                     >
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={() => {
                                             editDetails(item);
 
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
                                     </Button>
-                                    <Button variant="outline-warning" size='sm'
+                                    <Button variant="outline-info" size='sm'
                                         onClick={(event) => deleteActivity(item.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -106,9 +106,12 @@ function TripDetails() {
                     })}
                 </tbody>
             </Table>
-            <Button variant="warning"
+            <Button variant="secondary"
                 onClick={() => history.goBack()}>Back</Button>
-            <Button variant="warning"
+
+            &nbsp;
+            &nbsp;
+            <Button variant="secondary"
                 onClick={() => history.push('/activity')}>Add Activities</Button>
         </Container >
 

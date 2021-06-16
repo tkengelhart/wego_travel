@@ -88,9 +88,12 @@ function ChooseItinerary(trip) {
                     </textarea>
                     <br />
                     <br />
-                    <Button variant="warning" type="submit">
+                    <Button variant="secondary" type="submit">
                         Submit
-                    </Button><Button variant="warning" onClick={() => history.goBack()}>Cancel</Button>
+                    </Button>
+                    &nbsp;
+                    &nbsp;
+                    <Button variant="secondary" onClick={() => history.goBack()}>Cancel</Button>
                 </Form>
             </Container >
         </>

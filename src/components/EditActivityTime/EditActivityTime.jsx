@@ -68,10 +68,13 @@ function EditActivityTime(itemId) {
 
                                 <br />
 
-                                <Button variant="warning" type="submit">Submit</Button>
+                                <Button variant="secondary" type="submit">Submit</Button>
+                                &nbsp;
+                                &nbsp;
+                                <Button variant="secondary"
+                                        onClick={() => history.goBack()}>Back</Button>
                         </Form>
-                        <Button variant="warning"
-                                onClick={() => history.goBack()}>Back</Button>
+
                 </Container >
         )
 }

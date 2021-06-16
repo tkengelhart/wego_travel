@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <>
       <div className="container">
-        <div className="about-section">
+        <div id="about-section">
 
           <p>The WeGo travel app was born out of a need to organize travel plans
             with two other families and in preparation for an upcoming vacation. Attempting

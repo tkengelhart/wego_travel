@@ -57,11 +57,11 @@ function TripPage() {
         <CardGroup>
           <Card border="dark">
             <Card.Body>
-              <Button variant="warning" onClick={handleShow}>New Trip</Button>
+              <Button variant="secondary" onClick={handleShow}>New Trip</Button>
               <Modal show={show} onHide={handleClose}>
                 <Modal.Body><TripForm /></Modal.Body>
                 <Modal.Footer>
-                  <Button variant="warning" onClick={handleClose}>
+                  <Button variant="secondary" onClick={handleClose}>
                     Close
                   </Button>
                 </Modal.Footer>
