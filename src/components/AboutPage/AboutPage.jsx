@@ -9,9 +9,10 @@ function AboutPage() {
   return (
     <>
       <div className="container">
-        <div id="about-section">
-
-          <p>The WeGo travel app was born out of a need to organize travel plans
+        <div>
+          <h2>About WeGo Travel</h2>
+          <br />
+          <p className="about-section">The WeGo travel app was born out of a need to organize travel plans
             with two other families and in preparation for an upcoming vacation. Attempting
             to get everyone together to go through details of the itinerary and to talk about what
             each family’s wants for the trip were, proved to be really difficult. Instead of

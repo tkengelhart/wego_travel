@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Table, Button, Modal, Form, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useHistory, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react';
@@ -70,29 +70,31 @@ function ActivityList() {
                             <tr key={info.id}>
                                 <td>
                                     {info.name}<br /><br />
-                                    <Button variant="outline-danger" size='sm'
+
+                                    <Button variant="danger" size='sm'
                                         onClick={() => {
                                             setActivityDetails(info.id);
                                         }}>
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-danger" size='sm'
+
+                                    <Button variant="danger" size='sm'
                                         onClick={() => {
                                             editDetails(info.id);
-
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
                                     </Button>
 
 
-                                    <Button variant="outline-danger" size='sm'
+
+                                    <Button variant="danger" size='sm'
                                         onClick={() => {
                                             chooseItinerary(info.id)
                                         }}>
                                         <FontAwesomeIcon icon="plus-square" />
                                     </Button>
 
-                                    <Button variant="outline-danger" size='sm'
+                                    <Button variant="danger" size='sm'
                                         onClick={(event) => deleteActivity(info.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -104,18 +106,16 @@ function ActivityList() {
                                 <td>
                                     {info.activity_location}
                                 </td>
-
-
-                            </tr>)
+                            </tr>
+                        )
                     })}
                 </tbody>
             </Table >
 
-            <Button variant="success"
+            <Button variant="primary"
                 onClick={() => history.push('/add')}>New Activity</Button>
-            &nbsp;
-            &nbsp;
-            <Button variant="success"
+
+            <Button variant="primary"
                 onClick={() => history.push('/trips')}>View Trips</Button>
         </Container >
 

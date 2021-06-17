@@ -38,18 +38,15 @@ function EditActivityTime(itemId) {
         return (
                 <Container>
                         <Form onSubmit={(event) => handleSubmit(event)}>
-                                <select
-                                        label="Time Of Day"
-                                        placeholder="Time Of Day"
-                                        required
-                                        onChange={(event) => setTod(event.target.value)}>
-                                        <option defaultValue='Time Of Day' >Time Of Day</option>
-                                        <option value='Morning' >Morning</option>
-                                        <option value='Noon' >Noon</option>
-                                        <option value='Afternoon' >Afternoon</option>
-                                        <option value='Evening' >Evening</option>
-                                        <option value='All Day' >All Day</option>
-                                </select>
+                                <DropdownButton
+                                        title="Time of Day"
+                                        onSelect={(event) => setTod(event)}>
+                                        <Dropdown.Item eventKey='Morning'>Morning</Dropdown.Item>
+                                        <Dropdown.Item eventKey='Noon'>Noon</Dropdown.Item>
+                                        <Dropdown.Item eventKey='Afternoon'>Afternoon</Dropdown.Item>
+                                        <Dropdown.Item eventKey='Evening'>Evening</Dropdown.Item>
+                                        <Dropdown.Item eventKey='All Day'>All Day</Dropdown.Item>
+                                </DropdownButton>
                                 <br />
                                 <br />
                                 <input
@@ -70,12 +67,11 @@ function EditActivityTime(itemId) {
 
                                 <br />
 
-                                <Button variant="success" type="submit">Submit</Button>
-                                &nbsp;
-                                &nbsp;
-                                <Button variant="success"
+                                <Button variant="primary" type="submit">Submit</Button>
+
+                                <Button variant="primary"
                                         onClick={() => history.goBack()}>Back</Button>
-                        </Form>
+                        </Form >
 
                 </Container >
         )

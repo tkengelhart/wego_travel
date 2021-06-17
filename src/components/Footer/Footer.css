@@ -1,12 +1,10 @@
-#footer{
+footer, #footer-style {
+  padding-top: 200px;
   justify-content: right;
-text-align: right;
-  font-size: small;
-  font-family: muli;
+  text-align: right;
+  color: #373f51;
+  font-family: syncopate;
+  margin-right: 50px;
+  font-size: 15px;
 }
-footer {
-justify-content: right;
-text-align: right;
-  font-size: small;
-  font-family: muli;
-}
+

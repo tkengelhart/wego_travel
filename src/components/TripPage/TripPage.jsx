@@ -32,6 +32,7 @@ function TripPage() {
   return (
     <>
       <Container>
+        <h3>Which trip would you like to look at?</h3>
         <Row>
           <Col>
             <CardGroup>
@@ -57,11 +58,11 @@ function TripPage() {
         <CardGroup>
           <Card border="dark">
             <Card.Body>
-              <Button variant="success" onClick={handleShow}>New Trip</Button>
+              <Button variant="primary" onClick={handleShow}>New Trip</Button>
               <Modal show={show} onHide={handleClose}>
                 <Modal.Body><TripForm /></Modal.Body>
                 <Modal.Footer>
-                  <Button variant="success" onClick={handleClose}>
+                  <Button variant="primary" onClick={handleClose}>
                     Close
                   </Button>
                 </Modal.Footer>

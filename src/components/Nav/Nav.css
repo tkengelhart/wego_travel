@@ -2,35 +2,36 @@
   /* flex box layout */
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
   height: 150px;
 
-  margin: 0 0 25px;
-  background-color:#486273;
+  margin: 0 0 30px;
+  background-color:#373f51;
   overflow: hidden;
 }
-.navbar {
-  width: 100%
+h3 {
+  text-align: center;
 }
+
 .nav a {
   text-decoration: none;
 }
 
 .nav-title {
   font-family: 'Syncopate', sans-serif;
-  font-size: 65px;
+  font-size: 50px;
   font-weight: 700;
   color: #FAFAFA;
   padding-left: 10px;
+  padding-bottom: 100px;
   margin: 0;
-  width: 100%;
 }
 
 .navLink {
   display: inline-block;
   color: #FAFAFA;
-  background-color: #486273;
-  text-align: center;
+  background-color: #373f51;
+  text-align: right;
   padding: 50px 10px;
   margin-top: 70px;
   text-decoration: none;
@@ -44,5 +45,6 @@
 }
 
 .navLink:hover {
-  background-color: #486273;
+  background-color: #373f51;
+  color: #ffe066
 }

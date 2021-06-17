@@ -60,7 +60,7 @@ function LandingPage() {
 
           <center>
             <h4>Already a Member?</h4>
-            <Button variant="success" onClick={onLogin}>
+            <Button variant="primary" onClick={onLogin}>
               Login
             </Button>
           </center>

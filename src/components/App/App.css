@@ -4,22 +4,21 @@ body,
 #react-root {
   height: 100%;
 }
+footer {
+  justify-content: left;
+}
 
 body {
   background-color: #e8e5cf;
   font-family:muli;
   margin: 0px;
 }
-.footer {
-  text-align: right;
-  justify-content: right;  
-  font-size: small;
-  font-family: serif;
-}
+
 img {
   display: inline-block;
   max-width: 100%;
 }
+ 
 
 /* --------------------------------------------------------------------------------
 Container
@@ -30,17 +29,19 @@ Container
   justify-content: center;
   text-align: center;
   padding: 20px;
+}
+.logincontainer {
+  background-color: #bfc0c0;
+  justify-content: left;
+  text-align: left;
+}
 
-}
-#about-section {
-  padding: 100px;
-  margin: 50px;
-}
 .about-section {
   background-color: #BFC0C0;
-  padding: 300px;
-  margin:
+  color: #373f51;
+
 }
+
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
@@ -67,7 +68,9 @@ Button
   padding: 10px 15px;
   font-size: 0.8rem;
 }
-
+Button {
+margin: 10px;
+}
 .btn_sizeFull {
   display: block;
   width: 100%;

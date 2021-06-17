@@ -59,7 +59,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <Button variant="success"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
+        <Button variant="primary"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
       </div>
     </form >
   );

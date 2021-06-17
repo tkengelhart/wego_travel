@@ -51,12 +51,21 @@ function TripDetails() {
         });
     }
 
+    // const showMessage = (itinerary) => {
+    //     if (itinerary.map != 0) {
+    //         <h3>Great, looks like you have already made some plans!</h3>
+    //     } else {
+    //         <h3>Looks like you have some planning to do!</h3>
+    //     }
+
+
+    // }
 
 
     return (
         <Container>
-
-            <Table striped hover>
+            {/* {showMessage()} */}
+            <Table striped hover size="sm">
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -74,21 +83,21 @@ function TripDetails() {
                             <tr key={item.id}>
 
                                 <td>{moment(item.date).format('MMM Do YYYY')}<br />
-                                    <Button variant="outline-danger" size='sm'
+                                    <Button variant="danger" size='sm'
                                         onClick={() => {
                                             setActivityDetails(item.id);
                                         }}
                                     >
                                         <FontAwesomeIcon icon="info-circle" />
                                     </Button>
-                                    <Button variant="outline-danger" size='sm'
+                                    <Button variant="danger" size='sm'
                                         onClick={() => {
                                             editDetails(item);
 
                                         }}>
                                         <FontAwesomeIcon icon="edit" />
                                     </Button>
-                                    <Button variant="outline-danger" size='sm'
+                                    <Button variant="danger" size='sm'
                                         onClick={(event) => deleteActivity(item.id)}>
                                         <FontAwesomeIcon icon="trash-alt" />
                                     </Button>
@@ -106,12 +115,12 @@ function TripDetails() {
                     })}
                 </tbody>
             </Table>
-            <Button variant="success"
+            <Button variant="primary"
                 onClick={() => history.goBack()}>Back</Button>
 
             &nbsp;
             &nbsp;
-            <Button variant="success"
+            <Button variant="primary"
                 onClick={() => history.push('/activity')}>Add Activities</Button>
         </Container >
 

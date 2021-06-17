@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Button, Modal, Card } from 'react-bootstrap';
+import { Container, Button, Modal, Card, OverlayTrigger } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -40,10 +40,13 @@ function ActivityInfo() {
         <Card.Body>Location: {activity.activity_location}</Card.Body>
         <Card.Link href="Website"> {activity.activity_url}</Card.Link>
       </Card>
-      <Button variant="success"
+
+      <Button variant="primary"
         onClick={() => history.goBack()}>Back</Button>
+
     </Container >
 
   )
 }
 export default ActivityInfo;
+
