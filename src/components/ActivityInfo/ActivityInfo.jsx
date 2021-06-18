@@ -35,13 +35,13 @@ function ActivityInfo() {
 
   return (
     <Container>
-      <Card variant="primary">
+      <Card variant="success">
         <Card.Header>Name: {activity.name}</Card.Header>
         <Card.Body>Location: {activity.activity_location}</Card.Body>
-        <Card.Link href="Website"> {activity.activity_url}</Card.Link>
+        <Card.Link href="{activity.activity_url}"></Card.Link>
       </Card>
 
-      <Button variant="primary"
+      <Button variant="success"
         onClick={() => history.goBack()}>Back</Button>
 
     </Container >

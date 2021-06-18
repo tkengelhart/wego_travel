@@ -32,7 +32,7 @@ function LoginForm() {
   return (
     <center>
       <Form className="formPanel" onSubmit={login}>
-        <h2>Login</h2>
+        <h2>Please login to continue</h2>
         {errors.loginMessage && (
           <h3 className="alert" role="alert">
             {errors.loginMessage}
@@ -63,7 +63,7 @@ function LoginForm() {
           </label>
         </div>
         <div>
-          <Button variant="primary"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
+          <Button variant="success"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
         </div>
       </Form >
     </center>

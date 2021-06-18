@@ -32,6 +32,7 @@ function TripForm() {
     }
     return (
         <Container>
+            <h2>Add new trip details below:</h2>
             <Form onSubmit={(event) => handleSubmit(event)}>
                 <Form.Group>
                     <Form.Label>Destination</Form.Label>
@@ -61,7 +62,7 @@ function TripForm() {
                 </Form.Group>
 
 
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="success" type="submit">Submit</Button>
             </Form>
         </Container>
     )

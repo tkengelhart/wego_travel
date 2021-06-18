@@ -38,7 +38,7 @@ function AddActivity() {
     }
     return (
         <Container>
-
+            <h2>Add a new activity</h2>
             <Form onSubmit={(event) => handleSubmit(event)}>
                 <Form.Group>
                     <Form.Label>Activity Name</Form.Label>
@@ -76,10 +76,9 @@ function AddActivity() {
                 </Form.Group>
 
 
-                <Button variant="primary" type="submit">Submit</Button>
-                &nbsp;
-                &nbsp;
-                <Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
+                <Button variant="success" type="submit">Submit</Button>
+
+                <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
 
 
             </Form>

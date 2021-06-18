@@ -67,6 +67,7 @@ function TripDetails() {
         <>
             <Container>
                 {/* {showMessage()} */}
+                <h2>Enjoy your trip!</h2>
                 <Table striped hover size="sm">
                     <thead>
                         <tr>
@@ -117,12 +118,12 @@ function TripDetails() {
                         })}
                     </tbody>
                 </Table>
-                <Button variant="primary"
+                <Button variant="success"
                     onClick={() => history.goBack()}>Back</Button>
 
                 &nbsp;
                 &nbsp;
-                <Button variant="primary"
+                <Button variant="success"
                     onClick={() => history.push('/activity')}>Add Activities</Button>
             </Container >
             <Container>

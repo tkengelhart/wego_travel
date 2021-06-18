@@ -9,8 +9,8 @@ footer {
 }
 
 body {
-  background-color: #e8e5cf;
-  font-family:muli;
+  background-color: #ffe066;
+  font-family:sans-serif;
   margin: 0px;
 }
 
@@ -38,7 +38,7 @@ Container
 
 .about-section {
   background-color: #BFC0C0;
-  color: #373f51;
+  color: #2d3142;
 
 }
 
@@ -57,6 +57,7 @@ Button
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  margin: 5px;
 }
 
 .btn_sizeMin {
@@ -151,10 +152,10 @@ input {
   flex-direction: column;
   min-width: 250px;
   word-wrap: break-word;
-  color: #373f51;
+  color: #2d3142;
   background-color: #f8f9fa;
   background-clip: border-box;
-  border: 2px solid #373f51;
+  border: 2px solid #2d3142;
   border-radius: 0.25rem;
   padding: 5px;
   margin: 25px;

@@ -58,8 +58,8 @@ function LandingPage() {
             <RegisterForm />
 
             <center>
-              <h4>Please Login</h4>
-              <Button variant="primary" onClick={onLogin}>
+              <h2>Please Login</h2>
+              <Button variant="success" onClick={onLogin}>
                 Login
               </Button>
             </center>

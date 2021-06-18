@@ -12,7 +12,7 @@ function AboutPage() {
         <div>
           <h2>About WeGo Travel</h2>
           <br />
-          <p className="about-section">The WeGo travel app was born out of a need to organize travel plans
+          <div className="about-section">The WeGo travel app was born out of a need to organize travel plans
             with two other families and in preparation for an upcoming vacation. Attempting
             to get everyone together to go through details of the itinerary and to talk about what
             each family’s wants for the trip were, proved to be really difficult. Instead of
@@ -21,7 +21,7 @@ function AboutPage() {
             with each other. This app will be a central place where travelers can add activity
             options and view their created itineraries and then share that information with the
             rest of the group.
-          </p>
+          </div>
         </div>
 
       </div >

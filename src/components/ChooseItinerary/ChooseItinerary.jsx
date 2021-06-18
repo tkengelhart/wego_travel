@@ -66,6 +66,7 @@ function ChooseItinerary(trip) {
     return (
         <>
             <Container>
+                <h2>Add to your itinerary below:</h2>
                 <Form onSubmit={(event) => handleSubmit(event)}>
                     <select
 
@@ -110,11 +111,11 @@ function ChooseItinerary(trip) {
                     </textarea>
                     <br />
                     <br />
-                    <Button variant="primary" type="submit">
+                    <Button variant="success" type="submit">
                         Submit
                     </Button>
 
-                    <Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
+                    <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
                 </Form>
             </Container >
         </>

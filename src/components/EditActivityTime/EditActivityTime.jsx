@@ -37,6 +37,7 @@ function EditActivityTime(itemId) {
 
         return (
                 <Container>
+                        <h2>Update activity below:</h2>
                         <Form onSubmit={(event) => handleSubmit(event)}>
                                 <DropdownButton
                                         title="Time of Day"
@@ -67,9 +68,9 @@ function EditActivityTime(itemId) {
 
                                 <br />
 
-                                <Button variant="primary" type="submit">Submit</Button>
+                                <Button variant="success" type="submit">Submit</Button>
 
-                                <Button variant="primary"
+                                <Button variant="success"
                                         onClick={() => history.goBack()}>Back</Button>
                         </Form >
 

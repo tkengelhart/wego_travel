@@ -3,14 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Table, Button, Modal, Form, Tooltip, OverlayTrigger, CardGroup, Card, Column, Row, CardDeck, CardList } from 'react-bootstrap';
 import { useHistory, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react';
-import NewActivity from '../ChooseItinerary/ChooseItinerary';
-import AddActivity from '../AddActivity/AddActivity';
-import ActivityInfo from '../ActivityInfo/ActivityInfo';
-import EditActivityInfo from '../EditActivityInfo/EditActivityInfo';
-import ChooseItinerary from '../ChooseItinerary/ChooseItinerary';
-import currentitineraryactivity from '../../redux/reducers/currentitineraryactivity.reducer';
-
 
 function ActivityList() {
     useEffect(() => {
@@ -55,14 +47,15 @@ function ActivityList() {
     return (
         <>
             <Container>
-                <Button variant="primary"
+                <h2>Choose your Adventure</h2>
+
+
+                <Button variant="success"
                     onClick={() => history.push('/add')}>New Activity</Button>
 
-                <Button variant="primary"
+                <Button variant="success"
                     onClick={() => history.push('/trips')}>View Trips</Button>
 
-            </Container>
-            <Container>
                 <Row>
                     <CardDeck id="activity-list">
 

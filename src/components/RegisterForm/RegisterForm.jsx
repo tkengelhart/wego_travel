@@ -53,7 +53,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <Button variant="primary"><input className="btn" type="submit" name="submit" value="Register" /></Button>
+        <Button variant="success" size="sm"><input className="btn" type="submit" name="submit" value="Register" /></Button>
       </div>
     </Form>
   );

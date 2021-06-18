@@ -53,6 +53,7 @@ function EditActivityInfo(info) {
 
     return (
         <Container>
+            <h2>Update activity information</h2>
             <>
                 <Form key={activity.id} onSubmit={(event) => handleSubmit(event)}>
                     <Form.Group>
@@ -91,9 +92,9 @@ function EditActivityInfo(info) {
                             onChange={(event) => setEditLocation(event.target.value)} />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">Submit</Button>
+                    <Button variant="success" type="submit">Submit</Button>
                     &nbsp;&nbsp;
-                    <Button variant="primary"
+                    <Button variant="success"
                         onClick={() => history.goBack()}>Back</Button>
 
                 </Form>
