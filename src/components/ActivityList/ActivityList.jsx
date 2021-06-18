@@ -52,7 +52,22 @@ function ActivityList() {
             <Container fluid>
                 <h1>Choose your Adventure</h1>
 
+                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <FontAwesomeIcon icon="info-circle" /><br />Info.
+                </Button>
 
+                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <FontAwesomeIcon icon="plus-square" /><br />Add
+                </Button>
+
+                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <FontAwesomeIcon icon="edit" /><br />Edit
+                </Button>
+
+                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <FontAwesomeIcon icon="trash-alt" /><br />Delete
+                </Button>
+                <br />
                 <Button variant="success"
                     onClick={() => history.push('/add')}>New Activity</Button>
 
