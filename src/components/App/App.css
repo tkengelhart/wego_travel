@@ -143,3 +143,28 @@ input {
     left: 0;
     min-height: 300px;
 }
+
+#activity-list {
+  justify-content: center;
+  position: sticky;
+  display: flexbox;
+  flex-direction: column;
+  min-width: 250px;
+  word-wrap: break-word;
+  color: #373f51;
+  background-color: #f8f9fa;
+  background-clip: border-box;
+  border: 2px solid #373f51;
+  border-radius: 0.25rem;
+  padding: 5px;
+  margin: 25px;
+  column-count: 4;
+  column-width: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  text-align: center;
+  
+} 
+.activity-title, .card-title {
+  text-align: center;
+}

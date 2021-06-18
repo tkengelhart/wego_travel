@@ -874,6 +874,7 @@ pre code {
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
+  text-align: left;
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
@@ -1007,6 +1008,7 @@ textarea.form-control {
 .form-text {
   display: block;
   margin-top: 0.25rem;
+  text-align: left;
 }
 
 .form-row {
@@ -3439,21 +3441,22 @@ input[type="button"].btn-block {
 }
 
 .card {
+  justify-content: center;
   position: sticky;
   display: flexbox;
   flex-direction: column;
-  min-width: 200px;
+  min-width: 250px;
   word-wrap: break-word;
   color: #f8f9fa;
   background-color: #373f51;
   background-clip: border-box;
-  border: 2px solid #f8f9fa;
   border-radius: 0.25rem;
   padding: 5px;
   margin: 25px;
   column-count: 4;
   column-width: 200px;
   max-width: 200px;
+  min-height: 200px;
   
 } 
 
@@ -3579,6 +3582,7 @@ input[type="button"].btn-block {
 
 .card-deck .card {
   margin-bottom: 15px;
+
 }
 
 @media (min-width: 576px) {

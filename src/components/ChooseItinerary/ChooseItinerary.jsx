@@ -113,8 +113,7 @@ function ChooseItinerary(trip) {
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
-                    &nbsp;
-                    &nbsp;
+
                     <Button variant="primary" onClick={() => history.goBack()}>Cancel</Button>
                 </Form>
             </Container >

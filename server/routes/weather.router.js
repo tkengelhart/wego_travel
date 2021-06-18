@@ -20,7 +20,7 @@ router.get('/:searchid', (req, res) => { // api/giphy/apple
         console.log(response.data);
         res.send(response.data);
     }).catch(error => {
-        console.log('Error on getting API', [itinerary.name]);
+        console.log('Error on getting API', [city.name]);
         res.sendStatus(500);
     })
 });

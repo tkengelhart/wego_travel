@@ -9,6 +9,7 @@ import moment from 'moment';
 import { useState } from 'react';
 import ActivityList from '../ActivityList/ActivityList';
 import EditActivityTime from '../EditActivityTime/EditActivityTime';
+import WeatherSearch from '../../Weather/Weather';
 
 
 
@@ -63,67 +64,70 @@ function TripDetails() {
 
 
     return (
-        <Container>
-            {/* {showMessage()} */}
-            <Table striped hover size="sm">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Time of Day</th>
-                        <th>Things to Consider</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <>
+            <Container>
+                {/* {showMessage()} */}
+                <Table striped hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Time of Day</th>
+                            <th>Things to Consider</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    {itinerary.map(item => {
-                        return (
+                        {itinerary.map(item => {
+                            return (
 
-                            <tr key={item.id}>
+                                <tr key={item.id}>
 
-                                <td>{moment(item.date).format('MMM Do YYYY')}<br />
-                                    <Button variant="danger" size='sm'
-                                        onClick={() => {
-                                            setActivityDetails(item.id);
-                                        }}
-                                    >
-                                        <FontAwesomeIcon icon="info-circle" />
-                                    </Button>
-                                    <Button variant="danger" size='sm'
-                                        onClick={() => {
-                                            editDetails(item);
+                                    <td>{moment(item.date).format('MMM Do YYYY')}<br />
+                                        <Button variant="danger" size='sm'
+                                            onClick={() => {
+                                                setActivityDetails(item.id);
+                                            }}
+                                        >
+                                            <FontAwesomeIcon icon="info-circle" />
+                                        </Button>
+                                        <Button variant="danger" size='sm'
+                                            onClick={() => {
+                                                editDetails(item);
 
-                                        }}>
-                                        <FontAwesomeIcon icon="edit" />
-                                    </Button>
-                                    <Button variant="danger" size='sm'
-                                        onClick={(event) => deleteActivity(item.id)}>
-                                        <FontAwesomeIcon icon="trash-alt" />
-                                    </Button>
-                                </td>
+                                            }}>
+                                            <FontAwesomeIcon icon="edit" />
+                                        </Button>
+                                        <Button variant="danger" size='sm'
+                                            onClick={(event) => deleteActivity(item.id)}>
+                                            <FontAwesomeIcon icon="trash-alt" />
+                                        </Button>
+                                    </td>
 
-                                <td>{item.name}</td>
+                                    <td>{item.name}</td>
 
-                                <td>{item.time_of_day}</td>
+                                    <td>{item.time_of_day}</td>
 
 
-                                <td>{item.constraints}</td>
-                                <td>{item.notes}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </Table>
-            <Button variant="primary"
-                onClick={() => history.goBack()}>Back</Button>
+                                    <td>{item.constraints}</td>
+                                    <td>{item.notes}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </Table>
+                <Button variant="primary"
+                    onClick={() => history.goBack()}>Back</Button>
 
-            &nbsp;
-            &nbsp;
-            <Button variant="primary"
-                onClick={() => history.push('/activity')}>Add Activities</Button>
-        </Container >
-
+                &nbsp;
+                &nbsp;
+                <Button variant="primary"
+                    onClick={() => history.push('/activity')}>Add Activities</Button>
+            </Container >
+            <Container>
+            </Container>
+        </>
     );
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 import { Carousel, Button } from 'react-bootstrap';
+import LoginForm from '../LoginForm/LoginForm';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -17,9 +18,6 @@ function LandingPage() {
   return (
     <div className="container">
       <h2>{heading}</h2>
-
-
-
       <div className="grid">
         <div className="grid-col grid-col_8">
           <Carousel>
@@ -55,16 +53,18 @@ function LandingPage() {
             </Carousel.Item>
           </Carousel>
         </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
+        <center>
+          <div className="grid-col grid-col_4">
+            <RegisterForm />
 
-          <center>
-            <h4>Already a Member?</h4>
-            <Button variant="primary" onClick={onLogin}>
-              Login
-            </Button>
-          </center>
-        </div>
+            <center>
+              <h4>Please Login</h4>
+              <Button variant="primary" onClick={onLogin}>
+                Login
+              </Button>
+            </center>
+          </div>
+        </center>
       </div>
     </div>
   );

@@ -1,57 +1,38 @@
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container, Card } from 'react-bootstrap';
+
+
 
 function WeatherSearch() {
-    const [city, setCity] = useState('');
+    const [itinerary, setItinerary] = useState('');
     const dispatch = useDispatch();
 
-    function searchGiphy() {
-        console.log(searchid);
+    const findCity = useSelector(store => store.itinerary);
+    const currentCity = findCity.find(city => city.name === findCity);
 
-        axios.get(`/api/giphy/${searchid}`).then((response) => { // axios GET to the server to get the giphy api
-            const giphArray = (response.data.data);
-
-            console.log(giphArray);
-
-            dispatch({ // dispatches data from the axios to a reducer
-                type: 'GIPHY_REDUCER',
-                payload: giphArray
-            });
-
-            setSearchid('');
-
-        }).catch((error) => {
-            alert('Error getting gifs');
-            console.log(error);
-        })
-    }
-
-
-
-    //1. [x]need an input field/form
-    //1.1 dispatch to reducer/store (via saga)
-    //1.2 dispatch({type: 'FETCH_SEARCH', payload: search})
-    //2. [x]button to 'search' 
+    useEffect(() => {
+        if (currentcity) {
+            console.log('current city is', currentCity);
+            axios.get('/api/weather').then((response) => {
+                const weather = response.data.data;
+                console.log('weather is', weather);
+                dispatch({
+                    type: 'SET_WEATHER',
+                    payload: city.name
+                }, [cityFind]);
+            })
+        }
+    })
 
     return (
+        <Container>
 
-        <div>
-            <input onChange={(event) => setSearchid(event.target.value)} value={searchid} type="text" placeholder="Search Giphy" ></input>
-            <button onClick={() => searchGiphy()} >Search</button>
-        </div>
-
-
-    );
+            Weather goes here:
+            <Card>Testing</Card>
+        </Container>
+    )
 }
-
-export default Search;
-
-{/*
-So, rereading the giphy api for search, what needs to be done is a use of params.
-What can be done is to use an axios GET (like from the search results), but adding a
-param.
-url: `/api/giphy/{searchid}`
-set searchid to whatever is in the input and then call the axios GET.
-This will allow us to use the param in the server to get the specific gifs.
-*/}
+export default WeatherSearch;

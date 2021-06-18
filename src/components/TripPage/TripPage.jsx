@@ -33,9 +33,28 @@ function TripPage() {
     <>
       <Container>
         <h3>Which trip would you like to look at?</h3>
+        <div className="col-lg">
+          <div className="row">
+            <CardDeck>
+              <Card border="dark">
+                <Card.Body>
+                  <Button variant="primary" onClick={handleShow}>New Trip</Button>
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Body><TripForm /></Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="primary" onClick={handleClose}>
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                </Card.Body>
+              </Card>
+            </CardDeck>
+          </div>
+        </div>
 
 
-        <CardGroup>
+        <CardDeck>
 
           {trips.map(trip => {
             return (
@@ -50,29 +69,11 @@ function TripPage() {
               </Card>
             );
           })}
-        </CardGroup>
+        </CardDeck>
 
 
 
-        <div className="col-lg">
-          <div className="row">
-            <CardGroup>
-              <Card border="dark">
-                <Card.Body>
-                  <Button variant="primary" onClick={handleShow}>New Trip</Button>
-                  <Modal show={show} onHide={handleClose}>
-                    <Modal.Body><TripForm /></Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="primary" onClick={handleClose}>
-                        Close
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                </Card.Body>
-              </Card>
-            </CardGroup>
-          </div>
-        </div>
+
 
       </Container >
     </>
