@@ -19,10 +19,10 @@ function Nav() {
   }
 
   return (
-    <Container className="navbar">
+    <Container fluid className="navbar">
       <div className="nav">
         <Link to="/home">
-          <h2 className="nav-title">WeGo Travel</h2>
+          <h1 className="nav-title">WeGo Travel</h1>
         </Link>
         <div>
           <Link className="navLink" to={loginLinkData.path}>

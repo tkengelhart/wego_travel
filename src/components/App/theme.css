@@ -1344,6 +1344,7 @@ textarea.form-control {
 .btn:hover {
   color: #FAFAFA;
   text-decoration: none;
+  background-color: #ef8354;
 }
 
 .btn:focus, .btn.focus {
@@ -1372,8 +1373,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #FAFAFA;
-  background-color: #282d3a;
-  border-color: #222733;
+  background-color: #ef8354;
+  border-color: #ef8354;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -1409,8 +1410,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary:hover {
   color: #ffffff;
-  background-color: #727b84;
-  border-color: #6c757d;
+  background-color: #ef8354;
+  border-color: #ef8354;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
@@ -1458,8 +1459,8 @@ fieldset:disabled a.btn {
 
 .btn-success:hover {
   color: #ffffff;
-  background-color: #4f5d75;
-  border-color: #4f5d75;
+  background-color: #ef8354;
+  border-color: #ef8354;
 }
 
 .btn-success:focus, .btn-success.focus {
@@ -1494,8 +1495,8 @@ fieldset:disabled a.btn {
 
 .btn-info:hover {
   color: #ffffff;
-  background-color: #138496;
-  border-color: #117a8b;
+  background-color: #ef8354;
+  border-color: #ef8354;
 }
 
 .btn-info:focus, .btn-info.focus {
@@ -1525,20 +1526,20 @@ fieldset:disabled a.btn {
 
 .btn-warning {
   color: #212529;
-  background-color: #ffe066;
-  border-color: #ffe066;
+  background-color: #ef8354;
+  border-color: #ef8354;
 }
 
 .btn-warning:hover {
   color: #212529;
-  background-color: #ffd840;
-  border-color: #ffd633;
+  background-color: #ef8354;
+  border-color: #ef8354;
 }
 
 .btn-warning:focus, .btn-warning.focus {
   color: #212529;
-  background-color: #ffd840;
-  border-color: #ffd633;
+  background-color: #ef8354;
+  border-color: #ef8354;
   box-shadow: 0 0 0 0.2rem rgba(222, 196, 93, 0.5);
 }
 
@@ -1578,14 +1579,14 @@ fieldset:disabled a.btn {
 
 .btn-danger:hover {
   color: #ffffff;
-  background-color: #eb4f2a;
-  border-color: #ea461e;
+  background-color: #2d3142;
+  border-color: #2d3142;
 }
 
 .btn-danger:focus, .btn-danger.focus {
   color: #ffffff;
-  background-color: #eb4f2a;
-  border-color: #ea461e;
+  background-color: #2d3142;
+  border-color: #2d3142;
   box-shadow: 0 0 0 0.2rem rgba(241, 130, 104, 0.5);
 }
 
@@ -1848,8 +1849,8 @@ fieldset:disabled a.btn {
 
 .btn-outline-danger:hover {
   color: #ffffff;
-  background-color: #ef8354;
-  border-color: #ef8354;
+  background-color: #2d3142;
+  border-color: #2d3142;
 }
 
 .btn-outline-danger:focus, .btn-outline-danger.focus {
@@ -1944,7 +1945,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-link:hover {
-  color: #181c23;
+  color: #ef8354;
   text-decoration: underline;
 }
 
@@ -3010,24 +3011,27 @@ input[type="button"].btn-block {
 
 
 .card {
-  justify-content: center;
-  position: sticky;
-  display: flexbox;
-  flex-direction: column;
-  min-width: 250px;
-  word-wrap: break-word;
-  color: #f8f9fa;
-  background-color: #2d3142;
-  background-clip: border-box;
-  border-radius: 0.25rem;
-  padding: 5px;
-  margin: 25px;
-  column-count: 4;
-  column-width: 200px;
-  max-width: 200px;
-  min-height: 200px;
+    justify-content: center;
+    position: sticky;
+    display: flexbox;
+    flex-direction: column;
+    min-width: 250px;
+    word-wrap: break-word;
+    color: #2d3142;
+    background-color: #FFFFFF;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+    margin: 25px;
+    column-count: 4;
+    column-width: 200px;
+    max-width: 200px;
+    min-height: 200px;
+    text-align: center;
+    border: 2px solid #ef8354;
   
-} 
+  }
+  
+
 
 .card > hr {
   margin-right: 0;
@@ -3056,15 +3060,22 @@ input[type="button"].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
   font-weight: bold;
   background-color: #2d3142;
+  color: #ffffff;
 }
 
 .card-title {
-  margin-bottom: 0.75rem;
-  text-align: left;
-  background-color: #2d3142;
+  background-color: #ffffff;
+  font-size: largest;
+  text-align: center;
+  color: #2d3142;
+  height: 55px;
+  align-items: center;
+  padding-top: 2px;
+  align-items: center;
 }
 
 .card-subtitle {
@@ -3077,11 +3088,14 @@ input[type="button"].btn-block {
 }
 
 .card-link:hover {
-  text-decoration: none;
+  text-decoration:rgba(0, 0, 0, 0.5);
+  font-size: larger;
+  color: #ef8354;
+  text-align: center;
 }
 
 .card-link + .card-link {
-  margin-left: 1.25rem;
+text-align: center;
 }
 
 .card-header {
@@ -7929,12 +7943,10 @@ a.text-dark:hover, a.text-dark:focus {
   body {
     min-width: 992px !important;
   }
-  .container {
+  .Container {
     min-width: 992px !important;
   }
-  .navbar {
-    display: none;
-  }
+
   .badge {
     border: 1px solid #000;
   }

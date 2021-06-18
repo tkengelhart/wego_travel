@@ -1,3 +1,7 @@
+.navbar {
+  width: 100%;
+
+}
 .nav {
   /* flex box layout */
   display: flex;
@@ -5,10 +9,10 @@
   align-items: center;
   height: 150px;
   width: 100%;
-  margin: 0 0 0px;
   background-color:#2d3142;
   overflow: hidden;
 }
+
 h3 {
   text-align: center;
 }
@@ -33,7 +37,7 @@ h3 {
   background-color: #2d3142;
   text-align: right;
   padding: 50px 10px;
-  margin-top: 70px;
+  padding-top: 100px;
   text-decoration: none;
   font-size: 20px;
 

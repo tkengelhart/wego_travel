@@ -8,7 +8,7 @@ function LoginPage() {
 
 
   return (
-    <div className="logincontainer">
+    <div className="loginContainer fluid" >
       <LoginForm />
 
       <center>

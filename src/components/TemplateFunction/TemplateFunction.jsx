@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,7 +12,7 @@ function TemplateFunction(props) {
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <h1>{heading}</h1>
     </div>
   );
 }

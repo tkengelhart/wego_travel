@@ -52,8 +52,9 @@ function EditActivityInfo(info) {
     }
 
     return (
-        <Container>
-            <h2>Update activity information</h2>
+        <Container fluid className="formPanel">
+            <h1>Update activity information for</h1>
+            <h2 className="activity-name">{editName}</h2>
             <>
                 <Form key={activity.id} onSubmit={(event) => handleSubmit(event)}>
                     <Form.Group>
@@ -101,7 +102,7 @@ function EditActivityInfo(info) {
 
 
             </>
-        </Container >
+        </Container>
 
     )
 }

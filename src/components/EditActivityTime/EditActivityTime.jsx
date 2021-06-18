@@ -36,8 +36,8 @@ function EditActivityTime(itemId) {
         }
 
         return (
-                <Container>
-                        <h2>Update activity below:</h2>
+                <Container fluid className="formPanel">
+                        <h1>Update activity below:</h1>
                         <Form onSubmit={(event) => handleSubmit(event)}>
                                 <DropdownButton
                                         title="Time of Day"
@@ -74,7 +74,7 @@ function EditActivityTime(itemId) {
                                         onClick={() => history.goBack()}>Back</Button>
                         </Form >
 
-                </Container >
+                </Container>
         )
 }
 

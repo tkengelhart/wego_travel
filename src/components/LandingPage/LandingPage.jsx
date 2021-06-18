@@ -17,15 +17,16 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <h1>{heading}</h1>
 
       <center>
         <div className="grid-col grid-col_4">
           <RegisterForm />
 
           <center>
-            <h2>Already registered? Please login</h2>
-            <Button variant="success" onClick={onLogin}>
+            <br />
+            <h1>Please login</h1>
+            <Button variant="success" size="lg" onClick={onLogin}>
               Login
             </Button>
           </center>

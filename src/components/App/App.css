@@ -19,21 +19,36 @@ img {
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */
+.navbar {
+  width: 100%;
 
-.container {
+}
+.Container{
   justify-content: center;
   text-align: center;
   padding: 20px;
 }
-.logincontainer {
+.loginContainer  {
   background-color: #4f5d75;
   justify-content: left;
   text-align: left;
 }
 
 .about-section {
-  background-color: #BFC0C0;
+  box-sizing: border-box;
+  background-color: #ffffff;
   color: #2d3142;
+  justify-content: space-evenly;
+  text-align: justify;
+  box-shadow: 5px 5px 5px 5px #2d3142;
+  padding: 100px;
+  border: 3px solid #ef8354;
+  font-size:large;
+  font-style:normal;
+  margin-left: 200px;
+  margin-right: 200px;
+  
+
 
 }
 
@@ -43,7 +58,7 @@ Button
 
 
 .btn:hover {
-  background-color: #326273;
+  background-color: #ef8354;
   text-decoration: none;
 }
 
@@ -56,12 +71,13 @@ Button
   background: none;
   font: inherit;
   color: #444;
+  background-color: #2d3142;
 }
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #326273;
-  color: #326273;
+  border-color: #ef8354;
+  color: #ef8354;
 }
 
 /* --------------------------------------------------------------------------------
@@ -87,14 +103,15 @@ Form Treatment
   box-sizing: border-box;
   width: 400px;
   max-width: 100%;
-  padding: 60px;
+  padding: 50px;
   margin: 0 auto 10px;
   background-color: #BFC0C0;
+  border: 3px solid #ef8354;
   border-radius: 10px;
   box-shadow: 5px 5px 5px 5px #2d3142;
   justify-content: center;
   text-align: center;
-  height: 350px;
+  
 }
 
 input {
@@ -115,7 +132,7 @@ input {
     max-height: 500px;
 }
 
-#activity-list {
+.activity-list {
   justify-content: center;
   position: sticky;
   display: flexbox;
@@ -125,7 +142,7 @@ input {
   color: #2d3142;
   background-color: #FFFFFF;
   background-clip: border-box;
-  border: 2px solid #ef8354;
+  border: 2px solid #2d3142;
   border-radius: 0.25rem;
   padding: 5px;
   margin: 25px;
@@ -134,4 +151,35 @@ input {
   max-width: 200px;
   min-height: 200px;
   text-align: center;
+
+}
+
+.activity-title {
+  background-color: #2d3142;
+  font-size: larger;
+  text-align: center;
+  color: #FFFFFF;
+  height: 55px;
+  align-items: center;
+  padding-top: 2px;
+  align-items: center;
+}
+
+.activity-body {
+  background-color: #ffffff;
+  color: #2d3142;
+  text-align: center;
+}
+
+.activity-footer {
+  background-color: #2d3142;
+  color: #FFFFFF;
+  height: 35px;
+  text-align: center;
+  padding: 5px;
+}
+.activity-name {
+  color: #ef8354;
+font-style: oblique;
+font-weight: bolder;
 }

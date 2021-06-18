@@ -8,19 +8,18 @@ import { useState } from 'react';
 function TripForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
 
     const [trip, setTrip] = useState('');
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
+    const curr = new Date();
+    curr.setDate(curr.getDate() + 3);
+    const date = curr.toISOString().substr(0, 10);
 
     const handleSubmit = event => {
         event.preventDefault();
         console.log(`Adding trip`, { start, end, trip });
-        const handleClose = () => setShow(false);
+
 
         dispatch({
             type: 'ADD_TRIP',
@@ -35,8 +34,8 @@ function TripForm() {
 
     }
     return (
-        <Container>
-            <h2>Add new trip details below:</h2>
+        <Container fluid className="formPanel">
+            <h1>Add new trip details below:</h1>
             <Form onSubmit={(event) => handleSubmit(event)}>
                 <Form.Group>
                     <Form.Label>Destination</Form.Label>
@@ -50,7 +49,11 @@ function TripForm() {
                 <Form.Group>
                     <Form.Label>Leaving:</Form.Label>
                     <Form.Control
+                        input id="dateRequired"
+                        required
                         type="date"
+                        name="dateRequired"
+                        defaultValue="{date}"
                         placeholder="Leaving?"
                         value={start}
                         onChange={(event) => setStart(event.target.value)} />
@@ -59,15 +62,18 @@ function TripForm() {
                 <Form.Group>
                     <Form.Label>Returning:</Form.Label>
                     <Form.Control
+                        input id="dateRequired"
+                        required
                         type="date"
+                        name="dateRequired"
+                        defaultValue="{date}"
                         placeholder="Returning??"
                         value={end}
                         onChange={(event) => setEnd(event.target.value)} />
                 </Form.Group>
-
-
                 <Button variant="success" type="submit">Submit</Button>
             </Form>
+
         </Container>
     )
 }

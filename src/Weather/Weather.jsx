@@ -28,11 +28,11 @@ function WeatherSearch() {
     })
 
     return (
-        <Container>
+        <Container fluid>
 
             Weather goes here:
             <Card>Testing</Card>
-        </Container>
+        </Container >
     )
 }
 export default WeatherSearch;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Button, Modal, Card, OverlayTrigger } from 'react-bootstrap';
+import { Container, Button, Modal, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -10,6 +10,10 @@ import { useParams } from 'react-router-dom';
 function ActivityInfo() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
   useEffect(() => {
@@ -29,16 +33,17 @@ function ActivityInfo() {
   console.log(`found activity: `, activity);
 
   if (!activity) {
-    return <h2>Invalid activity ID</h2>;
+    return <h1>Invalid activity ID</h1>;
   }
 
 
   return (
-    <Container>
+    <Container fluid>
+
       <Card>
-        <Card.Header>Name: {activity.name}</Card.Header>
-        <Card.Body>Location: {activity.activity_location}</Card.Body>
-        <Card.Link href="{activity.activity_url}"></Card.Link>
+        <Card.Header className="activity-title">{activity.name}</Card.Header>
+        <Card.Body className="activity-body">{activity.activity_location}</Card.Body>
+        <Card.Link className="activity-footer" href={activity.activity_url}>Website</Card.Link>
       </Card>
 
       <Button variant="success"

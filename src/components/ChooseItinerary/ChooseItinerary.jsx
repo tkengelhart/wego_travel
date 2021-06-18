@@ -23,6 +23,7 @@ function ChooseItinerary(trip) {
     const [itinerary, setItinerary] = useState('');
 
     const currentTrip = trips.find(trip => trip.id === Number(itinerary));
+    const currentActivity = currentChosenActivity.find(activity => currentChosenActivity === Number(activity));
 
     console.log(' current trip is', currentTrip);
 
@@ -65,8 +66,8 @@ function ChooseItinerary(trip) {
 
     return (
         <>
-            <Container>
-                <h2>Add to your itinerary below:</h2>
+            <Container fluid className="formPanel">
+                <h1>Add to itinerary</h1>
                 <Form onSubmit={(event) => handleSubmit(event)}>
                     <select
 
@@ -117,7 +118,7 @@ function ChooseItinerary(trip) {
 
                     <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
                 </Form>
-            </Container >
+            </Container>
         </>
     )
 }

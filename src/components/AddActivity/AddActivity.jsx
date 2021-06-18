@@ -37,8 +37,8 @@ function AddActivity() {
 
     }
     return (
-        <Container>
-            <h2>Add a new activity</h2>
+        <Container fluid className="formPanel">
+            <h1>Add a new activity</h1>
             <Form onSubmit={(event) => handleSubmit(event)}>
                 <Form.Group>
                     <Form.Label>Activity Name</Form.Label>

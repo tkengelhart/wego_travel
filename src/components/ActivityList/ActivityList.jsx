@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Table, Button, Modal, Form, Tooltip, OverlayTrigger, CardGroup, Card, Column, Row, CardDeck, CardList } from 'react-bootstrap';
+import { Container, Table, Button, Modal, Form, Tooltip, OverlayTrigger, CardGroup, Card, Column, Row, CardDeck, CardList, Offcanvas } from 'react-bootstrap';
 import { useHistory, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react';
+
 
 function ActivityList() {
     useEffect(() => {
@@ -11,6 +13,7 @@ function ActivityList() {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
+
 
 
     const deleteActivity = (activityId) => {
@@ -46,8 +49,8 @@ function ActivityList() {
 
     return (
         <>
-            <Container>
-                <h2>Choose your Adventure</h2>
+            <Container fluid>
+                <h1>Choose your Adventure</h1>
 
 
                 <Button variant="success"
@@ -61,26 +64,21 @@ function ActivityList() {
 
                         {activities.map(info => {
                             return (
-                                <Card key={info.id} id="activity-list">
+                                <Card key={info.id} className="activity-list">
                                     <Card.Title className="activity-title">
                                         {info.name}                            </Card.Title>
 
-                                    <Card.Body>
+                                    <Card.Body className="activity-body">
                                         <Button variant="danger" size='sm'
                                             onClick={() => {
                                                 setActivityDetails(info.id);
                                             }}>
+
+
+
+
                                             <FontAwesomeIcon icon="info-circle" />
                                         </Button>
-
-                                        <Button variant="danger" size='sm'
-                                            onClick={() => {
-                                                editDetails(info.id);
-                                            }}>
-                                            <FontAwesomeIcon icon="edit" />
-                                        </Button>
-
-
 
                                         <Button variant="danger" size='sm'
                                             onClick={() => {
@@ -90,16 +88,24 @@ function ActivityList() {
                                         </Button>
 
                                         <Button variant="danger" size='sm'
+                                            onClick={() => {
+                                                editDetails(info.id);
+                                            }}>
+                                            <FontAwesomeIcon icon="edit" />
+                                        </Button>
+
+                                        <Button variant="danger" size='sm'
                                             onClick={(event) => deleteActivity(info.id)}>
                                             <FontAwesomeIcon icon="trash-alt" />
                                         </Button>
+
                                     </Card.Body>
 
 
-                                    <Card.Body>
+                                    <Card.Body className="activity-body">
                                         {info.constraints}
                                     </Card.Body>
-                                    <Card.Footer>
+                                    <Card.Footer className="activity-footer">
                                         {info.activity_location}
                                     </Card.Footer>
 
@@ -108,7 +114,7 @@ function ActivityList() {
                         })}
                     </CardDeck>
                 </Row>
-            </Container >
+            </Container>
 
 
 

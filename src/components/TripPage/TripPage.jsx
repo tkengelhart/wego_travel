@@ -36,12 +36,13 @@ function TripPage() {
       <div style=
         {{
           backgroundImage: `url(${background})`,
-          height: "100vh",
+          height: "200vh",
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center'
+
         }}>
 
-        <Container>
+        <Container fluid>
           <h3>Select your trip</h3>
           <div className="col-lg">
             <div className="row">
@@ -51,11 +52,6 @@ function TripPage() {
                     <Button variant="success" onClick={handleShow}>New Trip</Button>
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Body><TripForm /></Modal.Body>
-                      <Modal.Footer>
-                        <Button variant="success" onClick={handleClose}>
-                          Close
-                        </Button>
-                      </Modal.Footer>
                     </Modal>
                   </Card.Body>
                 </Card>
@@ -85,7 +81,7 @@ function TripPage() {
 
 
 
-        </Container >
+        </Container>
       </div>
     </>
   )
