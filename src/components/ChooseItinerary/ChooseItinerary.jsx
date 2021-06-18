@@ -23,7 +23,6 @@ function ChooseItinerary(trip) {
     const [itinerary, setItinerary] = useState('');
 
     const currentTrip = trips.find(trip => trip.id === Number(itinerary));
-    const currentActivity = currentChosenActivity.find(activity => currentChosenActivity === Number(activity));
 
     console.log(' current trip is', currentTrip);
 
