@@ -19,7 +19,7 @@ function* fetchDetails(action) {
     try {
         const itineraryResponse = yield axios.get(`/api/travel/details/${action.payload.id}`);
         console.log('payload for trip details is', action.payload);
-        console.log('which activity?', action.payload.id);
+        console.log('itin response is', itineraryResponse)
         yield put({ type: 'LOAD_TRIP_DETAILS', payload: itineraryResponse.data });
     } catch {
         console.log('get all errors');
@@ -31,8 +31,7 @@ function* chooseItinerary(action) {
     try {
         const chosenTrip = yield axios.post(`api/travel/additinerary`, action.payload);
         console.log('payload for chosen itinerary is', action.payload);
-        console.log('which trip?', action.payload);
-        yield put({ type: 'LOAD_TRIP_DETAILS', payload: chosenTrip.data });
+        yield put({ type: 'SET_TRIPS' });
     } catch (error) {
         console.log('Error adding to itinerary', error);
     }

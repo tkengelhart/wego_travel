@@ -83,7 +83,7 @@ function TripDetails() {
                         {itinerary.map(item => {
                             return (
 
-                                <tr key={item.id}>
+                                <tr key={item.itineraryId}>
 
                                     <td>{moment(item.date).format('MMM Do YYYY')}<br />
                                         <Button variant="danger" size='sm'

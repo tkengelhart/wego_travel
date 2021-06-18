@@ -34,11 +34,11 @@ function ActivityList() {
         history.push(`/additinerary`);
     }
 
-    const editDetails = (info) => {
-        console.log(`Editing activity`, info);
+    const editDetails = (activityId) => {
+        console.log(`Editing activity`, activityId);
         dispatch({
             type: 'UPDATE_ACTIVITY_DETAILS',
-            payload: info
+            payload: activityId
         })
         history.push(`/edit`);
 

@@ -57,7 +57,7 @@ function ChooseItinerary(trip) {
             }
         });
 
-        history.goBack()
+        history.push('/activity')
     };
 
 

@@ -8,6 +8,9 @@ import { useState } from 'react';
 function TripForm() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
     const [trip, setTrip] = useState('');
@@ -17,6 +20,7 @@ function TripForm() {
     const handleSubmit = event => {
         event.preventDefault();
         console.log(`Adding trip`, { start, end, trip });
+        const handleClose = () => setShow(false);
 
         dispatch({
             type: 'ADD_TRIP',
