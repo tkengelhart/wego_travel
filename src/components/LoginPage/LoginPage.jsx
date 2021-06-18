@@ -8,13 +8,12 @@ function LoginPage() {
 
 
   return (
-    <div className="loginContainer fluid" >
+    <div className="loginContainer" >
       <LoginForm />
 
       <center>
         <Button variant="success"
           type="button"
-          className="btn btn_asLink"
           onClick={() => {
             history.push('/registration');
           }}

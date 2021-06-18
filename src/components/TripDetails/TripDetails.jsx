@@ -22,9 +22,7 @@ function TripDetails() {
     const itinerary = useSelector(store => store.itinerary);
     console.log('store is', store);
     console.log('itinerary store', itinerary);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+
 
     const setActivityDetails = (activityId) => {
         history.push(`/activity/${activityId}`);
@@ -66,8 +64,7 @@ function TripDetails() {
     return (
         <>
             <Container fluid>
-                {/* {showMessage()} */}
-                <h1>Enjoy your trip!</h1>
+                <h1>Enjoy your trip to</h1>
                 <Table striped hover size="sm">
                     <thead>
                         <tr>
@@ -79,10 +76,8 @@ function TripDetails() {
                         </tr>
                     </thead>
                     <tbody>
-
                         {itinerary.map(item => {
                             return (
-
                                 <tr key={item.itineraryId}>
 
                                     <td>{moment(item.date).format('MMM Do YYYY')}<br />
@@ -96,7 +91,6 @@ function TripDetails() {
                                         <Button variant="danger" size='sm'
                                             onClick={() => {
                                                 editDetails(item);
-
                                             }}>
                                             <FontAwesomeIcon icon="edit" />
                                         </Button>
@@ -114,6 +108,7 @@ function TripDetails() {
                                     <td>{item.constraints}</td>
                                     <td>{item.notes}</td>
                                 </tr>
+
                             )
                         })}
                     </tbody>
@@ -121,12 +116,8 @@ function TripDetails() {
                 <Button variant="success"
                     onClick={() => history.goBack()}>Back</Button>
 
-                &nbsp;
-                &nbsp;
                 <Button variant="success"
                     onClick={() => history.push('/activity')}>Add Activities</Button>
-            </Container>
-            <Container fluid>
             </Container>
         </>
     );

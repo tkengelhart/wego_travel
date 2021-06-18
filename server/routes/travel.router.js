@@ -9,7 +9,7 @@ const {
 //GET ROUTES
 //initial list of trips
 //working
-router.get('/trips', (req, res) => {
+router.get('/trips', rejectUnauthenticated, (req, res) => {
   const query = `SELECT * FROM "itinerary" ORDER BY "start"`;
   pool.query(query)
     .then((response) => {
@@ -24,7 +24,7 @@ router.get('/trips', (req, res) => {
 
 //GET initial activity list ordered by location - will need to select by location based on selection
 //working
-router.get('/activity', (req, res) => {
+router.get('/activity', rejectUnauthenticated, (req, res) => {
   const query = `SELECT * FROM "activity" ORDER BY "activity_location"`;
   pool.query(query)
     .then((response) => {
@@ -40,7 +40,7 @@ router.get('/activity', (req, res) => {
 // update call for trip location after testing
 //changed this to pull from store instead
 //working
-router.get(`/details/:tripId`, (req, res) => {
+router.get(`/details/:tripId`, rejectUnauthenticated, (req, res) => {
   let tripId = req.params.tripId;
   console.log('here is the trip id', tripId);
   // console.log('here is the url', `/details/:tripId`);
@@ -67,7 +67,7 @@ ORDER BY "itinerary_activity"."date"`;
 //PUT ROUTES
 //Update activity info, route works
 
-router.put('/edit', (req, res, next) => {
+router.put('/edit', rejectUnauthenticated, (req, res, next) => {
   let activityId = req.body.activityId
   let name = req.body.name;
   let constraints = req.body.constraints;
@@ -89,7 +89,7 @@ router.put('/edit', (req, res, next) => {
 
 //change activity time of day and date in itinerary
 //working
-router.put('/activityupdate', (req, res) => {
+router.put('/activityupdate', rejectUnauthenticated, (req, res) => {
   let activityTime = req.body.activityTime;
   let activityId = req.body.activityId;
   console.log('req.body is', req.body);
@@ -113,7 +113,7 @@ router.put('/activityupdate', (req, res) => {
 //POST ROUTES
 //post new activity
 //new activity works
-router.post('/add', (req, res, next) => {
+router.post('/add', rejectUnauthenticated, (req, res, next) => {
   const queryText = `INSERT INTO "activity" ("name", "constraints", "activity_url", "activity_location") 
     VALUES ($1, $2, $3, $4)`;
   pool.query(queryText, [req.body.name, req.body.constraints, req.body.activity_url, req.body.activity_location])
@@ -129,7 +129,7 @@ router.post('/add', (req, res, next) => {
 
 //update itinerary activity
 
-router.post('/additinerary', (req, res) => {
+router.post('/additinerary', rejectUnauthenticated, (req, res) => {
   console.log('req body is', req.body);
   const queryText = `INSERT INTO "itinerary_activity" ("itinerary_id", "activity_id", "time_of_day", "date", "notes")
   VALUES ($1, $2, $3, $4, $5)`;
@@ -145,7 +145,7 @@ router.post('/additinerary', (req, res) => {
 });
 //post new trip 
 //new trip works
-router.post('/trip', (req, res, next) => {
+router.post('/trip', rejectUnauthenticated, (req, res, next) => {
   const queryText = `INSERT INTO "itinerary" ("start", "end", "trip_name") 
     VALUES ($1, $2, $3) RETURNING id`;
   pool
