@@ -57,11 +57,11 @@ function ActivityList() {
                     onClick={() => history.push('/trips')}>View Trips</Button>
 
                 <Row>
-                    <CardDeck id="activity-list">
+                    <CardDeck>
 
                         {activities.map(info => {
                             return (
-                                <Card key={info.id}>
+                                <Card key={info.id} id="activity-list">
                                     <Card.Title className="activity-title">
                                         {info.name}                            </Card.Title>
 

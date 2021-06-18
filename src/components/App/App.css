@@ -4,12 +4,8 @@ body,
 #react-root {
   height: 100%;
 }
-footer {
-  justify-content: left;
-}
 
 body {
-  background-color: #ffe066;
   font-family:sans-serif;
   margin: 0px;
 }
@@ -25,13 +21,12 @@ Container
 -------------------------------------------------------------------------------- */
 
 .container {
-  background-color: #BFC0C0;
   justify-content: center;
   text-align: center;
   padding: 20px;
 }
 .logincontainer {
-  background-color: #bfc0c0;
+  background-color: #4f5d75;
   justify-content: left;
   text-align: left;
 }
@@ -46,34 +41,6 @@ Container
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
-  display: inline-block;
-  padding: 20px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #326273;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
-
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
 
 .btn:hover {
   background-color: #326273;
@@ -105,10 +72,10 @@ Alert
   box-sizing: border-box;
   padding: 15px 10px;
   margin: 15px 0;
-  border: 2px solid #e01616;
+  border: 2px solid #ef8354;
   background-color: #ced0ce;
   border-radius: 3px;
-  color: #e01616;
+  color: #ef8354;
   font-size: 0.8rem;
 }
 
@@ -120,12 +87,14 @@ Form Treatment
   box-sizing: border-box;
   width: 400px;
   max-width: 100%;
-  padding: 100px;
-  margin: 0 auto 20px;
+  padding: 60px;
+  margin: 0 auto 10px;
   background-color: #BFC0C0;
-  border-radius: 20px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
-  
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px #2d3142;
+  justify-content: center;
+  text-align: center;
+  height: 350px;
 }
 
 input {
@@ -134,15 +103,16 @@ input {
 }
 
 .carousel .carousel-item {
-  height: 300px;
+  height: 400px;
+  width: 400px;
 }
 
 .carousel-item img {
     position: absolute;
-    object-fit:cover;
+    object-fit:contain;
     top: 0;
     left: 0;
-    min-height: 300px;
+    max-height: 500px;
 }
 
 #activity-list {
@@ -153,9 +123,9 @@ input {
   min-width: 250px;
   word-wrap: break-word;
   color: #2d3142;
-  background-color: #f8f9fa;
+  background-color: #FFFFFF;
   background-clip: border-box;
-  border: 2px solid #2d3142;
+  border: 2px solid #ef8354;
   border-radius: 0.25rem;
   padding: 5px;
   margin: 25px;
@@ -163,9 +133,5 @@ input {
   column-width: 200px;
   max-width: 200px;
   min-height: 200px;
-  text-align: center;
-  
-} 
-.activity-title, .card-title {
   text-align: center;
 }

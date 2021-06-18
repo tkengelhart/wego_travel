@@ -35,7 +35,7 @@ function ActivityInfo() {
 
   return (
     <Container>
-      <Card variant="success">
+      <Card>
         <Card.Header>Name: {activity.name}</Card.Header>
         <Card.Body>Location: {activity.activity_location}</Card.Body>
         <Card.Link href="{activity.activity_url}"></Card.Link>

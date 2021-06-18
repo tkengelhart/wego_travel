@@ -8,7 +8,8 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-
+import './App.css';
+import '../LandingPage/LandingPage.css';
 import './theme.css';
 
 import Nav from '../Nav/Nav';

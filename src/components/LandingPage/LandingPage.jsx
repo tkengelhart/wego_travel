@@ -8,7 +8,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Welcome, please register below:');
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -18,54 +18,19 @@ function LandingPage() {
   return (
     <div className="container">
       <h2>{heading}</h2>
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <Carousel>
-            <Carousel.Item>
-              <img className='d-block w-100'
-                src="/images/kai-cheng-3MtPLhsjODg-unsplash.jpg"
-                alt="First Slide"
-              />
-              <Carousel.Caption>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className='d-block w-100'
-                src="images/casey-horner-NFB5zdUvb-c-unsplash.jpg"
-                alt="Second Slide"
-              />
-              <Carousel.Caption>
-              </Carousel.Caption>
-            </Carousel.Item>   <Carousel.Item>
-              <img className='d-block w-100'
-                src="images/k-mmerer-Jr5l7qVuRWk-unsplash.jpg"
-                alt="Third Slide"
-              />
-              <Carousel.Caption>
-              </Carousel.Caption>
-            </Carousel.Item>   <Carousel.Item>
-              <img className='d-block w-100'
-                src="images/pablo-garcia-saldana-no_TCkPUq_s-unsplash.jpg"
-                alt="Fourth Slide"
-              />
-              <Carousel.Caption>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
-        <center>
-          <div className="grid-col grid-col_4">
-            <RegisterForm />
 
-            <center>
-              <h2>Please Login</h2>
-              <Button variant="success" onClick={onLogin}>
-                Login
-              </Button>
-            </center>
-          </div>
-        </center>
-      </div>
+      <center>
+        <div className="grid-col grid-col_4">
+          <RegisterForm />
+
+          <center>
+            <h2>Already registered? Please login</h2>
+            <Button variant="success" onClick={onLogin}>
+              Login
+            </Button>
+          </center>
+        </div>
+      </center>
     </div>
   );
 }
