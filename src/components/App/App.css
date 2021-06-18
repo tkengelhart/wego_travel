@@ -68,9 +68,7 @@ Button
   padding: 10px 15px;
   font-size: 0.8rem;
 }
-Button {
-margin: 10px;
-}
+
 .btn_sizeFull {
   display: block;
   width: 100%;

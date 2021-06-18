@@ -221,9 +221,6 @@ label {
   margin-bottom: 0.5rem;
 }
 
-button {
-  border-radius: ;
-}
 
 button:focus {
   outline: 1px dotted;
@@ -1322,14 +1319,13 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 300;
+  font-size: medium;
   color: #f8f9fa;
   text-align: center;
   vertical-align: middle;
   user-select: none;
   background-color: transparent;
-  border: 1px solid #f8f9fa;
-  padding: .5rem 1rem;
-  margin: .5rem;
+  padding: .5rem .5rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: .75rem;
@@ -3446,7 +3442,7 @@ input[type="button"].btn-block {
   position: sticky;
   display: flexbox;
   flex-direction: column;
-  min-width: 0;
+  min-width: 200px;
   word-wrap: break-word;
   color: #f8f9fa;
   background-color: #373f51;
@@ -3455,8 +3451,11 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
   padding: 5px;
   margin: 25px;
+  column-count: 4;
+  column-width: 200px;
+  max-width: 200px;
   
-}
+} 
 
 .card > hr {
   margin-right: 0;
@@ -3487,11 +3486,13 @@ input[type="button"].btn-block {
   min-height: 1px;
   padding: 1.25rem;
   font-weight: bold;
+  background-color: #373f51;
 }
 
 .card-title {
   margin-bottom: 0.75rem;
   text-align: left;
+  background-color: #373f51;
 }
 
 .card-subtitle {
@@ -3514,7 +3515,7 @@ input[type="button"].btn-block {
 .card-header {
   padding: 0.50rem 1.00rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #373f51;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
