@@ -1845,6 +1845,7 @@ fieldset:disabled a.btn {
 .btn-outline-danger {
   color: #ef8354;
   border-color: #ef8354;
+  background-color: #ffffff !important;
 }
 
 .btn-outline-danger:hover {
@@ -3011,28 +3012,26 @@ input[type="button"].btn-block {
 
 
 .card {
-    justify-content: center;
-    position: sticky;
-    display: flexbox;
-    flex-direction: column;
-    min-width: 250px;
-    word-wrap: break-word;
-    color: #2d3142;
-    background-color: #FFFFFF;
-    background-clip: border-box;
-    border-radius: 0.25rem;
-    margin: 25px;
-    column-count: 4;
-    column-width: 200px;
-    max-width: 200px;
-    min-height: 200px;
-    text-align: center;
-    border: 2px solid #ef8354;
+  justify-content: center;
+  position: sticky;
+  display: flexbox;
+  flex-direction: column;
+  min-width: 250px;
+  word-wrap: break-word;
+  color: #ffffff;
+  background-color: #2d3142;
+  background-clip: border-box;
+  border: 2px solid #2d3142;
+  border-radius: 0.25rem;
+  margin: 25px;
+  column-count: 4;
+  column-width: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  text-align: center;
+  padding: 0 0 0 0 !important;
+}
   
-  }
-  
-
-
 .card > hr {
   margin-right: 0;
   margin-left: 0;
@@ -3058,25 +3057,22 @@ input[type="button"].btn-block {
 }
 
 .card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  font-weight: bold;
   background-color: #2d3142;
   color: #ffffff;
+  text-align: center;
 }
 
 .card-title {
   background-color: #ffffff;
-  font-size: largest;
+  font-size: larger;
   text-align: center;
   color: #2d3142;
   height: 55px;
   align-items: center;
-  padding-top: 2px;
-  align-items: center;
+  padding: 0 0 0 0 !important;
 }
+
+
 
 .card-subtitle {
   margin-top: -0.375rem;
@@ -3099,7 +3095,6 @@ text-align: center;
 }
 
 .card-header {
-  padding: 0.50rem 1.00rem;
   margin-bottom: 0;
   background-color: #2d3142;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -3114,9 +3109,11 @@ text-align: center;
 }
 
 .card-footer {
-  padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #ffffff;
+  color: #2d3142;
+  height: 35px;
+  text-align: center;
+  padding: 5px;
 }
 
 .card-footer:last-child {

@@ -65,6 +65,20 @@ function TripDetails() {
         <>
             <Container fluid>
                 <h1>Enjoy your trip to</h1>
+
+                <div className="button-key">
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="info-circle" /><br />Info.
+                    </Button>
+
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="edit" /><br />Edit
+                    </Button>
+
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="trash-alt" /><br />Delete
+                    </Button>
+                </div>
                 <Table striped hover size="sm">
                     <thead>
                         <tr>

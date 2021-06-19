@@ -85,17 +85,37 @@ Button
   border-color: #ef8354;
   border: 2px solid #ef8354;
   display: inline-block;
-  font-weight: 700;
+  font-weight: bolder;
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  /* padding: .5rem 1rem; */
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
   font-weight: bolder;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 2rem;
+  background-color: #ffffff;
+  width: 100px;
+  border-radius: .75rem;
+
 }
 
+.button-key {
+  width: 100%;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.new-trip {
+  background-color: #ffffff;
+  color: #2d3142;
+  font-size: largest;
+  font-weight: bolder;
+  font-family: sans-serif;
+  font-size: 1em;
+}
 /* --------------------------------------------------------------------------------
 Alert
 -------------------------------------------------------------------------------- */
@@ -199,3 +219,45 @@ input {
 font-style: oblique;
 font-weight: bolder;
 }
+
+.trip-cards {
+padding-left: 300px;
+padding-right: 300px;
+}
+.trip-card {
+    justify-content: center;
+    position: sticky;
+    display: flexbox;
+    flex-direction: column;
+    min-width: 250px;
+    word-wrap: break-word;
+    color: #ffffff;
+    background-color: #2d3142;
+    background-clip: border-box;
+    border: 2px solid #ef8354 !important;
+    border-radius: 0.25rem;
+    padding: 0px 0px 0px 0px !important;
+    margin: 25px;
+    column-count: 4;
+    column-width: 200px;
+    max-width: 200px;
+    min-height: 200px;
+    text-align: center;
+  
+  }
+
+  .trip-title {
+  background-color: #ffffff;
+  font-size: 2em;
+  text-align: center;
+  color: #2d3142;
+  height: 55px;
+  padding-top: 0px !important;
+}
+
+.trip-body {
+  background-color: #2d3142;
+  color: #ffffff;
+  text-align: center;
+}
+  

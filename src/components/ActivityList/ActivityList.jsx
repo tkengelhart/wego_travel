@@ -51,27 +51,28 @@ function ActivityList() {
         <>
             <Container fluid>
                 <h1>Choose your Adventure</h1>
+                <div className="button-key">
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="info-circle" /><br />Info.
+                    </Button>
 
-                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
-                    <FontAwesomeIcon icon="info-circle" /><br />Info.
-                </Button>
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="plus-square" /><br />Add
+                    </Button>
 
-                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
-                    <FontAwesomeIcon icon="plus-square" /><br />Add
-                </Button>
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="edit" /><br />Edit
+                    </Button>
 
-                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
-                    <FontAwesomeIcon icon="edit" /><br />Edit
-                </Button>
-
-                <Button className="button-icons" variant="outline-danger" size='lg' disabled>
-                    <FontAwesomeIcon icon="trash-alt" /><br />Delete
-                </Button>
+                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                        <FontAwesomeIcon icon="trash-alt" /><br />Delete
+                    </Button>
+                </div>
                 <br />
-                <Button variant="success"
+                <Button variant="success" size="lg"
                     onClick={() => history.push('/add')}>New Activity</Button>
 
-                <Button variant="success"
+                <Button variant="success" size="lg"
                     onClick={() => history.push('/trips')}>View Trips</Button>
 
                 <Row>
