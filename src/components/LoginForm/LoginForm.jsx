@@ -41,29 +41,31 @@ function LoginForm() {
         <div>
           <label htmlFor="username">
             Username:
-            <input
-              type="text"
-              name="username"
-              required
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                name="username"
+                required
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              /></InputGroup>
           </label>
         </div>
         <div>
           <label htmlFor="password">
             Password:
-            <input
-              type="password"
-              name="password"
-              required
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
+            <InputGroup>
+              <FormControl
+                type="password"
+                name="password"
+                required
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              /></InputGroup>
           </label>
         </div>
         <div>
-          <Button variant="success"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
+          <Button variant="success" title="Submit"><input className="btn" type="submit" name="submit" value="Log In" /></Button>
         </div>
       </Form >
     </center>

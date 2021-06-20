@@ -26,7 +26,7 @@ function LandingPage() {
           <center>
             <br />
             <h1>Please login</h1>
-            <Button variant="success" size="lg" onClick={onLogin}>
+            <Button variant="success" size="lg" title="Login" onClick={onLogin}>
               Login
             </Button>
           </center>

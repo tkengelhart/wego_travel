@@ -95,11 +95,12 @@ function ChooseItinerary(trip) {
 
                     <br />
                     <br />
-                    <input
-                        value={date}
-                        type="date"
-                        placeholder="Enter New Date"
-                        onChange={(event) => setDate(event.target.value)}></input>
+                    <InputGroup>
+                        <FormControl
+                            value={date}
+                            type="date"
+                            placeholder="Enter New Date"
+                            onChange={(event) => setDate(event.target.value)} /></InputGroup>
                     <br />
                     <br />
                     <textarea
@@ -111,11 +112,11 @@ function ChooseItinerary(trip) {
                     </textarea>
                     <br />
                     <br />
-                    <Button variant="success" type="submit">
+                    <Button variant="success" type="submit" title="Submit">
                         Submit
                     </Button>
 
-                    <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
+                    <Button variant="success" title="Cancel" onClick={() => history.goBack()}>Cancel</Button>
                 </Form>
             </Container>
         </>

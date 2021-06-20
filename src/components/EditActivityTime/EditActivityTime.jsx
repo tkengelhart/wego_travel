@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Container, Button, Dropdown, Modal, ButtonGroup, DropdownButton } from 'react-bootstrap';
+import { Form, Container, Button, Dropdown, Modal, ButtonGroup, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -50,27 +50,30 @@ function EditActivityTime(itemId) {
                                 </DropdownButton>
                                 <br />
                                 <br />
-                                <input
-                                        type="date"
-                                        placeholder="Enter New Date"
-                                        onChange={(event) => setDate(event.target.value)}></input>
+                                <InputGroup>
+                                        <FormControl
+                                                type="date"
+                                                defaultValue={currentActivityUpdate.date}
+                                                placeholder="Enter New Date"
+                                                onChange={(event) => setDate(event.target.value)} /></InputGroup>
                                 <br />
                                 <br />
 
-                                <textarea
-                                        type="text"
-                                        value={note}
-                                        placeholder="Notes"
-                                        onChange={(event) => setNote(event.target.value)}>
+                                <InputGroup>
+                                        <FormControl
+                                                type="text"
+                                                value={note}
+                                                event={note}
+                                                placeholder="Notes"
+                                                onChange={(event) => setNote(event.target.value)} />
 
-                                </textarea>
-
+                                </InputGroup>
 
                                 <br />
 
-                                <Button variant="success" type="submit">Submit</Button>
+                                <Button variant="success" type="submit" title="Submit">Submit</Button>
 
-                                <Button variant="success"
+                                <Button variant="success" title="Back"
                                         onClick={() => history.goBack()}>Back</Button>
                         </Form >
 

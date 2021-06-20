@@ -12,7 +12,7 @@ function LoginPage() {
       <LoginForm />
 
       <center>
-        <Button variant="success"
+        <Button variant="success" title="Register"
           type="button"
           onClick={() => {
             history.push('/registration');

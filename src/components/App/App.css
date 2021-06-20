@@ -60,6 +60,8 @@ Button
 .btn:hover {
   background-color: #ef8354;
   text-decoration: none;
+  box-shadow: 5px 5px 5px 5px #2d3142;
+
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -99,6 +101,8 @@ Button
   background-color: #ffffff;
   width: 100px;
   border-radius: .75rem;
+  box-shadow: 5px 5px 5px 5px #2d3142;
+
 
 }
 
@@ -106,6 +110,7 @@ Button
   width: 100%;
   padding-left: 300px;
   padding-right: 300px;
+
 }
 
 .new-trip {
@@ -146,13 +151,15 @@ Form Treatment
   border-radius: 10px;
   box-shadow: 5px 5px 5px 5px #2d3142;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+  width: fit-content;
   
 }
 
 input {
   margin: 5px;
   margin-bottom: 10px;
+
 }
 
 .carousel .carousel-item {
@@ -187,7 +194,7 @@ input {
   max-width: 200px;
   min-height: 200px;
   text-align: center;
-
+  box-shadow: 5px 5px 5px 5px #2d3142;
 }
 
 .activity-title {
@@ -199,6 +206,7 @@ input {
   align-items: center;
   padding-top: 2px;
   align-items: center;
+
 }
 
 .activity-body {
@@ -243,6 +251,8 @@ padding-right: 300px;
     max-width: 200px;
     min-height: 200px;
     text-align: center;
+    box-shadow: 5px 5px 5px 5px #2d3142;
+
   
   }
 

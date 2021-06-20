@@ -49,7 +49,7 @@ function TripPage() {
               <CardDeck>
                 <Card className="trip-card">
                   <Card.Body>
-                    <Button variant="success" className="new-trip" size="lg" onClick={handleShow}>New Trip</Button>
+                    <Button variant="success" className="new-trip" size="lg" title="New Trip" onClick={handleShow}>New Trip</Button>
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Body><TripForm /></Modal.Body>
                     </Modal>

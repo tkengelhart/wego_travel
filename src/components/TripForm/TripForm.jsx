@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Container, Button } from 'react-bootstrap';
+import { Form, Container, Button, InputGroup, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -19,8 +19,6 @@ function TripForm() {
     const handleSubmit = event => {
         event.preventDefault();
         console.log(`Adding trip`, { start, end, trip });
-
-
         dispatch({
             type: 'ADD_TRIP',
             payload: {
@@ -71,7 +69,7 @@ function TripForm() {
                         value={end}
                         onChange={(event) => setEnd(event.target.value)} />
                 </Form.Group>
-                <Button variant="success" type="submit">Submit</Button>
+                <Button variant="success" title="Submit" type="submit">Submit</Button>
             </Form>
 
         </Container>

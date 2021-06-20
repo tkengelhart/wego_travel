@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, InputGroup, FormControl } from 'react-bootstrap';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -31,29 +31,32 @@ function RegisterForm() {
       <div>
         <label htmlFor="username">
           Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
+          <InputGroup>
+            <FormControl
+              type="text"
+              name="username"
+              value={username}
+              required
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </InputGroup>
         </label>
       </div>
       <div>
         <label htmlFor="password">
           Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
+          <InputGroup>
+            <FormControl
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            /></InputGroup>
         </label>
       </div>
       <div>
-        <Button variant="success" size="sm"><input className="btn" type="submit" name="submit" value="Register" /></Button>
+        <Button variant="success" title="Submit" size="sm"><input className="btn" type="submit" name="submit" value="Register" /></Button>
       </div>
     </Form>
   );

@@ -46,7 +46,7 @@ function ActivityInfo() {
         <Card.Link className="activity-footer" href={activity.activity_url}>Website</Card.Link>
       </Card>
 
-      <Button variant="success"
+      <Button variant="success" title="Back"
         onClick={() => history.goBack()}>Back</Button>
 
     </Container >

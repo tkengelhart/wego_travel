@@ -11,7 +11,7 @@ function RegisterPage() {
       <LoginForm />
 
       <center>
-        <Button variant="success"
+        <Button variant="success" title="Login"
           type="button"
           className="btn btn_asLink"
           onClick={() => {

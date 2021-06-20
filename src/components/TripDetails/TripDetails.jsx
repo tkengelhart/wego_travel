@@ -41,7 +41,7 @@ function TripDetails() {
     };
 
     const deleteActivity = (activityId) => {
-        alert('Are you sure you want to delete?');
+        alert('Are you sure you want to delete {item.name}?');
 
         console.log('id is', activityId);
         dispatch({
@@ -64,18 +64,18 @@ function TripDetails() {
     return (
         <>
             <Container fluid>
-                <h1>Enjoy your trip to</h1>
+                <h1>Enjoy your trip to </h1>
 
                 <div className="button-key">
-                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <Button className="button-icons" variant="outline-danger" size='lg' title="Info" disabled>
                         <FontAwesomeIcon icon="info-circle" /><br />Info.
                     </Button>
 
-                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <Button className="button-icons" variant="outline-danger" size='lg' title="Edit" disabled>
                         <FontAwesomeIcon icon="edit" /><br />Edit
                     </Button>
 
-                    <Button className="button-icons" variant="outline-danger" size='lg' disabled>
+                    <Button className="button-icons" variant="outline-danger" size='lg' title="Delete" disabled>
                         <FontAwesomeIcon icon="trash-alt" /><br />Delete
                     </Button>
                 </div>
@@ -95,20 +95,20 @@ function TripDetails() {
                                 <tr key={item.itineraryId}>
 
                                     <td>{moment(item.date).format('MMM Do YYYY')}<br />
-                                        <Button variant="danger" size='sm'
+                                        <Button variant="danger" size='sm' title="Info"
                                             onClick={() => {
                                                 setActivityDetails(item.id);
                                             }}
                                         >
                                             <FontAwesomeIcon icon="info-circle" />
                                         </Button>
-                                        <Button variant="danger" size='sm'
+                                        <Button variant="danger" size='sm' title="Edit"
                                             onClick={() => {
                                                 editDetails(item);
                                             }}>
                                             <FontAwesomeIcon icon="edit" />
                                         </Button>
-                                        <Button variant="danger" size='sm'
+                                        <Button variant="danger" size='sm' title="Delete"
                                             onClick={(event) => deleteActivity(item.id)}>
                                             <FontAwesomeIcon icon="trash-alt" />
                                         </Button>
@@ -127,10 +127,10 @@ function TripDetails() {
                         })}
                     </tbody>
                 </Table>
-                <Button variant="success"
+                <Button variant="success" title="Back"
                     onClick={() => history.goBack()}>Back</Button>
 
-                <Button variant="success"
+                <Button variant="success" title="Add Activities"
                     onClick={() => history.push('/activity')}>Add Activities</Button>
             </Container>
         </>
