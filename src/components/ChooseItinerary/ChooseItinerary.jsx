@@ -66,7 +66,7 @@ function ChooseItinerary(trip) {
     return (
         <>
             <Container fluid className="formPanel">
-                <h1>Add to itinerary</h1>
+                <h1>Add {currentChosenActivity.name} itinerary</h1>
                 <Form onSubmit={(event) => handleSubmit(event)}>
                     <select
 

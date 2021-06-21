@@ -59,7 +59,7 @@ function TripDetails() {
         <>
             <Container fluid>
 
-                <h1>Enjoy your trip to <span className="activity-name">{currentTrip.trip_name}</span></h1>
+                <h1>Enjoy your trip to <span className="activity-name">Nashville</span></h1>
                 <p>You can see what has already been planned for this trip below.  You can also add new items by clicking 'Add Activities'</p>
 
 

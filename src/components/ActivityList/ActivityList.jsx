@@ -30,7 +30,7 @@ function ActivityList(info) {
         });
     }
     const setActivityDetails = (activityId) => {
-        history.push(`/ activity / ${activityId}`);
+        history.push(`/activity/${activityId}`);
     }
 
     const chooseItinerary = (info) => {
@@ -39,7 +39,7 @@ function ActivityList(info) {
             type: 'CHOOSE_YOUR_ITINERARY',
             payload: info
         })
-        history.push(`/ additinerary`);
+        history.push(`/additinerary`);
     }
 
     const editDetails = (activityId) => {
@@ -48,7 +48,7 @@ function ActivityList(info) {
             type: 'UPDATE_ACTIVITY_DETAILS',
             payload: activityId
         })
-        history.push(`/ edit`);
+        history.push(`/edit`);
 
     };
 
@@ -84,7 +84,7 @@ function ActivityList(info) {
                     onClick={() => history.push('/trips')}>View Trips</Button>
 
                 <Row>
-                      
+
                     <Container className="activity-cards">
                         <CardDeck>
 
