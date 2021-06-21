@@ -31,49 +31,41 @@ function TripPage() {
 
   console.log('trips are', trips)
   return (
-    <>
-      <Container fluid className="trip-cards">
-        <h1>Select your trip</h1>
-        <div className="col-lg">
-          <div className="row">
-            <CardDeck>
-              <Card className="trip-card">
-                <Card.Body>
-                  <Button variant="success" className="new-trip" size="lg" title="New Trip" onClick={handleShow}>New Trip</Button>
-                  <Modal show={show} onHide={handleClose}>
-                    <Modal.Body><TripForm /></Modal.Body>
-                  </Modal>
-                </Card.Body>
-              </Card>
-            </CardDeck>
-          </div>
+    <Container fluid>
+      <h3>Select your trip</h3>
+      <div className="col-lg">
+        <div className="row">
+          <CardDeck>
+            <Card border="dark">
+              <Card.Body>
+                <Button variant="success" onClick={handleShow}>New Trip</Button>
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Body><TripForm /></Modal.Body>
+                </Modal>
+              </Card.Body>
+            </Card>
+          </CardDeck>
         </div>
+      </div>
+
+      <CardDeck>
+
+        {trips.map(trip => {
+          return (
 
 
-        <CardDeck>
-
-          {trips.map(trip => {
-            return (
-
-
-              <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
-                <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
+            <Card key={trip.id} border="dark" style={{ width: '10rem' }}>
+              <Card.Body onClick={() => setTripDetails(trip)}>
+                <Card.Title as="h3">{trip.trip_name}</Card.Title>
                 <Card.Subtitle>Travel Dates</Card.Subtitle>
                 <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
-                <Card.Body className="trip-body">
-                </Card.Body>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </CardDeck>
+    </Container>
 
-              </Card>
-            );
-          })}
-        </CardDeck>
-
-
-
-
-
-      </Container>
-    </>
   )
 }
 
