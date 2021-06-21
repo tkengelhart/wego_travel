@@ -5,11 +5,10 @@ import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { useState } from 'react';
 import TripForm from '../TripForm/TripForm';
-import background from './frank-mckenna-eXHeq48Z-Q4-unsplash.jpg'
 
 
 
-function TripPage(trip) {
+function TripPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const trips = useSelector(store => store.trips);
@@ -33,37 +32,57 @@ function TripPage(trip) {
   console.log('trips are', trips)
   return (
     <>
-      <Container fluid className="trip-cards">
-        <h1>Select your trip</h1>
-        <div className="col-lg">
-          <div className="row">
-            <CardDeck>
-              <Card className="trip-card">
-                <Card.Body>
-                  <Button variant="success" className="new-trip" size="lg" title="New Trip" onClick={handleShow}>New Trip</Button>
-                  <Modal show={show} onHide={handleClose}>
-                    <Modal.Body><TripForm /></Modal.Body>
-                  </Modal>
-                </Card.Body>
-              </Card>
+      <div style=
+        {{
+          backgroundImage: `url(${background})`,
+          height: "100vh",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'cover'
 
+        }}>
 
-              {trips.map(trip => {
-                return (
-                  <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
-                    <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
-                    <Card.Subtitle>Travel Dates</Card.Subtitle>
-                    <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
-                    <Card.Body className="trip-body">
-                    </Card.Body>
-
-                  </Card>
-                );
-              })}
-            </CardDeck>
+        <Container fluid className="trip-cards">
+          <h1>Select your trip</h1>
+          <div className="col-lg">
+            <div className="row">
+              <CardDeck>
+                <Card className="trip-card">
+                  <Card.Body>
+                    <Button variant="success" className="new-trip" size="lg" title="New Trip" onClick={handleShow}>New Trip</Button>
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Body><TripForm /></Modal.Body>
+                    </Modal>
+                  </Card.Body>
+                </Card>
+              </CardDeck>
+            </div>
           </div>
-        </div>
-      </Container>
+
+
+          <CardDeck>
+
+            {trips.map(trip => {
+              return (
+
+
+                <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
+                  <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
+                  <Card.Subtitle>Travel Dates</Card.Subtitle>
+                  <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
+                  <Card.Body className="trip-body">
+                  </Card.Body>
+
+                </Card>
+              );
+            })}
+          </CardDeck>
+
+
+
+
+
+        </Container>
+      </div>
     </>
   )
 }
