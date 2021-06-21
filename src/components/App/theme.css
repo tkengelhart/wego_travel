@@ -3883,6 +3883,7 @@ a.close.disabled {
   height: 100%;
   overflow: hidden;
   outline: 0;
+  margin-left: 300px !important;
 }
 
 .modal-dialog {
@@ -3905,6 +3906,7 @@ a.close.disabled {
 
 .modal.show .modal-dialog {
   transform: none;
+  margin-left: 300px;
 }
 
 .modal.modal-static .modal-dialog {
