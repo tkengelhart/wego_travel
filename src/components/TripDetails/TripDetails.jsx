@@ -65,6 +65,7 @@ function TripDetails() {
         <>
             <Container fluid>
                 <h1>Enjoy your trip to </h1>
+                
 
                 <div className="button-key">
                     <Button className="button-icons" variant="outline-danger" size='lg' title="Info" disabled>
