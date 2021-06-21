@@ -53,56 +53,55 @@ function EditActivityInfo(info) {
 
     return (
         <Container fluid className="formPanel">
-            <h1>Update activity information for</h1>
-            <h2 className="selected-name">{editName}</h2>
+            <h1>Update activity information for<span className="activity-name>{editName}</span></h1>
             <>
                 <Form key={activity.id} onSubmit={(event) => handleSubmit(event)}>
                     <Form.Group>
                         <Form.Label>Activity Name</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder={activity.name}
-                            value={editName}
-                            onChange={(event) => setEditName(event.target.value)} />
+                placeholder={activity.name}
+                value={editName}
+                onChange={(event) => setEditName(event.target.value)} />
                     </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Constraints</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder='Constraints'
-                            value={editConstraints}
-                            onChange={(event) => setEditConstraints(event.target.value)} />
-                    </Form.Group>
+            <Form.Group>
+                <Form.Label>Constraints</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder='Constraints'
+                    value={editConstraints}
+                    onChange={(event) => setEditConstraints(event.target.value)} />
+            </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Website:</Form.Label>
-                        <Form.Control
-                            type="url"
-                            placeholder='Website address'
-                            value={editWebsite}
-                            onChange={(event) => setEditWebsite(event.target.value)} />
-                    </Form.Group>
+            <Form.Group>
+                <Form.Label>Website:</Form.Label>
+                <Form.Control
+                    type="url"
+                    placeholder='Website address'
+                    value={editWebsite}
+                    onChange={(event) => setEditWebsite(event.target.value)} />
+            </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>Location:</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder='Location'
-                            value={editLocation}
-                            onChange={(event) => setEditLocation(event.target.value)} />
-                    </Form.Group>
+            <Form.Group>
+                <Form.Label>Location:</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder='Location'
+                    value={editLocation}
+                    onChange={(event) => setEditLocation(event.target.value)} />
+            </Form.Group>
 
-                    <Button variant="success" type="submit" title="Submit">Submit</Button>
-                    &nbsp;&nbsp;
-                    <Button variant="success" title="Back"
-                        onClick={() => history.goBack()}>Back</Button>
+            <Button variant="success" type="submit" title="Submit">Submit</Button>
+            &nbsp;&nbsp;
+            <Button variant="success" title="Back"
+                onClick={() => history.goBack()}>Back</Button>
 
                 </Form>
 
 
             </>
-        </Container>
+        </Container >
 
     )
 }

@@ -30,6 +30,7 @@ function TripPage() {
   }
 
   console.log('trips are', trips)
+
   return (
     <>
       <Container fluid className="trip-cards">
@@ -37,8 +38,6 @@ function TripPage() {
 
         < h1 > Select your trip</h1>
         <p>Here you can look at the interary for trips you have already created, or start planning your next trip.</p>
-
-
 
         <CardDeck>
           <div className="col-lg">
@@ -56,24 +55,25 @@ function TripPage() {
 
             </div>
           </div>
-          {trips.map(trip => {
-            return (
+          <CardDeck>
+            {trips.map(trip => {
+              return (
 
 
-              <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
-                <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
-                <Card.Subtitle>Travel Dates</Card.Subtitle>
-                <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
-                <Card.Body className="trip-body">
-                </Card.Body>
+                <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
+                  <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
+                  <Card.Subtitle>Travel Dates</Card.Subtitle>
+                  <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
+                  <Card.Body className="trip-body">
+                  </Card.Body>
 
-              </Card>
-            );
-          })}
+                </Card>
+              );
+            })}
+
+          </CardDeck>
 
         </CardDeck>
-
-
 
 
 

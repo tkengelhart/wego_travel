@@ -7,14 +7,12 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment';
 // import EditActivity from '../EditActivity/EditActivity';
 import { useState } from 'react';
-import ActivityList from '../ActivityList/ActivityList';
-import EditActivityTime from '../EditActivityTime/EditActivityTime';
-import Weather from '../Weather/Weather';
 
 
 
 
-function TripDetails(trip) {
+
+function TripDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);

@@ -175,7 +175,11 @@ input {
     left: 0;
     max-height: 500px;
 }
-
+.activity-name {
+  color: #2d3142;
+font-style: italic;
+font-weight: 900;
+}
 .activity-cards {
   padding-left: 150px !important;
 }

@@ -37,8 +37,7 @@ function EditActivityTime(itemId) {
 
         return (
                 <Container fluid className="formPanel">
-                        <h1>Update </h1>
-                        <h2 className="activity-name">{currentActivityUpdate.name}</h2>
+                        <h1>Update <span className="activity-name">{currentActivityUpdate.name}</span></h1>
                         <Form onSubmit={(event) => handleSubmit(event)}>
                                 <DropdownButton
                                         title="Time of Day"
