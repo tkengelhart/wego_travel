@@ -9,6 +9,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@sendgrid/mail": "^7.4.5",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",

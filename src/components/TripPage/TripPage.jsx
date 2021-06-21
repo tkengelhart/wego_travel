@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, CardColumns, CardDeck, CardGroup, CardImg, Container, Row, Col, Modal, Button } from 'react-bootstrap';
+import { Card, CardColumns, CardDeck, CardGroup, CardImg, Image, Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { useState } from 'react';
 import TripForm from '../TripForm/TripForm';
-import background from './frank-mckenna-eXHeq48Z-Q4-unsplash.jpg'
 
 
 
@@ -33,17 +32,15 @@ function TripPage() {
   console.log('trips are', trips)
   return (
     <>
-      <div style=
-        {{
-          backgroundImage: `url(${background})`,
-          height: "100vh",
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'cover'
+      <Container fluid className="trip-cards">
 
-        }}>
 
-        <Container fluid className="trip-cards">
-          <h1>Select your trip</h1>
+        < h1 > Select your trip</h1>
+        <p>Here you can look at the interary for trips you have already created, or start planning your next trip.</p>
+
+
+
+        <CardDeck>
           <div className="col-lg">
             <div className="row">
               <CardDeck>
@@ -56,34 +53,31 @@ function TripPage() {
                   </Card.Body>
                 </Card>
               </CardDeck>
+
             </div>
           </div>
+          {trips.map(trip => {
+            return (
 
 
-          <CardDeck>
+              <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
+                <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
+                <Card.Subtitle>Travel Dates</Card.Subtitle>
+                <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
+                <Card.Body className="trip-body">
+                </Card.Body>
 
-            {trips.map(trip => {
-              return (
+              </Card>
+            );
+          })}
 
-
-                <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
-                  <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
-                  <Card.Subtitle>Travel Dates</Card.Subtitle>
-                  <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
-                  <Card.Body className="trip-body">
-                  </Card.Body>
-
-                </Card>
-              );
-            })}
-          </CardDeck>
+        </CardDeck>
 
 
 
 
 
-        </Container>
-      </div>
+      </Container >
     </>
   )
 }

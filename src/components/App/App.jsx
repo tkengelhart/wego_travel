@@ -33,6 +33,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInfoCircle, faEdit, faPlusSquare, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import EditActivityTime from '../EditActivityTime/EditActivityTime';
 import AboutPage from '../AboutPage/AboutPage';
+import { Container } from 'react-bootstrap';
+
 
 library.add(faInfoCircle, faEdit, faPlusSquare, faTrashAlt);
 
@@ -46,6 +48,8 @@ function App() {
 
   return (
     <>
+    
+
       <Router>
         <div>
           <Nav />
@@ -85,12 +89,6 @@ function App() {
             <Route path='/edit'><EditActivityInfo /></Route>
             <Route path='/about'><AboutPage /></Route>
 
-
-
-
-
-
-
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -102,8 +100,6 @@ function App() {
             >
               <UserPage />
             </ProtectedRoute>
-
-
 
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
@@ -157,6 +153,7 @@ function App() {
       <div id="footer-style">
         <Footer />
       </div>
+
     </>
   );
 }
