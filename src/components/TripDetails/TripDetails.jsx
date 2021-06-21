@@ -56,7 +56,7 @@ function TripDetails(trip) {
         <>
             <Container fluid>
                 <h1>Enjoy your trip to</h1>
-                <h2 className="selected-name">name</h2>
+                <h2 className="selected-name">Nashville</h2>
 
                 <p>You can see what has already been planned for this trip below.  You can also add new items by clicking 'Add Activities'</p>
 
