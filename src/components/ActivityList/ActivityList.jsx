@@ -76,60 +76,59 @@ function ActivityList() {
                     onClick={() => history.push('/trips')}>View Trips</Button>
 
                 <Row>
-                    <CardDeck>
+                    <Container className="activity-cards">
+                        <CardDeck>
 
-                        {activities.map(info => {
-                            return (
-                                <Card key={info.id} className="activity-list">
-                                    <Card.Title className="activity-title">
-                                        {info.name}                            </Card.Title>
+                            {activities.map(info => {
+                                return (
+                                    <Card key={info.id} className="activity-list">
+                                        <Card.Title className="activity-title">
+                                            {info.name}                            </Card.Title>
 
-                                    <Card.Body className="activity-body">
-                                        <Button variant="danger" size='sm' title="Info"
-                                            onClick={() => {
-                                                setActivityDetails(info.id);
-                                            }}>
+                                        <Card.Body className="activity-body">
+                                            <Button variant="danger" size='sm' title="Info"
+                                                onClick={() => {
+                                                    setActivityDetails(info.id);
+                                                }}>
 
+                                                <FontAwesomeIcon icon="info-circle" />
+                                            </Button>
 
+                                            <Button variant="danger" size='sm' title="Add"
+                                                onClick={() => {
+                                                    chooseItinerary(info.id)
+                                                }}>
+                                                <FontAwesomeIcon icon="plus-square" />
+                                            </Button>
 
+                                            <Button variant="danger" size='sm' title="Edit"
+                                                onClick={() => {
+                                                    editDetails(info.id);
+                                                }}>
+                                                <FontAwesomeIcon icon="edit" />
+                                            </Button>
 
-                                            <FontAwesomeIcon icon="info-circle" />
-                                        </Button>
+                                            <Button variant="danger" size='sm' title="Delete"
+                                                onClick={(event) =>
+                                                    deleteActivity(info.id)}>
+                                                <FontAwesomeIcon icon="trash-alt" />
+                                            </Button>
 
-                                        <Button variant="danger" size='sm' title="Add"
-                                            onClick={() => {
-                                                chooseItinerary(info.id)
-                                            }}>
-                                            <FontAwesomeIcon icon="plus-square" />
-                                        </Button>
-
-                                        <Button variant="danger" size='sm' title="Edit"
-                                            onClick={() => {
-                                                editDetails(info.id);
-                                            }}>
-                                            <FontAwesomeIcon icon="edit" />
-                                        </Button>
-
-                                        <Button variant="danger" size='sm' title="Delete"
-                                            onClick={(event) =>
-                                                deleteActivity(info.id)}>
-                                            <FontAwesomeIcon icon="trash-alt" />
-                                        </Button>
-
-                                    </Card.Body>
+                                        </Card.Body>
 
 
-                                    <Card.Body className="activity-body">
-                                        {info.constraints}
-                                    </Card.Body>
-                                    <Card.Footer className="activity-footer">
-                                        {info.activity_location}
-                                    </Card.Footer>
+                                        <Card.Body className="activity-body">
+                                            {info.constraints}
+                                        </Card.Body>
+                                        <Card.Footer className="activity-footer">
+                                            {info.activity_location}
+                                        </Card.Footer>
 
-                                </Card>
-                            )
-                        })}
-                    </CardDeck>
+                                    </Card>
+                                )
+                            })}
+                        </CardDeck>
+                    </Container>
                 </Row>
             </Container>
 

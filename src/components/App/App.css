@@ -175,6 +175,9 @@ input {
     max-height: 500px;
 }
 
+.activity-cards {
+  padding-left: 150px !important;
+}
 .activity-list {
   justify-content: center;
   position: sticky;
@@ -188,7 +191,6 @@ input {
   border: 2px solid #2d3142;
   border-radius: 0.25rem;
   padding: 5px;
-  margin: 25px;
   column-count: 4;
   column-width: 200px;
   max-width: 200px;
@@ -223,14 +225,14 @@ input {
   padding: 5px;
 }
 .activity-name {
-  color: #ef8354;
-font-style: oblique;
-font-weight: bolder;
+  color: #2d3142;
+font-style: italic;
+font-weight: 1000;
 }
 
 .trip-cards {
-padding-left: 300px;
-padding-right: 300px;
+padding-left: 150px;
+padding-right: 150px;
 }
 .trip-card {
     justify-content: center;
@@ -252,7 +254,6 @@ padding-right: 300px;
     min-height: 200px;
     text-align: center;
     box-shadow: 5px 5px 5px 5px #2d3142;
-
   
   }
 
