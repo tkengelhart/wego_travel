@@ -18,11 +18,16 @@ function TripDetails(trip) {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
+    const trip = useSelector(store => store.trips);
+    console.log('trip store is', trip);
 
     const store = useSelector(store => store);
     const itinerary = useSelector(store => store.itinerary);
     console.log('store is', store);
     console.log('itinerary store', itinerary);
+
+    const currentTrip = useSelector(store => store.trips);
+    console.log('current trip is', currentTrip)
 
 
     const setActivityDetails = (activityId) => {
@@ -55,10 +60,10 @@ function TripDetails(trip) {
     return (
         <>
             <Container fluid>
-                <h1>Enjoy your trip to</h1>
-                <h2 className="selected-name">Nashville</h2>
 
+                <h1>Enjoy your trip to <span className="activity-name">{currentTrip.trip_name}</span></h1>
                 <p>You can see what has already been planned for this trip below.  You can also add new items by clicking 'Add Activities'</p>
+
 
                 <div className="button-key">
                     <Button className="button-icons" variant="outline-danger" size='lg' title="Info" disabled>
