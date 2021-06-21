@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, CardColumns, CardDeck, CardGroup, CardImg, Container, Row, Col, Modal, Button } from 'react-bootstrap';
+import { Card, CardColumns, CardDeck, CardGroup, CardImg, Image, Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { useState } from 'react';
@@ -31,41 +31,54 @@ function TripPage() {
 
   console.log('trips are', trips)
   return (
-    <Container fluid>
-      <h3>Select your trip</h3>
-      <div className="col-lg">
-        <div className="row">
-          <CardDeck>
-            <Card border="dark">
-              <Card.Body>
-                <Button variant="success" onClick={handleShow}>New Trip</Button>
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Body><TripForm /></Modal.Body>
-                </Modal>
-              </Card.Body>
-            </Card>
-          </CardDeck>
-        </div>
-      </div>
-
-      <CardDeck>
-
-        {trips.map(trip => {
-          return (
+    <>
+      <Container fluid className="trip-cards">
 
 
-            <Card key={trip.id} border="dark" style={{ width: '10rem' }}>
-              <Card.Body onClick={() => setTripDetails(trip)}>
-                <Card.Title as="h3">{trip.trip_name}</Card.Title>
+        < h1 > Select your trip</h1>
+        <p>Here you can look at the interary for trips you have already created, or start planning your next trip.</p>
+
+
+
+        <CardDeck>
+          <div className="col-lg">
+            <div className="row">
+              <CardDeck>
+                <Card className="trip-card">
+                  <Card.Body>
+                    <Button variant="success" className="new-trip" size="lg" title="New Trip" onClick={handleShow}>New Trip</Button>
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Body><TripForm /></Modal.Body>
+                    </Modal>
+                  </Card.Body>
+                </Card>
+              </CardDeck>
+
+            </div>
+          </div>
+          {trips.map(trip => {
+            return (
+
+
+              <Card key={trip.id} border="dark" className="trip-card" onClick={() => setTripDetails(trip)}>
+                <Card.Title as="h3" className="trip-title">{trip.trip_name}</Card.Title>
                 <Card.Subtitle>Travel Dates</Card.Subtitle>
                 <Card.Text>{moment(trip.start).format('MMM Do YYYY')} to {moment(trip.end).format('MMM Do YYYY')}</Card.Text>
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </CardDeck>
-    </Container>
+                <Card.Body className="trip-body">
+                </Card.Body>
 
+              </Card>
+            );
+          })}
+
+        </CardDeck>
+
+
+
+
+
+      </Container >
+    </>
   )
 }
 
