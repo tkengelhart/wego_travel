@@ -4,20 +4,25 @@ import { Alert, Container, Table, Button, Modal, Form, Tooltip, OverlayTrigger, 
 import { useHistory, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 
-function ActivityList() {
+function ActivityList(info) {
     useEffect(() => {
         dispatch({ type: 'FETCH_ACTIVITIES' });
     }, []);
     const dispatch = useDispatch();
     const history = useHistory();
+    let params = useParams();
+
     const activities = useSelector(store => store.activities);
+    let activityId = params.activityId;
 
+    let currentActivityDelete = activities.find(currentActivityDelete => currentActivityDelete.id === Number(activityId));
+    console.log(`found activity: `, currentActivityDelete);
 
-
-    const deleteActivity = (activityId, info) => {
-        alert(`Are you sure you want to delete?`);
+    const deleteActivity = (activityId) => {
+        // alert('Are you sure you want to delete {currentActivityDelete}');
         console.log('id is', activityId);
         dispatch({
             type: 'DELETE_ACTIVITY',
@@ -25,7 +30,7 @@ function ActivityList() {
         });
     }
     const setActivityDetails = (activityId) => {
-        history.push(`/activity/${activityId}`);
+        history.push(`/ activity / ${activityId}`);
     }
 
     const chooseItinerary = (info) => {
@@ -34,7 +39,7 @@ function ActivityList() {
             type: 'CHOOSE_YOUR_ITINERARY',
             payload: info
         })
-        history.push(`/additinerary`);
+        history.push(`/ additinerary`);
     }
 
     const editDetails = (activityId) => {
@@ -43,7 +48,7 @@ function ActivityList() {
             type: 'UPDATE_ACTIVITY_DETAILS',
             payload: activityId
         })
-        history.push(`/edit`);
+        history.push(`/ edit`);
 
     };
 
@@ -51,6 +56,9 @@ function ActivityList() {
         <>
             <Container fluid>
                 <h1>Choose your Adventure</h1>
+                <p>Below you can see a list of all of the activities that have been added.
+                    When you click the add button, you will be able to include that activity into your itinerary.  There are also options to get information, edit an activity and delete an activity.
+                    If you want to add a new activity, please click 'Add Activity'</p>
                 <div className="button-key">
                     <Button className="button-icons" variant="outline-danger" size='lg' title="info" disabled>
                         <FontAwesomeIcon icon="info-circle" /><br />Info.
@@ -76,6 +84,7 @@ function ActivityList() {
                     onClick={() => history.push('/trips')}>View Trips</Button>
 
                 <Row>
+                      
                     <Container className="activity-cards">
                         <CardDeck>
 

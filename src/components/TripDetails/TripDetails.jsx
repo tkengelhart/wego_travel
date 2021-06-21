@@ -9,11 +9,12 @@ import moment from 'moment';
 import { useState } from 'react';
 import ActivityList from '../ActivityList/ActivityList';
 import EditActivityTime from '../EditActivityTime/EditActivityTime';
-import WeatherSearch from '../../Weather/Weather';
+import Weather from '../Weather/Weather';
 
 
 
-function TripDetails() {
+
+function TripDetails(trip) {
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector(store => store.activities);
@@ -46,7 +47,7 @@ function TripDetails() {
     };
 
     const deleteActivity = (activityId) => {
-        alert('Are you sure you want to delete {item.name}?');
+        alert(`Are you sure you want to delete {item}?`);
 
         console.log('id is', activityId);
         dispatch({
@@ -55,21 +56,13 @@ function TripDetails() {
         });
     }
 
-    // const showMessage = (itinerary) => {
-    //     if (itinerary.map != 0) {
-    //         <h3>Great, looks like you have already made some plans!</h3>
-    //     } else {
-    //         <h3>Looks like you have some planning to do!</h3>
-    //     }
-
-
-    // }
-
 
     return (
         <>
             <Container fluid>
+
                 <h1>Enjoy your trip to <span className="activity-name">{currentTrip.trip_name}</span></h1>
+                <p>You can see what has already been planned for this trip below.  You can also add new items by clicking 'Add Activities'</p>
 
 
                 <div className="button-key">
@@ -133,12 +126,13 @@ function TripDetails() {
                         })}
                     </tbody>
                 </Table>
-                <Button variant="success" title="Back"
+                <Button variant="success" size="lg" title="Back"
                     onClick={() => history.goBack()}>Back</Button>
 
-                <Button variant="success" title="Add Activities"
+                <Button variant="success" size="lg" title="Add Activities"
                     onClick={() => history.push('/activity')}>Add Activities</Button>
             </Container>
+            {/* <Weather /> */}
         </>
     );
 }
