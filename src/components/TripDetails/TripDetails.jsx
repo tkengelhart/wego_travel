@@ -27,7 +27,6 @@ function TripDetails() {
     const currentTrip = useSelector(store => store.trips);
     console.log('current trip is', currentTrip)
 
-
     const setActivityDetails = (activityId) => {
         history.push(`/activity/${activityId}`);
     }
